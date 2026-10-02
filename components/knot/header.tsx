@@ -19,7 +19,7 @@ export function Header() {
           </span>
         </a>
         <nav className="hidden items-center gap-4 text-sm font-semibold text-muted-foreground lg:gap-6 md:flex whitespace-nowrap">
-          <a href="#activities" className="hover:text-primary">活動を探す</a>
+          <a href="#activities" className="hover:text-primary">体験・ワークを探す</a>
           <button onClick={() => setViewMode('map')} className="hover:text-primary">マップ</button>
           <a href="#genres" className="hover:text-primary">ジャンルから探す</a>
           <a href="#how" className="hover:text-primary">つとむんとは</a>
@@ -44,10 +44,10 @@ export function Header() {
       {menuOpen && (
         <div className="border-t border-slate-100 bg-white px-5 py-4 md:hidden">
           <div className="flex flex-col gap-4 text-sm font-semibold">
-            <a href="#activities" onClick={() => setMenuOpen(false)}>活動を探す</a>
+            <a href="#activities" onClick={() => setMenuOpen(false)}>体験・ワークを探す</a>
             <button className="text-left" onClick={() => { setViewMode('map'); setMenuOpen(false) }}>マップ</button>
             <a href="#genres" onClick={() => setMenuOpen(false)}>ジャンルから探す</a>
-            <a href="#how" onClick={() => setMenuOpen(false)}>KNOTとは</a>
+            <a href="#how" onClick={() => setMenuOpen(false)}>つとむんとは</a>
             <button className="text-left" onClick={() => { setMenuOpen(false); setSupportHubOpen(true) }}>サポート情報</button>
             <button className="text-left" onClick={() => { setMenuOpen(false); openContact('その他') }}>お問い合わせ・ご依頼</button>
             <button className="text-left text-primary" onClick={() => { setMenuOpen(false); openRegistration() }}>活動・イベントを掲載する →</button>
