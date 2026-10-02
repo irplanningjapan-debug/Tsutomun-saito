@@ -37,8 +37,8 @@ export function ContactFooterSection() {
         <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-black tracking-wide text-primary">OPERATOR CONTACT</p>
-            <h2 className="mt-1 text-lg font-black text-slate-900">KNOT運営窓口</h2>
-            <p className="mt-1 text-sm text-slate-600">企画・運営：株式会社Tameni</p>
+            <h2 className="mt-1 text-lg font-black text-slate-900">つとむん運営窓口</h2>
+          <p className="mt-1 text-sm text-slate-600">企画・運営: IRplanning</p>
           </div>
           <button onClick={() => { setContactSent(false); setLegalModal('contact') }} className="text-left text-sm font-bold text-slate-600 hover:text-primary">
             掲載内容やサービスに関するお問い合わせは、運営窓口までご連絡ください。
@@ -48,21 +48,21 @@ export function ContactFooterSection() {
       <footer className="border-t border-slate-200 bg-slate-50">
         <div className="mx-auto flex max-w-6xl flex-col gap-7 px-5 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div>
-            <a href="#top" className="text-xl font-black tracking-tight">みやざき KNOT<span className="text-primary">.</span></a>
-            <p className="mt-2 text-xs text-slate-500">あなたのやってみたいがここでつながる。</p>
-            <p className="mt-3 text-xs font-bold text-slate-600">企画・運営：株式会社Tameni</p>
-            <p className="mt-1 text-xs text-slate-500">運営窓口：KNOTサポート</p>
+           <a href="#top" className="text-xl font-black tracking-tight">さいと つとむん<span className="text-primary">.</span></a>
+          <p className="mt-2 text-xs text-slate-500">あなたのやってみたいがここでつながる。</p>
+          <p className="mt-3 text-xs font-bold text-slate-600">企画・運営: IRplanning</p>
+          <p className="mt-1 text-xs text-slate-500">運営窓口: つとむんサポート</p>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-slate-500">
             <a href="#activities" className="hover:text-primary">活動を探す</a>
             <a href="#recruit" className="hover:text-primary">活動・イベントを掲載する</a>
-            <a href="#how" className="hover:text-primary">KNOTについて</a>
+            <a href="#how" className="hover:text-primary">つとむんについて</a>
             <button onClick={() => setSupportHubOpen(true)} className="hover:text-primary">サポート情報</button>
             <button onClick={() => { setContactSent(false); setLegalModal('contact') }} className="hover:text-primary">運営窓口・お問い合わせ</button>
             <button onClick={() => setLegalModal('privacy')} className="hover:text-primary">プライバシーポリシー</button>
             <button onClick={() => setLegalModal('terms')} className="hover:text-primary">利用規約</button>
           </div>
-          <p className="text-xs text-slate-400">© 2025 KNOT</p>
+          <p className="text-xs text-slate-400">© 2026 つとむん</p>
         </div>
       </footer>
     </>
