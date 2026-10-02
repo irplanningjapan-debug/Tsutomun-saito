@@ -21,11 +21,11 @@ export function HeroSection() {
             あなたの<span className="text-primary">「やってみたい」</span>が、<br />ここでつながる。
           </h1>
           <p className="mt-6 max-w-lg text-pretty text-base leading-7 text-slate-600 sm:text-lg">
-            つとむんは西都市の地域活動とあなたの「やってみたい」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう
+            つとむんは西都市のワークとあなたの「やってみたい」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
             <span className="flex items-center gap-2"><Check size={16} className="text-primary" />登録無料</span>
-            <span className="flex items-center gap-2"><Check size={16} className="text-primary" />西都の活動</span>
+            <span className="flex items-center gap-2"><Check size={16} className="text-primary" />西都の体験・ワーク</span>
             <span className="flex items-center gap-2"><Check size={16} className="text-primary" />初心者歓迎</span>
           </div>
         </div>
@@ -82,7 +82,7 @@ export function HeroSection() {
                   <Search size={17} />体験・ワークを探す
                 </button>
               </div>
-              {searched && <p className="mt-4 text-center text-xs font-bold text-primary">{searchedActivities.length}件の活動が見つかりました</p>}
+              {searched && <p className="mt-4 text-center text-xs font-bold text-primary">{searchedActivities.length}件が見つかりました</p>}
             </div>
           </div>
         </div>
