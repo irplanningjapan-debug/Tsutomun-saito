@@ -1,13 +1,12 @@
 import type { Activity, Genre, OrganizationProfile, RegionConfig, ShareItem } from './types'
 
 export const regionConfig: RegionConfig = {
-  prefecture: '宮崎県',
+  prefecture: '西都市',
   groups: [
-    { label: '県央', places: ['宮崎市', '国富町', '綾町'] },
-    { label: '県北', places: ['延岡市', '日向市', '門川町', '諸塚村', '椎葉村', '美郷町', '高千穂町', '日之影町', '五ヶ瀬町'] },
-    { label: '県西', places: ['都城市', '小林市', 'えびの市', '三股町', '高原町'] },
-    { label: '県南', places: ['日南市', '串間市'] },
-    { label: '児湯', places: ['西都市', '高鍋町', '新富町', '西米良村', '木城町', '川南町', '都農町'] },
+    {
+      label: '西都市 7地区',
+      places: ['妻北', '妻南', '穂北', '三納', '都於郡', '三財', '東米良'],
+    },
   ],
 }
 
