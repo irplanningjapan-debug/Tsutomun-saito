@@ -50,7 +50,7 @@ export function Header() {
             <a href="#how" onClick={() => setMenuOpen(false)}>つとむんとは</a>
             <button className="text-left" onClick={() => { setMenuOpen(false); setSupportHubOpen(true) }}>サポート情報</button>
             <button className="text-left" onClick={() => { setMenuOpen(false); openContact('その他') }}>お問い合わせ・ご依頼</button>
-            <button className="text-left text-primary" onClick={() => { setMenuOpen(false); openRegistration() }}>活動・イベントを掲載する →</button>
+            <button className="text-left text-primary" onClick={() => { setMenuOpen(false); openRegistration() }}>体験・ワークを掲載する →</button>
             {isLoggedIn ? (
               <>
                 <button className="text-left" onClick={() => { setMenuOpen(false); setMyPageOpen(true) }}>
