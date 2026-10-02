@@ -35,7 +35,7 @@ export function Header() {
               <LogOut size={14} />ログアウト
             </button>
           )}
-          <button onClick={openRegistration} className="rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-sm">活動・イベントを掲載する</button>
+          <button onClick={openRegistration} className="rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-sm">体験・ワークを掲載する</button>
         </div>
         <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-lg p-2 md:hidden" aria-label="メニュー">
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
