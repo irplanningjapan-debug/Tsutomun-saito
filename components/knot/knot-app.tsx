@@ -54,7 +54,7 @@ function KnotAppContent() {
   }, [openAuth])
 
   // LINEリッチメニューや外部リンクから ?modal=support 付きでトップページに来た場合、
-  // 読み込み完了時に「宮崎の活動サポート便利帳」モーダルを自動的に開く。
+  // 読み込み完了時に「西都の体験・ワークサポート便利帳」モーダルを自動的に開く。
   useEffect(() => {
     if (supportHubDeepLinkHandled.current) return
     const params = new URLSearchParams(window.location.search)
