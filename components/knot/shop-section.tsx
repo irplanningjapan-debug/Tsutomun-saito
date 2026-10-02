@@ -128,7 +128,7 @@ export function ShopSection() {
             onClick={openShopContact}
             className="text-sm font-bold text-slate-500 underline decoration-slate-300 underline-offset-4 hover:text-primary"
           >
-            自チーム・団体のグッズや特産品を掲載したい方はこちら（掲載・EC開設相談）
+            地域特産品・オリジナルグッズを掲載したい方はこちら（掲載・EC開設相談）
           </button>
         </div>
       </div>
