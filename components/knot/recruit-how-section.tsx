@@ -14,13 +14,13 @@ export function RecruitSection() {
 
   return (
     <section id="recruit" className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-20">
-      <div className="rounded-[2rem] bg-[#1d82f5] p-7 text-white sm:p-10 lg:p-14">
+      <div className="rounded-[2rem] bg-primary p-7 text-primary-foreground sm:p-10 lg:p-14">
         <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="inline-flex rounded-full bg-amber-400 px-3 py-1 text-sm font-black tracking-wide text-slate-900">FOR ORGANIZERS</p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">あなたのやってみたいが<br />ここでつながる。</h2>
             <p className="mt-5 max-w-sm text-sm leading-6 text-sky-50">一緒に体験・ワークする仲間を集めたい人へ。つとむんなら、興味のある人にあなたの募集案内を届けられます。</p>
-            <button onClick={openRegistration} className="mt-7 rounded-full bg-white px-6 py-3 text-sm font-black text-[#1d82f5] shadow-lg shadow-sky-900/20 transition hover:shadow-xl hover:shadow-amber-400/40">
+            <button onClick={openRegistration} className="mt-7 rounded-full bg-white px-6 py-3 text-sm font-black text-primary shadow-lg shadow-sky-900/20 transition hover:shadow-xl hover:shadow-amber-400/40">
               体験・ワークを掲載する <ArrowRight className="ml-1 inline" size={16} />
             </button>
           </div>
@@ -33,7 +33,7 @@ export function RecruitSection() {
             <div className="rounded-2xl border border-amber-300/40 bg-white/15 p-5 sm:mt-8">
               <div className="grid size-10 place-items-center rounded-xl bg-amber-400 text-slate-900"><Users size={21} /></div>
               <p className="mt-6 text-sm font-bold">仲間が見つかる</p>
-              <p className="mt-1 text-xs leading-5 text-sky-50/90">あなたの活動に興味のある人とつながれます。</p>
+              <p className="mt-1 text-xs leading-5 text-sky-50/90">あなたのワークに興味のある人とつながれます。</p>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@ export function RecruitSection() {
             <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-amber-400 text-slate-900"><Sparkles size={22} /></div>
             <div>
               <p className="font-black">仕事の事務局業務やIT・AI活用でお困りですか？</p>
-              <p className="mt-1.5 max-w-xl text-xs leading-5 text-sky-50/90">ホームページ制作、チラシ・デザイン作成、助成金申請書類、AI導入まで。地域の活動を続けるための裏方業務を「タメニ（Tameni）」が伴走サポートします。</p>
+              <p className="mt-1.5 max-w-xl text-xs leading-5 text-white/90">ホームページ制作、チラシ・デザイン作成、助成金申請書類、AI導入まで。地域の暮らしを続けるための裏方業務を「タメニ（Tameni）」が伴走サポートします。</p>
             </div>
           </div>
           <button
@@ -61,7 +61,7 @@ export function HowSection() {
   const { openBrowse } = useKnot()
 
   return (
-    <section id="how" className="bg-sky-50/70 px-5 py-16 lg:px-8 lg:py-20">
+    <section id="how" className="bg-slate-50 px-5 py-16 lg:px-8 lg:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-sm font-black text-primary">HOW IT WORKS</p>
