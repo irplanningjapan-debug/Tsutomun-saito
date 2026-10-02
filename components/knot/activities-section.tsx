@@ -17,7 +17,7 @@ export function ActivitiesSection() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-black text-primary">FIND YOUR KNOT</p>
+            <p className="text-sm font-black text-primary">FIND YOUR TSUTOMUN</p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
               <h2 className="text-2xl font-black tracking-tight sm:text-3xl">
                 {searched ? `検索結果：${searchedActivities.length}件` : '西都のおすすめ体験・ワーク'}
