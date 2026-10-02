@@ -10,27 +10,27 @@ export function HeroSection() {
 
   return (
     <section id="top" className="relative isolate overflow-hidden bg-sky-50/80">
-      <Image src="/images/miyazaki-hero.png" alt="宮崎の青い海と空" fill priority className="absolute inset-0 -z-10 object-cover opacity-20" />
+      <Image src="/images/miyazaki-hero.png" alt="西都原古墳群の緑・菜の花や桜、米良の神楽" fill priority className="absolute inset-0 -z-10 object-cover opacity-20" />
       <div className="absolute inset-0 -z-10 bg-sky-50/75" />
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-20 pt-16 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:pb-24 lg:pt-24">
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3.5 py-2 text-xs font-bold text-primary shadow-sm">
-            <Sparkles size={14} /> みやざきから、好きなことを。
+            <Sparkles size={14} /> 西都市から、好きなことを。
           </div>
           <h1 className="max-w-xl text-balance text-4xl font-black leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             あなたの<span className="text-primary">「やってみたい」</span>が、<br />ここでつながる。
           </h1>
           <p className="mt-6 max-w-lg text-pretty text-base leading-7 text-slate-600 sm:text-lg">
-            KNOTは地域の活動とあなたの「やってみたい」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう
+            つとむんは西都市の地域活動とあなたの「やってみたい」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4 text-sm font-bold text-slate-500">
             <span className="flex items-center gap-2"><Check size={16} className="text-primary" />登録無料</span>
-            <span className="flex items-center gap-2"><Check size={16} className="text-primary" />宮崎の活動</span>
+            <span className="flex items-center gap-2"><Check size={16} className="text-primary" />西都の活動</span>
             <span className="flex items-center gap-2"><Check size={16} className="text-primary" />初心者歓迎</span>
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-md">
-          <div className="absolute -right-3 -top-5 z-30 rotate-6 rounded-2xl bg-amber-400 px-4 py-2 text-xs font-black text-slate-900 shadow-sm">MIYAZAKI LOCAL</div>
+          <div className="absolute -right-3 -top-5 z-30 rotate-6 rounded-2xl bg-amber-400 px-4 py-2 text-xs font-black text-slate-900 shadow-sm">SAITO LOCAL</div>
           <div className="overflow-hidden rounded-[2rem] border border-sky-100 bg-white shadow-xl shadow-sky-100/60">
             <div className="relative h-36">
               <Image src="/images/miyazaki-activity.png" alt="地域の活動を楽しむ人々" fill className="object-cover" />
