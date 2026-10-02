@@ -64,17 +64,17 @@ export function ShopSection() {
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-sm font-black text-primary">SUPPORT SHOP</p>
-          <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">地域活動・地域クラブ応援SHOP</h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500">活動を支える特産品やオリジナルグッズを購入して、宮崎の現場を応援しよう。</p>
+          <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">地域の暮らし応援SHOP</h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500">地域特産品やオリジナルグッズを購入して、西都の現場を応援しよう。</p>
         </div>
         <div className="mt-10 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <article className="flex h-full flex-col overflow-hidden rounded-2xl border-2 border-amber-400 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
             <div className="flex h-36 shrink-0 flex-col justify-center gap-2 bg-gradient-to-br from-amber-400 to-amber-500 px-5 text-slate-900">
-              <span className="inline-flex w-fit items-center gap-1 rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-black text-amber-300"><Sparkles size={12} /> KNOT公式 / 応援委託SHOP</span>
-              <p className="text-base font-black leading-snug">自前ECがなくても出品OK！<br />活動応援セレクト</p>
+              <span className="inline-flex w-fit items-center gap-1 rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-black text-amber-300"><Sparkles size={12} /> つとむん公式 / 応援委託SHOP</span>
+              <p className="text-base font-black leading-snug">自前ECがなくても出品OK！<br />地域の暮らし応援セレクト</p>
             </div>
             <div className="flex flex-1 flex-col p-4">
-              <p className="text-xs leading-5 text-slate-500">ネットショップをお持ちでない団体様も、KNOT運営（株式会社Tameni）が代理で掲載・販売をバックアップします。</p>
+              <p className="text-xs leading-5 text-slate-500">ネットショップをお持ちでない方・団体・企業も、つとむん運営（株式会社Tameni）が代理で掲載・販売をバックアップします。</p>
               {guideUrl ? (
                 <button
                   onClick={goToOfficialShop}
