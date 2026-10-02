@@ -48,8 +48,8 @@ export function BulletinBoardSection() {
             <Megaphone size={18} />
           </div>
           <div>
-            <p className="text-xs font-bold text-primary">KNOT BOARD</p>
-            <h2 className="text-xl font-black text-slate-900">KNOT掲示板 / 運営からのおしらせ</h2>
+            <p className="text-xs font-bold text-primary">TSUTOMUN BOARD</p>
+            <h2 className="text-xl font-black text-slate-900">つとむん掲示板 / 運営からのおしらせ</h2>
           </div>
         </div>
         {isLoading ? (
