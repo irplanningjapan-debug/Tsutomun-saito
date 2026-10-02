@@ -4,8 +4,8 @@ import { ArrowRight, CalendarDays, MessageCircle, Search, Sparkles, Star, Users 
 import { useKnot } from '@/lib/knot/store'
 
 const steps: [string, string, string, typeof Search][] = [
-  ['01', '興味のある活動を探す', '気になるジャンルやキーワードから、参加したい活動を見つけよう。', Search],
-  ['02', '参加してみる', '詳細を確認して、参加ボタンをタップ。あとは当日を待つだけ。', CalendarDays],
+  ['01', '興味のある体験・ワークを探す', '気になるジャンルやキーワードから、やってみたい体験やワークを見つけよう。', Search],
+  ['02', '申込んでみる', '詳細を確認して、申込みボタンをタップ。あとは当日を待つだけ。', CalendarDays],
   ['03', '仲間と楽しむ', '同じ「好き」を持つ仲間と、かけがえのない時間を過ごそう。', Star],
 ]
 
@@ -19,9 +19,9 @@ export function RecruitSection() {
           <div>
             <p className="inline-flex rounded-full bg-amber-400 px-3 py-1 text-sm font-black tracking-wide text-slate-900">FOR ORGANIZERS</p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">あなたのやってみたいが<br />ここでつながる。</h2>
-            <p className="mt-5 max-w-sm text-sm leading-6 text-sky-50">一緒に楽しむ仲間を集めたい人へ。KNOTなら、興味の近い人にあなたの活動を届けられます。</p>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-sky-50">一緒に体験・ワークする仲間を集めたい人へ。つとむんなら、興味のある人にあなたの募集案内を届けられます。</p>
             <button onClick={openRegistration} className="mt-7 rounded-full bg-white px-6 py-3 text-sm font-black text-[#1d82f5] shadow-lg shadow-sky-900/20 transition hover:shadow-xl hover:shadow-amber-400/40">
-              活動・イベントを掲載する <ArrowRight className="ml-1 inline" size={16} />
+              体験・ワークを掲載する <ArrowRight className="ml-1 inline" size={16} />
             </button>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -41,7 +41,7 @@ export function RecruitSection() {
           <div className="flex gap-4">
             <div className="grid size-11 shrink-0 place-items-center rounded-xl bg-amber-400 text-slate-900"><Sparkles size={22} /></div>
             <div>
-              <p className="font-black">活動の事務局業務やIT・AI活用でお困りですか？</p>
+              <p className="font-black">仕事の事務局業務やIT・AI活用でお困りですか？</p>
               <p className="mt-1.5 max-w-xl text-xs leading-5 text-sky-50/90">ホームページ制作、チラシ・デザイン作成、助成金申請書類、AI導入まで。地域の活動を続けるための裏方業務を「タメニ（Tameni）」が伴走サポートします。</p>
             </div>
           </div>
@@ -79,7 +79,7 @@ export function HowSection() {
         </div>
         <div className="mt-12 text-center">
           <button onClick={() => openBrowse(null)} className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-black text-primary-foreground shadow-md">
-            すべての活動を見る <ArrowRight size={17} />
+            すべての募集を見る <ArrowRight size={17} />
           </button>
         </div>
       </div>
