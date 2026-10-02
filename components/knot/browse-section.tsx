@@ -22,7 +22,7 @@ export function BrowseSection() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-black text-primary">ACTIVITY DIRECTORY</p>
+            <p className="text-sm font-black text-primary">WORKS DIRECTORY</p>
             <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
               {browseGenre ? (browseGenre === '地域・伝統文化' ? '地域・伝統文化・神楽' : browseGenre) : '西都の体験・ワーク一覧'}
             </h2>
