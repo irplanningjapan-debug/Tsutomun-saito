@@ -22,7 +22,7 @@ export function Header() {
           <a href="#activities" className="hover:text-primary">活動を探す</a>
           <button onClick={() => setViewMode('map')} className="hover:text-primary">マップ</button>
           <a href="#genres" className="hover:text-primary">ジャンルから探す</a>
-          <a href="#how" className="hover:text-primary">KNOTとは</a>
+          <a href="#how" className="hover:text-primary">つとむんとは</a>
           <button onClick={() => setSupportHubOpen(true)} className="hover:text-primary">サポート情報</button>
           <button onClick={() => openContact('その他')} className="hover:text-primary">お問い合わせ・ご依頼</button>
         </nav>
