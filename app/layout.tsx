@@ -16,17 +16,8 @@ const shipporiMincho = Shippori_Mincho({
   variable: '--font-serif-jp',
 })
 
-export const metadata: Metadata = {
-  title: 'KNOT（ノット）| 宮崎の地域活動・体験予約プラットフォーム',
-  description:
-    'KNOTは宮崎県内の地域活動・体験会・イベントを探して申し込める予約プラットフォームです。あなたの「やってみたい」が、ここでつながる。',
-  generator: 'v0.app',
-  // iOS's "Add to Home Screen" uses this exact title for the app name/label under the
-  // icon (falling back to <title>, which is far too long for that slot) — this is what
-  // makes the default home-screen name "KNOT 宮崎" instead of the full page title.
-  appleWebApp: {
-    title: 'KNOT 宮崎',
-  },
+title: 'つとむん | 西都市の地域活動・つながりプラットフォーム',
+  description: '西都市の地域活動とあなたの「やってみたい」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう。',,
   // app/icon.png, app/icon.svg, app/apple-icon.png, and app/favicon.ico (the Next.js
   // file-convention icons) are auto-detected and already get a unique, content-hashed
   // query param from Next itself, so their cache always busts on change without help
@@ -38,8 +29,8 @@ export const metadata: Metadata = {
   // manual cache-buster. Bump it (v8, v9, ...) any time these icon files are replaced.
   icons: {
     icon: [
-      { url: '/favicon.ico?v=7', sizes: 'any' },
-      { url: '/icon.png?v=7', sizes: '48x48', type: 'image/png' },
+      { url: '/tsutomun_logo.png', sizes: 'any' },
+      { url: '/tsutomun_logo.png', sizes: '48x48', type: 'image/png' },
       { url: '/icon-192.png?v=7', sizes: '192x192', type: 'image/png' },
       { url: '/icon-512.png?v=7', sizes: '512x512', type: 'image/png' },
     ],
