@@ -15,9 +15,9 @@ const shipporiMincho = Shippori_Mincho({
   weight: ['500', '600', '700', '800'],
   variable: '--font-serif-jp',
 })
-
-title: 'つとむん | 西都市の地域活動・つながりプラットフォーム',
-  description: '西都市の地域活動とあなたの「やってみたい」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう。',,
+export const metadata: Metadata = {
+  title: 'つとむん | 西都市の地域活動・つながりプラットフォーム',
+  description: '西都市の地域活動とあなたの「やってみたい」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう。',
   // app/icon.png, app/icon.svg, app/apple-icon.png, and app/favicon.ico (the Next.js
   // file-convention icons) are auto-detected and already get a unique, content-hashed
   // query param from Next itself, so their cache always busts on change without help
