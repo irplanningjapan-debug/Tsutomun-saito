@@ -55,14 +55,13 @@ export function PartnersSection() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-black text-primary">OFFICIAL PARTNERS</p>
-            <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">宮崎の地域活動・伝統文化を応援する企業・団体</h2>
+            <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">西都の地域活動・伝統文化を応援する企業・団体</h2>
           </div>
           <div className="flex flex-col items-start gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 sm:items-end">
-            <p className="text-sm font-black text-slate-700">KNOTパートナーとして宮崎の現場を応援しませんか？</p>
+            <p className="text-sm font-black text-slate-700">つとむんパートナーとして西都の現場を応援しませんか？</p>
             <button
               onClick={openPartnerContact}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#1d82f5] px-4 py-2.5 text-xs font-black text-white transition hover:bg-[#1a6fd1]"
-            >
+              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-xs font-black text-primary-foreground transition hover:opacity-90"
               <Handshake size={14} />パートナー協賛について相談する
             </button>
           </div>
@@ -76,7 +75,7 @@ export function PartnersSection() {
               }`}
             >
               {partner.supporterArea && (
-                <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-gradient-to-r from-[#0066FF] to-[#3d8bff] px-3 py-1.5 text-[11px] font-black text-white shadow-sm">
+                <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-white text-xs font-bold"
                   <Handshake size={12} />
                   {partner.supporterArea} 公式サポート窓口
                 </div>
@@ -105,7 +104,7 @@ export function PartnersSection() {
                     href={partner.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-full bg-[#1d82f5] px-3 py-2.5 text-center text-[11px] font-black leading-tight text-white transition hover:bg-[#1a6fd1]"
+                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-full bg-primary px-3 py-2.5 text-center text-[11px] font-bold text-primary-foreground transition hover:opacity-90"
                   >
                     {partner.urlLabel ?? '企業サイトを見る'} <ArrowUpRight size={13} className="shrink-0" />
                   </a>
@@ -115,7 +114,7 @@ export function PartnersSection() {
                     href={partner.subUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-sky-200 bg-sky-50 px-3 py-2.5 text-center text-[11px] font-black leading-tight text-sky-700 transition hover:bg-sky-100"
+                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-full border border-emerald-200 bg-emerald-50/50 hover:bg-emerald-100/50 px-3 py-2.5 text-center text-[11px] font-black leading-tight text-sky-700 transition hover:bg-sky-100"
                   >
                     {partner.subUrlLabel ?? '関連サイトを見る'} <ArrowUpRight size={13} className="shrink-0" />
                   </a>
