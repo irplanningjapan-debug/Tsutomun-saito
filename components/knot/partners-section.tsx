@@ -62,16 +62,18 @@ export function PartnersSection() {
             <button
               onClick={openPartnerContact}
               className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-xs font-black text-primary-foreground transition hover:opacity-90"
+            >
               <Handshake size={14} />パートナー協賛について相談する
             </button>
           </div>
         </div>
+
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {allPartners.map((partner) => (
             <article
               key={partner.name}
               className={`flex flex-col rounded-2xl border p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${
-                partner.supporterArea ? 'border-primary/30 bg-gradient-to-b from-sky-50 to-white' : 'border-slate-200 bg-white'
+                partner.supporterArea ? 'border-primary/30 bg-gradient-to-b from-emerald-50/50 to-white' : 'border-slate-200 bg-white'
               }`}
             >
               {partner.supporterArea && (
