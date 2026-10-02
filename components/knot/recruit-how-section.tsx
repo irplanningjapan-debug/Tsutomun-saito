@@ -19,7 +19,7 @@ export function RecruitSection() {
           <div>
             <p className="inline-flex rounded-full bg-amber-400 px-3 py-1 text-sm font-black tracking-wide text-slate-900">FOR ORGANIZERS</p>
             <h2 className="mt-3 text-3xl font-black leading-tight sm:text-4xl">あなたのやってみたいが<br />ここでつながる。</h2>
-            <p className="mt-5 max-w-sm text-sm leading-6 text-sky-50">一緒に体験・ワークする仲間を集めたい人へ。つとむんなら、興味のある人にあなたの募集案内を届けられます。</p>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-white/90">一緒に体験・ワークする仲間を集めたい人へ。つとむんなら、興味のある人にあなたの募集案内を届けられます。</p>
             <button onClick={openRegistration} className="mt-7 rounded-full bg-white px-6 py-3 text-sm font-black text-primary shadow-lg shadow-sky-900/20 transition hover:shadow-xl hover:shadow-amber-400/40">
               体験・ワークを掲載する <ArrowRight className="ml-1 inline" size={16} />
             </button>
