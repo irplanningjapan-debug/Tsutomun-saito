@@ -75,7 +75,7 @@ export function PartnersSection() {
               }`}
             >
               {partner.supporterArea && (
-                <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-white text-xs font-bold"
+                <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-white text-xs font-bold">
                   <Handshake size={12} />
                   {partner.supporterArea} 公式サポート窓口
                 </div>
