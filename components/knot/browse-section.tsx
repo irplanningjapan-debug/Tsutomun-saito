@@ -24,10 +24,10 @@ export function BrowseSection() {
           <div>
             <p className="text-sm font-black text-primary">ACTIVITY DIRECTORY</p>
             <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
-              {browseGenre ? (browseGenre === '地域・伝統文化' ? '地域・伝統文化・神楽' : browseGenre) : '宮崎県の活動一覧'}
+              {browseGenre ? (browseGenre === '地域・伝統文化' ? '地域・伝統文化・神楽' : browseGenre) : '西都の体験・ワーク一覧'}
             </h2>
             <p className="mt-3 text-sm text-slate-500">
-              {browseGenre ? `${browseActivities.length}件の活動を、地域と条件から探せます` : 'ジャンルや地域をまたいで、すべての活動を探せます'}
+              {browseGenre ? `${browseActivities.length}件の活動を、地域と条件から探せます` : 'ジャンルや地域をまたいで、すべての体験・ワークを探せます'}
             </p>
           </div>
           <button
@@ -52,7 +52,7 @@ export function BrowseSection() {
             onClick={() => setBrowseGenre(null)}
             className={`whitespace-nowrap rounded-full px-4 py-2.5 text-xs font-black ${!browseGenre ? 'bg-primary text-primary-foreground' : 'bg-white text-slate-500 shadow-sm'}`}
           >
-            すべての活動
+            すべての体験・ワーク
           </button>
         </div>
 
@@ -96,7 +96,7 @@ export function BrowseSection() {
                 return (
                   <div key={group.label} className="rounded-xl bg-slate-50 p-4">
                     <p className="text-xs font-black text-slate-700">{group.label}</p>
-                    <p className="mt-1 text-xs text-slate-500">{groupActivities.length}件の活動</p>
+                    <p className="mt-1 text-xs text-slate-500">{groupActivities.length}件の体験・ワーク</p>
                     <div className="mt-2 flex flex-wrap gap-1.5">
                       {activePlaces.length > 0 ? (
                         activePlaces.map(({ place, count }) => (
@@ -110,7 +110,7 @@ export function BrowseSection() {
                           </button>
                         ))
                       ) : (
-                        <span className="text-[10px] font-semibold text-slate-400">まだ活動がありません</span>
+                        <span className="text-[10px] font-semibold text-slate-400">まだ体験・ワークがありません</span>
                       )}
                     </div>
                   </div>
@@ -142,8 +142,8 @@ export function BrowseSection() {
 
         <div className="mt-8 flex items-center justify-between">
           <div>
-            <p className="text-xs font-black text-primary">MATCHING ACTIVITIES</p>
-            <h3 className="mt-1 text-xl font-black">{browseGenre ? 'このジャンルの活動' : 'すべての活動'}</h3>
+            <p className="text-xs font-black text-primary">MATCHING WORKS</p>
+            <h3 className="mt-1 text-xl font-black">{browseGenre ? 'このジャンルの体験・ワーク' : 'すべての体験・ワーク'}</h3>
           </div>
           <span className="text-xs font-bold text-slate-400">{browseActivities.length}件</span>
         </div>
@@ -152,7 +152,7 @@ export function BrowseSection() {
         </div>
         {browseActivities.length === 0 && (
           <div className="mt-5 rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
-            <p className="font-black">条件に合う活動がありません</p>
+            <p className="font-black">条件に合う体験・ワークがありません</p>
             <button onClick={() => { setAudience('すべて'); setSchedule('すべて') }} className="mt-3 text-sm font-bold text-primary">条件をリセットする</button>
           </div>
         )}
