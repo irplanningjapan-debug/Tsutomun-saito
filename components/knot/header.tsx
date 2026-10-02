@@ -11,14 +11,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="さいと つとむん ホーム">
-          <img src="/tsutomun_logo.png" alt="つとむん" className="size-9 object-contain" />
-          <span>
+        <a href="#top" className="flex shrink-0 items-center gap-2.5 whitespace-nowrap" aria-label="さいと つとむん ホーム">
+          <img src="/tsutomun_logo.png" alt="つとむん" className="size-9 object-contain shrink-0" />
+          <span className="leading-tight">
             <span className="block text-[10px] font-bold leading-none text-primary">西都市</span>
-            <span className="text-xl font-black tracking-tight">つとむん</span>
+            <span className="text-lg font-black tracking-tight whitespace-nowrap">つとむん</span>
           </span>
         </a>
-        <nav className="hidden items-center gap-7 text-sm font-semibold text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-4 text-sm font-semibold text-muted-foreground lg:gap-6 md:flex whitespace-nowrap">
           <a href="#activities" className="hover:text-primary">活動を探す</a>
           <button onClick={() => setViewMode('map')} className="hover:text-primary">マップ</button>
           <a href="#genres" className="hover:text-primary">ジャンルから探す</a>
