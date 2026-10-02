@@ -42,7 +42,7 @@ export function EventsSection() {
         <div className="flex items-end justify-between">
           <div>
             <p className="text-sm font-black text-primary">UPCOMING EVENTS</p>
-            <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">近日開催の体験会・イベント</h2>
+            <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">近日開催の体験会・ワーク</h2>
           </div>
           <button
             type="button"
