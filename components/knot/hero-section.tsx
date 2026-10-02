@@ -33,7 +33,7 @@ export function HeroSection() {
           <div className="absolute -right-3 -top-5 z-30 rotate-6 rounded-2xl bg-amber-400 px-4 py-2 text-xs font-black text-slate-900 shadow-sm">SAITO LOCAL</div>
           <div className="overflow-hidden rounded-[2rem] border border-sky-100 bg-white shadow-xl shadow-sky-100/60">
             <div className="relative h-36">
-              <Image src="/SHIROMIKAGURA.jpg" alt="地域の活動を楽しむ人々" fill className="object-cover" />
+              <Image src="/SHIROMIKAGURA.jpg" alt="地域の暮らしを楽しむ人々" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
               <p className="absolute bottom-4 left-5 text-sm font-black text-white">地域の「好き」が見つかる</p>
             </div>
@@ -79,7 +79,7 @@ export function HeroSection() {
                   }}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-black text-primary-foreground shadow-md shadow-sky-200 transition hover:bg-sky-600"
                 >
-                  <Search size={17} />活動を探す
+                  <Search size={17} />体験・ワークを探す
                 </button>
               </div>
               {searched && <p className="mt-4 text-center text-xs font-bold text-primary">{searchedActivities.length}件の活動が見つかりました</p>}
