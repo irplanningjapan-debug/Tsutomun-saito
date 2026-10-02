@@ -11,11 +11,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="みやざき KNOT ホーム">
-          <span className="grid size-9 place-items-center rounded-xl bg-primary text-xl font-black text-primary-foreground shadow-sm">K</span>
+        <a href="#top" className="flex items-center gap-2.5" aria-label="さいと つとむん ホーム">
+          <img src="/tsutomun_logo.png" alt="つとむん" className="size-9 object-contain" />
           <span>
-            <span className="block text-[10px] font-bold leading-none text-primary">みやざき</span>
-            <span className="text-xl font-black tracking-tight">KNOT</span>
+            <span className="block text-[10px] font-bold leading-none text-primary">西都市</span>
+            <span className="text-xl font-black tracking-tight">つとむん</span>
           </span>
         </a>
         <nav className="hidden items-center gap-7 text-sm font-semibold text-muted-foreground md:flex">
