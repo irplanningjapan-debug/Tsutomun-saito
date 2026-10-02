@@ -20,7 +20,7 @@ export function ActivitiesSection() {
             <p className="text-sm font-black text-primary">FIND YOUR KNOT</p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
               <h2 className="text-2xl font-black tracking-tight sm:text-3xl">
-                {searched ? `検索結果：${searchedActivities.length}件` : '宮崎のおすすめ活動'}
+                {searched ? `検索結果：${searchedActivities.length}件` : '西都のおすすめ体験・ワーク'}
               </h2>
               {searched && (
                 <button
@@ -33,7 +33,7 @@ export function ActivitiesSection() {
             </div>
           </div>
           <div className="flex rounded-full bg-slate-50 p-1 shadow-sm">
-            {['おすすめ', '新着', '近くの活動'].map((tab) => (
+            {['おすすめ', '新着', '近くの体験・ワーク'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
