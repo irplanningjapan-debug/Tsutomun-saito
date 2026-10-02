@@ -56,7 +56,7 @@ export function ActivityCard({ activity }: { activity: Activity }) {
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-black leading-6 text-slate-900">{activity.title}</h3>
-          {activity.listingType === 'event' && <span className="shrink-0 rounded-full bg-sky-100 px-2.5 py-1 text-[11px] font-black text-sky-700">イベント</span>}
+          {activity.listingType === 'event' && <span className="shrink-0 rounded-full bg-primary px-2.5 py-1 text-[11px] font-black text-bg-primary">体験</span>}
         </div>
         {activity.organizerOrgName && (
           <p className="mt-1.5 flex items-center gap-1 text-[11px] font-bold text-slate-400">
@@ -70,9 +70,9 @@ export function ActivityCard({ activity }: { activity: Activity }) {
               <span key={type} className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-black text-amber-800">{shortRecruitmentLabel(type)}</span>
             ))}
             {activity.tags
-              ?.filter((tag) => tag !== '参加者募集中')
+              ?.filter((tag) => tag !== '募集中')
               .map((tag) => (
-                <span key={tag} className="rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-black text-primary">#{tag}</span>
+                <span key={tag} className="rounded-full bg-primary px-2.5 py-1 text-[11px] font-black text-primary">#{tag}</span>
               ))}
           </div>
         ) : null}
@@ -92,10 +92,10 @@ export function ActivityCard({ activity }: { activity: Activity }) {
         )}
         {activity.description && <p className="mt-3 text-xs leading-5 text-slate-500">{activity.description}</p>}
         {activity.listingType === 'event' && (
-          <div className="mt-3 flex flex-col gap-3 rounded-lg border border-sky-100 bg-sky-50 p-2.5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-3 flex flex-col gap-3 rounded-lg border border-sky-100 bg-primary p-2.5 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-xs font-black text-sky-800">
-              <span className="mr-2 inline-block rounded-full bg-sky-600 px-2 py-1 text-white">
-                {activity.intakeMethod === 'external' ? '外部フォーム受付中' : 'KNOT受付中'}
+              <span className="mr-2 inline-block rounded-full bg-primary px-2 py-1 text-white">
+                {activity.intakeMethod === 'external' ? '外部フォーム受付中' : 'つとむん募集中'}
               </span>
               申込 {applicantCounts[activity.title] ?? 0}組 / 定員 {activity.capacity || '未定'}
             </p>
