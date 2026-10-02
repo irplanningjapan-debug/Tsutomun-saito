@@ -65,7 +65,7 @@ export function HowSection() {
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <p className="text-sm font-black text-primary">HOW IT WORKS</p>
-          <h2 className="mt-2 text-2xl font-black sm:text-3xl">KNOTのはじめ方</h2>
+          <h2 className="mt-2 text-2xl font-black sm:text-3xl">つとむんのはじめ方</h2>
         </div>
         <div className="mt-10 grid gap-8 md:grid-cols-3">
           {steps.map(([number, title, desc, Icon]) => (
