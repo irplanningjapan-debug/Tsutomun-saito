@@ -67,11 +67,13 @@ export function normalizeArea(rawArea: string): string {
 // other municipality is positioned relative to it with no drift, regardless of viewport
 // size or how many municipalities are added.
 export const municipalityCoordinates: Record<string, { lat: number; lng: number }> = {
-  '宮崎市': { lat: 31.9077, lng: 131.4202 }, '国富町': { lat: 32.0003, lng: 131.3323 }, '綾町': { lat: 32.0084, lng: 131.2526 },
-  '延岡市': { lat: 32.5823, lng: 131.6647 }, '日向市': { lat: 32.4239, lng: 131.6247 }, '門川町': { lat: 32.4828, lng: 131.6517 }, '諸塚村': { lat: 32.5333, lng: 131.3333 }, '椎葉村': { lat: 32.4633, lng: 131.1567 }, '美郷町': { lat: 32.4333, lng: 131.4167 }, '高千穂町': { lat: 32.7117, lng: 131.3061 }, '日之影町': { lat: 32.6667, lng: 131.3833 }, '五ヶ瀬町': { lat: 32.6833, lng: 131.2000 },
-  '都城市': { lat: 31.7196, lng: 131.0616 }, '小林市': { lat: 31.9998, lng: 130.9734 }, 'えびの市': { lat: 32.0433, lng: 130.8142 }, '三股町': { lat: 31.7411, lng: 131.1444 }, '高原町': { lat: 31.9167, lng: 131.0167 },
-  '日南市': { lat: 31.6014, lng: 131.3789 }, '串間市': { lat: 31.4647, lng: 131.2331 },
-  '西都市': { lat: 32.1105, lng: 131.4010 }, '高鍋町': { lat: 32.1328, lng: 131.5034 }, '新富町': { lat: 32.0691, lng: 131.4883 }, '西米良村': { lat: 32.2227, lng: 131.1492 }, '木城町': { lat: 32.1644, lng: 131.4789 }, '川南町': { lat: 32.1969, lng: 131.5283 }, '都農町': { lat: 32.2597, lng: 131.5647 },
+  '妻北': { lat: 32.1120, lng: 131.3980 },
+  '妻南': { lat: 32.1000, lng: 131.4080 },
+  '穂北': { lat: 32.1480, lng: 131.4050 },
+  '三納': { lat: 32.1150, lng: 131.3450 },
+  '都於郡': { lat: 32.0720, lng: 131.3850 },
+  '三財': { lat: 32.1280, lng: 131.2750 },
+  '東米良': { lat: 32.2680, lng: 131.2430 },
 }
 
 export const genres: Genre[] = [
