@@ -1,6 +1,6 @@
 const ADMIN_EMAIL = 'ishikawa.rie@tamenijapan.com'
 
-const FROM_ADDRESS = 'KNOT運営事務局 <noreply@mail.tamenijapan.com>'
+const FROM_ADDRESS = 'つとむん運営事務局 <noreply@mail.tamenijapan.com>'
 
 type SendEmailInput = {
   to: string | string[]
@@ -60,7 +60,7 @@ function emailShell(title: string, bodyHtml: string) {
   return `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 560px; margin: 0 auto; color: #0f172a;">
       <div style="background: #0ea5e9; padding: 20px 28px; border-radius: 16px 16px 0 0;">
-        <p style="margin: 0; font-size: 13px; font-weight: 900; color: #ffffff; letter-spacing: 0.05em;">KNOT みやざき地域活動プラットフォーム</p>
+        <p style="margin: 0; font-size: 13px; font-weight: 900; color: #ffffff; letter-spacing: 0.05em;">つとむん 西都ワークプラットフォーム</p>
       </div>
       <div style="border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 16px 16px; padding: 28px;">
         <h1 style="margin: 0 0 16px; font-size: 18px; font-weight: 900;">${escapeHtml(title)}</h1>
@@ -85,7 +85,7 @@ export type ListingApplicationEmailInput = {
 export async function sendListingApplicationNotification(input: ListingApplicationEmailInput) {
   const rows = [
     ['掲載タイプ', input.listingTypeLabel],
-    ['活動・イベント名', input.title],
+    ['体験・ワーク名', input.title],
     ['エリア', input.area],
     ['ジャンル', input.genre],
     ['申請者名', input.organizerName],
@@ -112,10 +112,10 @@ export async function sendListingApplicationNotification(input: ListingApplicati
 
   return sendEmail({
     to: ADMIN_EMAIL,
-    subject: '【KNOT】新規イベント掲載申請が届きました',
+    subject: '【つとむん】新規体験掲載申請が届きました',
     html: emailShell(
-      '新規イベント掲載申請が届きました',
-      `<p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">以下の内容で活動・イベントの掲載申請がありました。管理画面から内容を確認し、公開の承認をお願いします。</p>${tableHtml}`,
+      '新規体験掲載申請が届きました',
+      `<p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">以下の内容で体験・ワークの掲載申請がありました。管理画面から内容を確認し、公開の承認をお願いします。</p>${tableHtml}`,
     ),
   })
 }
@@ -123,7 +123,7 @@ export async function sendListingApplicationNotification(input: ListingApplicati
 export async function sendListingApplicationConfirmationEmail(input: ListingApplicationEmailInput) {
   const rows = [
     ['掲載タイプ', input.listingTypeLabel],
-    ['活動・イベント名', input.title],
+    ['体験・ワーク名', input.title],
     ['エリア', input.area],
     ['ジャンル', input.genre],
     ...(input.eventDate ? [['開催日時', input.eventDate]] : []),
@@ -147,13 +147,13 @@ export async function sendListingApplicationConfirmationEmail(input: ListingAppl
 
   return sendEmail({
     to: input.organizerEmail,
-    subject: '【KNOT】イベント掲載申請を受け付けました',
+    subject: '【つとむん】体験掲載申請を受け付けました',
     html: emailShell(
-      'イベント掲載申請を受け付けました',
+      '体験掲載申請を受け付けました',
       `
         <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">
           ${escapeHtml(input.organizerName)} 様<br />
-          以下の内容で活動・イベントの掲載申請を受け付けました。運営事務局にて内容を確認のうえ、公開までにお時間をいただく場合があります。今しばらくお待ちください。
+          以下の内容で体験・ワークの掲載申請を受け付けました。運営事務局にて内容を確認のうえ、公開までにお時間をいただく場合があります。今しばらくお待ちください。
         </p>
         ${tableHtml}
       `,
@@ -171,16 +171,16 @@ export type ListingApprovedEmailInput = {
 export async function sendListingApprovedNotification(input: ListingApprovedEmailInput) {
   return sendEmail({
     to: input.organizerEmail,
-    subject: '【KNOT】申請いただいた活動・イベントが承認・公開されました',
+    subject: '【つとむん】申請いただいた体験・ワークが承認・公開されました',
     html: emailShell(
-      '活動・イベントが承認・公開されました',
+      '体験・ワークが承認・公開されました',
       `
         <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">
           ${escapeHtml(input.organizerName)} 様<br />
-          ご申請いただいた活動・イベント「${escapeHtml(input.title)}」が運営事務局にて承認され、KNOTサイト上に公開されました。
+          ご申請いただいた体験・ワーク「${escapeHtml(input.title)}」が運営事務局にて承認され、つとむんサイト上に公開されました。
         </p>
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-          <tr><td style="padding: 8px 0; color: #64748b; width: 120px; vertical-align: top;">活動・イベント名</td><td style="padding: 8px 0; font-weight: 700;">${escapeHtml(input.title)}</td></tr>
+          <tr><td style="padding: 8px 0; color: #64748b; width: 120px; vertical-align: top;">体験・ワーク名</td><td style="padding: 8px 0; font-weight: 700;">${escapeHtml(input.title)}</td></tr>
         </table>
         <p style="margin: 20px 0 0; font-size: 14px; line-height: 1.7; color: #334155;">
           以下のURLから、公開された内容をご確認いただけます。
@@ -215,7 +215,7 @@ export type ParticipationEmailInput = {
 export async function sendParticipationConfirmationEmail(input: ParticipationEmailInput) {
   return sendEmail({
     to: input.applicantEmail,
-    subject: '【KNOT】お申し込みを受け付けました',
+    subject: '【つとむん】お申し込みを受け付けました',
     html: emailShell(
       'お申し込みを受け付けました',
       `
@@ -224,7 +224,7 @@ export async function sendParticipationConfirmationEmail(input: ParticipationEma
           以下の内容でお申し込みを受け付けました。内容確認後、2〜3日中に主催者（${escapeHtml(input.organizerName)}）より詳細のご連絡を差し上げます。
         </p>
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-          <tr><td style="padding: 8px 0; color: #64748b; width: 120px;">活動・イベント名</td><td style="padding: 8px 0; font-weight: 700;">${escapeHtml(input.activityTitle)}</td></tr>
+          <tr><td style="padding: 8px 0; color: #64748b; width: 120px;">体験・ワーク名</td><td style="padding: 8px 0; font-weight: 700;">${escapeHtml(input.activityTitle)}</td></tr>
           <tr><td style="padding: 8px 0; color: #64748b;">エリア / 日時</td><td style="padding: 8px 0; font-weight: 700;">${escapeHtml(input.activityArea)} / ${escapeHtml(input.activityDate)}</td></tr>
           <tr><td style="padding: 8px 0; color: #64748b;">参加人数</td><td style="padding: 8px 0; font-weight: 700;">${escapeHtml(input.groupSize)}</td></tr>
         </table>
@@ -233,13 +233,13 @@ export async function sendParticipationConfirmationEmail(input: ParticipationEma
   })
 }
 
-// 参加申込があったことを、その活動・イベントの主催者（掲載元）宛に通知する。
+// 参加申込があったことを、その体験・ワークの主催者（掲載元）宛に通知する。
 // 主催者のメールアドレスが取得できなかった場合のみ、フォールバックとして運営事務局(ADMIN_EMAIL)宛に送信する。
 // 主催者へ送信できた場合、運営事務局は毎回のメール通知を必須とはせず、必要に応じてBCCで控えを受け取る
 // （ダッシュボード上での把握が基本運用のため）。
 export async function sendParticipationOrganizerNotification(input: ParticipationEmailInput) {
   const rows = [
-    ['活動・イベント名', input.activityTitle],
+    ['体験・ワーク名', input.activityTitle],
     ['エリア / 日時', `${input.activityArea} / ${input.activityDate}`],
     ['申込者名', input.applicantName],
     ['メールアドレス', input.applicantEmail],
@@ -272,7 +272,7 @@ export async function sendParticipationOrganizerNotification(input: Participatio
     // 主催者へ送れた場合のみ運営事務局をBCCに入れる。主催者のメールが無くADMIN_EMAILに直接
     // 送る場合は、同じ宛先へ二重に送らないようBCCは付けない。
     bcc: organizerEmail ? ADMIN_EMAIL : undefined,
-    subject: `【KNOT】「${input.activityTitle}」に参加申し込みがありました`,
+    subject: `【つとむん】「${input.activityTitle}」に参加申し込みがありました`,
     html: emailShell(
       `「${input.activityTitle}」に参加申し込みがありました`,
       `<p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">以下の内容で参加申込がありました。内容をご確認のうえ、申込者へ詳細のご連絡をお願いします。</p>${tableHtml}`,
@@ -292,7 +292,7 @@ export type ContactEmailInput = {
 export async function sendContactConfirmationEmail(input: ContactEmailInput) {
   return sendEmail({
     to: input.email,
-    subject: '【KNOT】お問い合わせを受け付けました',
+    subject: '【つとむん】お問い合わせを受け付けました',
     html: emailShell(
       'お問い合わせを受け付けました',
       `
@@ -321,13 +321,13 @@ export type ActivityExpiryEmailInput = {
 }
 
 const activityExpirySubjects: Record<ActivityExpiryStage, (title: string) => string> = {
-  '30d': (title) => `【KNOT】掲載中の活動情報「${title}」の掲載期限が近づいています（残り30日）`,
+  '30d': (title) => `【つとむん】掲載中のワーク情報「${title}」の掲載期限が近づいています（残り30日）`,
   '7d': (title) => `【重要・残り7日】「${title}」の掲載期限が迫っています`,
-  end: (title) => `【KNOT】「${title}」の掲載期間が終了しました`,
+  end: (title) => `【つとむん】「${title}」の掲載期間が終了しました`,
 }
 
 function activityExpiryBodyHtml(stage: ActivityExpiryStage, input: ActivityExpiryEmailInput) {
-  const greeting = `${escapeHtml(input.organizerName)} 様<br />いつもKNOTをご利用いただきありがとうございます。`
+  const greeting = `${escapeHtml(input.organizerName)} 様<br />いつもつとむんをご利用いただきありがとうございます。`
   if (stage === '30d') {
     return `
       <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">${greeting}</p>
@@ -357,7 +357,7 @@ function activityExpiryBodyHtml(stage: ActivityExpiryStage, input: ActivityExpir
     <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">${greeting}</p>
     <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">
       「${escapeHtml(input.title)}」は掲載期限（${escapeHtml(input.expiresAtLabel)}）を迎えましたので、サイト上の表示を「掲載終了（非表示）」に切り替えました。<br />
-      再開を���希望の場合は、いつでもマイページから内容をご確認の上、再掲載（更新）が可能です。
+      再開を希望の場合は、いつでもマイページから内容をご確認の上、再掲載（更新）が可能です。
     </p>
     <p style="margin: 12px 0 0;">
       <a href="${MYPAGE_URL}" style="display: inline-block; background: #0ea5e9; color: #ffffff; font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 999px; text-decoration: none;">マイページから再掲載する</a>
@@ -382,7 +382,7 @@ export type PartnerShopExpiryEmailInput = {
 }
 
 export async function sendPartnerShopExpiryEmail(input: PartnerShopExpiryEmailInput) {
-  const title = `【KNOT】応援企業/SHOP ご掲載期間終了（残り30日）とご契約更新のご案内`
+  const title = `【つとむん】応援企業/SHOP ご掲載期間終了（残り30日）とご契約更新のご案内`
   return sendEmail({
     to: input.contactEmail,
     bcc: ADMIN_EMAIL,
@@ -392,7 +392,7 @@ export async function sendPartnerShopExpiryEmail(input: PartnerShopExpiryEmailIn
       `
         <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">
           ${escapeHtml(input.name)} 様<br />
-          いつもKNOTをご利用いただきありがとうございます。
+          いつもつとむんをご利用いただきありがとうございます。
         </p>
         <p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">
           現在ご協賛・ご掲載いただいている「${escapeHtml(input.kindLabel)}」枠の掲載期限が <strong>${escapeHtml(input.expiresAtLabel)}</strong> となります。<br />
@@ -442,7 +442,7 @@ export async function sendShareItemContactEmail(input: ShareItemContactEmailInpu
 
   return sendEmail({
     to: input.posterEmail,
-    subject: `【KNOT】「${input.itemTitle}」に問い合わせがありました`,
+    subject: `【つとむん】「${input.itemTitle}」に問い合わせがありました`,
     html: emailShell(
       `「${input.itemTitle}」に問い合わせがありました`,
       `<p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">ゆずりあい掲示板の投稿に、以下の内容で問い合わせがありました。返信は下記の連絡先まで直接お願いします。</p>${tableHtml}`,
@@ -453,7 +453,7 @@ export async function sendShareItemContactEmail(input: ShareItemContactEmailInpu
 export async function sendShareItemContactConfirmationEmail(input: ShareItemContactEmailInput) {
   return sendEmail({
     to: input.senderEmail,
-    subject: '【KNOT】お問い合わせを送信しました',
+    subject: '【つとむん】お問い合わせを送信しました',
     html: emailShell(
       'お問い合わせを送信しました',
       `
@@ -496,7 +496,7 @@ export async function sendContactAdminNotification(input: ContactEmailInput) {
 
   return sendEmail({
     to: ADMIN_EMAIL,
-    subject: '【KNOT】新規お問い合わせを受け付けました',
+    subject: '【つとむん】新規お問い合わせを受け付けました',
     html: emailShell(
       '新規お問い合わせを受け付けました',
       `<p style="margin: 0 0 16px; font-size: 14px; line-height: 1.7; color: #334155;">以下の内容でお問い合わせがありました。管理画面から内容を確認し、対応をお願いします。</p>${tableHtml}`,
