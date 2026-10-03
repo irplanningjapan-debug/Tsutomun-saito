@@ -22,7 +22,6 @@ export function Header() {
             <span className="text-xl font-black tracking-tight whitespace-nowrap text-slate-800">つとむん</span>
           </span>
         </a>
-        </a>
         <nav className="hidden items-center gap-4 text-sm font-semibold text-muted-foreground lg:gap-6 md:flex whitespace-nowrap">
           <a href="#activities" className="hover:text-primary">体験・ワークを探す</a>
           <button onClick={() => setViewMode('map')} className="hover:text-primary">マップ</button>
