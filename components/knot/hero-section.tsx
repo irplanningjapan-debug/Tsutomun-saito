@@ -13,7 +13,16 @@ export function HeroSection() {
       <Image src="/images/miyazaki-hero.png" alt="西都原古墳群の緑・菜の花や桜、米良の神楽" fill priority className="absolute inset-0 -z-10 object-cover opacity-20" />
       <div className="absolute inset-0 -z-10 bg-sky-50/75" />
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-20 pt-16 lg:grid-cols-[1fr_0.85fr] lg:px-8 lg:pb-24 lg:pt-24">
-        <div>
+        <div className="relative">
+          {/* フクロウの背景透かし */}
+          <div className="pointer-events-none absolute -top-8 -left-6 sm:left-4 w-72 h-72 sm:w-88 sm:h-88 opacity-[0.10] -z-10 select-none">
+            <img
+              src="/tsutomun_logo.png"
+              alt=""
+              className="w-full h-full object-contain"
+            />
+          </div>
+
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3.5 py-2 text-xs font-bold text-primary shadow-sm">
             <Sparkles size={14} /> 西都市から、好きなことを。
           </div>
