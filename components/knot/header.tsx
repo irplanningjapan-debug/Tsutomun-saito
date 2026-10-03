@@ -11,12 +11,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-8">
-        <a href="#top" className="flex shrink-0 items-center gap-2.5 whitespace-nowrap" aria-label="さいと つとむん ホーム">
-          <img src="/tsutomun_logo.png" alt="つとむん" className="size-9 object-contain shrink-0" />
-          <span className="leading-tight">
-            <span className="block text-[10px] font-bold leading-none text-primary">西都市</span>
-            <span className="text-lg font-black tracking-tight whitespace-nowrap">つとむん</span>
+        <a href="#top" className="group flex shrink-0 items-center gap-3 whitespace-nowrap" aria-label="さいと つとむん ホーム">
+          <img 
+            src="/tsutomun_logo.png" 
+            alt="つとむん" 
+            className="h-12 w-12 object-contain shrink-0 transition-transform duration-200 group-hover:scale-110 drop-shadow-sm" 
+          />
+          <span className="leading-tight flex flex-col justify-center">
+            <span className="block text-[11px] font-bold leading-none text-primary/80">西都市</span>
+            <span className="text-xl font-black tracking-tight whitespace-nowrap text-slate-800">つとむん</span>
           </span>
+        </a>
         </a>
         <nav className="hidden items-center gap-4 text-sm font-semibold text-muted-foreground lg:gap-6 md:flex whitespace-nowrap">
           <a href="#activities" className="hover:text-primary">体験・ワークを探す</a>
