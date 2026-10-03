@@ -43,8 +43,8 @@ function createPinIcon(area: string, count: number, selected: boolean) {
 // north to Kushima/Miyakonojo in the south, used to fit the whole prefecture into
 // view on a single, non-scrolling screen.
 const MIYAZAKI_BOUNDS: [[number, number], [number, number]] = [
-  [31.35, 130.7],
-  [32.85, 131.9],
+  [32.05, 131.10], // 南西端（三納・三財の山手付近）
+  [32.32, 131.45], // 北東端（東米良・穂北・妻北付近）
 ]
 
 export function MunicipalityMap({
@@ -58,8 +58,8 @@ export function MunicipalityMap({
 }) {
   return (
     <MapContainer
-      center={[32.1, 131.35]}
-      zoom={8}
+      center={[32.18, 131.30]}
+zoom={11}
       bounds={MIYAZAKI_BOUNDS}
       boundsOptions={{ padding: [20, 20] }}
       dragging={false}
