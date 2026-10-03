@@ -25,9 +25,9 @@ export function MapSection() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-black text-primary">MIYAZAKI ACTIVITY MAP</p>
-            <h1 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">宮崎の活動をマップで探す</h1>
-            <p className="mt-3 text-sm leading-6 text-slate-500">気になるピンをタップすると、その地域の活動が表示されます。</p>
+            <p className="text-sm font-black text-primary">SAITO WORK MAP</p>
+<h1 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">西都市の体験・ワークをマップで探す</h1>
+<p className="mt-3 text-sm leading-6 text-slate-500">気になるピンをタップすると、その地域の体験・ワークが表示されます。</p>
           </div>
           <button onClick={backToBrowseFromMap} className="inline-flex items-center gap-2 self-start rounded-full bg-white px-4 py-2.5 text-xs font-black text-slate-600 shadow-sm hover:text-primary">
             <ArrowRight size={14} className="rotate-180" />通常のリスト表示へ
@@ -58,8 +58,8 @@ export function MapSection() {
         <div className="mt-6 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[540px] overflow-hidden rounded-[2rem] border border-sky-100 bg-[#dff3f7] shadow-sm">
             <div className="absolute left-4 right-4 top-4 z-20 rounded-xl bg-white/95 px-4 py-3 shadow-md">
-              <p className="text-xs font-black text-primary"><Map size={13} className="mr-1 inline" />宮崎県 活動マップ</p>
-              <p className="mt-1 text-[11px] text-slate-500">気になる市町村のピンをタップしてみましょう</p>
+              <p className="text-xs font-black text-primary"><Map size={13} className="mr-1 inline" />西都市 エリアマップ</p>
+              <p className="mt-1 text-[11px] text-slate-500">気になるエリアのピンをタップしてみましょう</p>
             </div>
             <MunicipalityMap points={visiblePoints} selectedArea={selectedPoint} onSelectArea={setSelectedPoint} />
           </div>
@@ -68,7 +68,7 @@ export function MapSection() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs font-black text-primary">ACTIVITY SPOTS</p>
-                  <h2 className="mt-1 text-xl font-black">{selectedPoint || '県内の活動エリア'}</h2>
+                  <h2 className="mt-1 text-xl font-black">{selectedPoint || '西都市内エリア'}</h2>
                 </div>
                 <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-black text-primary">{mapActivities.length}件</span>
               </div>
@@ -105,7 +105,7 @@ export function MapSection() {
             ))}
             {!selectedPoint && (
               <div className="rounded-2xl border border-dashed border-slate-300 bg-white/70 p-8 text-center text-sm font-bold leading-6 text-slate-500">
-                地図上のピン、またはエリアタグを選ぶと<br />活動カードがここに表示されます。
+                地図上のピン、またはエリアタグを選ぶと<br />体験・ワークカードがここに表示されます。
               </div>
             )}
           </div>
