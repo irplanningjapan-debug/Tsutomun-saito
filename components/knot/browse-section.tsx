@@ -61,10 +61,10 @@ export function BrowseSection() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs font-black text-primary">WHERE TO FIND</p>
-                <h3 className="mt-1 text-lg font-black">県内の分布</h3>
+                <h3 className="mt-1 text-lg font-black">西都市内のエリア</h3>
               </div>
               <div className="flex items-center gap-2">
-                <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-bold text-primary">{Object.keys(regionCounts).length}エリア</span>
+                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-primary">{Object.keys(regionCounts).length}エリア</span>
                 <button
                   type="button"
                   onClick={() => setViewMode('map')}
