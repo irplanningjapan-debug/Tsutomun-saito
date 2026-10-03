@@ -16,7 +16,7 @@ export function GenresSection() {
         </div>
         <button onClick={() => openBrowse(null)} className="hidden items-center gap-1 text-sm font-bold text-primary sm:flex">すべて見る <ArrowRight size={16} /></button>
       </div>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {genres.map((genre) => (
           <button
             onClick={() => openBrowse(genre.label)}
