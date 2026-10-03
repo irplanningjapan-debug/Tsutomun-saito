@@ -29,7 +29,7 @@ function OrganizerSection({ activity }: { activity: Activity }) {
   )
 }
 
-// Opens the organizer's registered reception contact ("見学・体験の受付先"), which can be a
+// Opens the organizer's registered reception contact ("体験・ワークの受付先"), which can be a
 // URL, an email address, or a phone number, using the appropriate handler for each. Falls
 // back to a guidance popup when no contact has been registered yet.
 function openInquiryContact(contact?: string) {
@@ -61,7 +61,7 @@ export function ApplicationModal() {
     <div className="fixed inset-0 z-[95] flex items-center justify-center bg-slate-950/50 p-4" onClick={() => setApplicationModal(null)}>
       <div role="dialog" aria-modal="true" onClick={(event) => event.stopPropagation()} className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-black">このイベントに申し込む</h2>
+          <h2 className="text-lg font-black">この体験会に申し込む</h2>
           <button type="button" onClick={() => setApplicationModal(null)} aria-label="閉じる" className="grid size-9 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
         </div>
         <p className="mt-2 text-sm text-slate-500">{applicationModal.title}</p>
@@ -166,15 +166,15 @@ export function ActivityDetailModal() {
             <div className="flex gap-3 rounded-2xl bg-slate-50 p-4">
               <Clock3 size={18} className="mt-0.5 shrink-0 text-primary" />
               <div>
-                <p className="text-xs font-black text-slate-400">活動日時</p>
+                <p className="text-xs font-black text-slate-400">日時</p>
                 <p className="mt-1 text-sm font-bold text-slate-700">{formatEventDateTime(selectedActivity.date)}</p>
               </div>
             </div>
             <div className="flex gap-3 rounded-2xl bg-slate-50 p-4">
               <span className="text-lg leading-none text-primary">⌖</span>
               <div>
-                <p className="text-xs font-black text-slate-400">活動場所</p>
-                <p className="mt-1 text-sm font-bold text-slate-700">{selectedActivity.venue || `${selectedActivity.area}の活動拠点`}</p>
+                <p className="text-xs font-black text-slate-400">場所</p>
+                <p className="mt-1 text-sm font-bold text-slate-700">{selectedActivity.venue || `${selectedActivity.area}の拠点`}</p>
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedActivity.venue || `${selectedActivity.area} 公民館`)}`}
                   target="_blank"
@@ -189,7 +189,7 @@ export function ActivityDetailModal() {
               <span className="text-lg leading-none text-primary">￥</span>
               <div>
                 <p className="text-xs font-black text-slate-400">参加費・月謝</p>
-                <p className="mt-1 text-sm font-bold text-slate-700">{selectedActivity.fee || '活動ごとにご確認ください'}</p>
+                <p className="mt-1 text-sm font-bold text-slate-700">{selectedActivity.fee || 'ワークごとにご確認ください'}</p>
               </div>
             </div>
           </div>
@@ -203,7 +203,7 @@ export function ActivityDetailModal() {
           <OrganizerSection activity={selectedActivity} />
           <div className="mt-7">
             <p className="text-xs font-black tracking-wide text-primary">ACTIVITY STORY</p>
-            <h3 className="mt-2 text-lg font-black text-slate-900">この活動について</h3>
+            <h3 className="mt-2 text-lg font-black text-slate-900">このワークについて</h3>
             <p className="mt-3 text-sm leading-7 text-slate-600">{selectedActivity.description || '説明文は登録されていません。'}</p>
           </div>
           {(selectedActivity.instagramUrl || selectedActivity.lineUrl || selectedActivity.websiteUrl) && (
@@ -275,7 +275,7 @@ export function EventDetailModal() {
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="flex flex-wrap gap-1.5">
-              <span className="rounded-full bg-primary px-3 py-1 text-xs font-black text-primary-foreground">イベント・体験会</span>
+              <span className="rounded-full bg-primary px-3 py-1 text-xs font-black text-primary-foreground">体験会</span>
               {selectedEvent.genre.map((label) => (
                 <span key={label} className="rounded-full bg-sky-50 px-3 py-1 text-xs font-black text-primary">{label}</span>
               ))}
@@ -287,7 +287,7 @@ export function EventDetailModal() {
                   <span key={type} className="rounded-full bg-amber-100 px-2.5 py-1 text-[11px] font-black text-amber-800">{shortRecruitmentLabel(type)}</span>
                 ))}
                 {selectedEvent.tags
-                  ?.filter((tag) => tag !== '参加者募集中')
+                  ?.filter((tag) => tag !== '募集中')
                   .map((tag) => (
                     <span key={tag} className="rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-black text-primary">#{tag}</span>
                   ))}
@@ -296,7 +296,7 @@ export function EventDetailModal() {
           </div>
           <div className="flex items-center gap-2">
             <ShareMenu activity={selectedEvent} />
-            <button onClick={() => setSelectedEvent(null)} aria-label="イベント詳細を閉じる" className="grid size-9 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
+            <button onClick={() => setSelectedEvent(null)} aria-label="体験会詳細を閉じる" className="grid size-9 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
           </div>
         </div>
         <div className="mt-6 grid gap-3 rounded-2xl bg-sky-50 p-4 text-sm font-bold text-slate-700">
