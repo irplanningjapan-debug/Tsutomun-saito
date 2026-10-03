@@ -56,7 +56,7 @@ export function ActivityCard({ activity }: { activity: Activity }) {
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-black leading-6 text-slate-900">{activity.title}</h3>
-          {activity.listingType === 'event' && <span className="shrink-0 rounded-full bg-primary px-2.5 py-1 text-[11px] font-black text-text-white">体験</span>}
+          {activity.listingType === 'event' && <span className="shrink-0 rounded-full bg-primary px-2.5 py-1 text-[11px] font-black text-white">体験</span>}
         </div>
         {activity.organizerOrgName && (
           <p className="mt-1.5 flex items-center gap-1 text-[11px] font-bold text-slate-400">
@@ -92,8 +92,8 @@ export function ActivityCard({ activity }: { activity: Activity }) {
         )}
         {activity.description && <p className="mt-3 text-xs leading-5 text-slate-500">{activity.description}</p>}
         {activity.listingType === 'event' && (
-          <div className="mt-3 flex flex-col gap-3 rounded-lg border border-sky-100 bg-primary p-2.5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs font-black text-sky-800">
+          <div className="mt-3 flex flex-col gap-3 rounded-lg border border-slate-200 bg-slate-50 p-2.5 sm:flex-row sm:items-center sm:justify-between">
+            <span className="text-xs font-bold text-slate-700">
               <span className="mr-2 inline-block rounded-full bg-primary px-2 py-1 text-white">
                 {activity.intakeMethod === 'external' ? '外部フォーム受付中' : 'つとむん募集中'}
               </span>
