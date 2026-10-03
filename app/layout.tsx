@@ -28,37 +28,37 @@ export const metadata: Metadata = {
   // the file's bytes change unless the URL itself changes - the "?v=7" below is that
   // manual cache-buster. Bump it (v8, v9, ...) any time these icon files are replaced.
   icons: {
-    icon: [
-      { url: '/tsutomun_logo.png', sizes: 'any' },
-      { url: '/tsutomun_logo.png', sizes: '48x48', type: 'image/png' },
-      { url: '/icon-192.png?v=7', sizes: '192x192', type: 'image/png' },
-      { url: '/icon-512.png?v=7', sizes: '512x512', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png?v=7',
-  },
-  openGraph: {
-    title: 'KNOT（ノット）| 宮崎の地域活動・体験予約プラットフォーム',
-    description:
-      'KNOTは宮崎県内の地域活動・体験会・イベントを探して申し込める予約プラットフォームです。あなたの「やってみたい」が、ここでつながる。',
-    siteName: 'KNOT 宮崎',
-    locale: 'ja_JP',
-    type: 'website',
+      icon: [
+        { url: '/tsutomun_logo.png', sizes: 'any' },
+        { url: '/tsutomun_logo.png', sizes: '48x48', type: 'image/png' },
+        { url: '/tsutomun_logo.png', sizes: '192x192', type: 'image/png' },
+        { url: '/tsutomun_logo.png', sizes: '512x512', type: 'image/png' },
+      ],
+      apple: '/tsutomun_logo.png',
+    },
+    openGraph: {
+      title: 'つとむん | 西都市の地域活動・体験・ワークプラットフォーム',
+      description:
+        'つとむんは西都市内の地域活動・体験会・ワーク・イベントを探して申し込めるプラットフォームです。あなたの「やってみたい」が、ここでつながる。',
+      siteName: 'つとむん 西都',
+      locale: 'ja_JP',
+      type: 'website',
     images: [
       {
         url: '/og-image.png?v=1',
         width: 1200,
         height: 630,
-        alt: 'KNOT 宮崎',
+        alt: 'つとむん 西都',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'KNOT（ノット）| 宮崎の地域活動・体験予約プラットフォーム',
-    description:
-      'KNOTは宮崎県内の地域活動・体験会・イベントを探して申し込める予約プラットフォームです。あなたの「やってみたい」が、ここでつながる。',
-    images: ['/og-image.png?v=1'],
-  },
+  card: 'summary_large_image',
+  title: 'つとむん | 西都市の地域活動・体験・ワークプラットフォーム',
+  description:
+    'つとむんは西都市内の地域活動・体験会・ワーク・イベントを探して申し込めるプラットフォームです。あなたの「やってみたい」が、ここでつながる。',
+  images: ['/og-image.png?v=1'],
+},
 }
 
 export const viewport: Viewport = {
