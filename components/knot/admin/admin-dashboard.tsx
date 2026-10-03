@@ -68,7 +68,7 @@ const tabs = [
   '協賛パートナー管理',
   '活動・イベント管理',
   'お問い合わせ・掲載依頼一覧',
-  'KNOT掲示板管理',
+  'つとむん掲示板管理',
   '管理者・権限管理',
 ] as const
 type Tab = (typeof tabs)[number]
@@ -1004,7 +1004,7 @@ function SupportEntriesTab() {
 }
 
 // 「サポート情報・URL管理」タブの中で「外部リンク管理」と「ゆずりあい・貸し借り投稿一覧」を
-// 切り替えるラッパー。KNOT掲示板（運営告知）とは別管理のため、ここにぶら下げる。
+// 切り替えるラッパー。つとむん掲示板（運営告知）とは別管理のため、ここにぶら下げる。
 function SupportInfoTab() {
   const [subTab, setSubTab] = useState<'links' | 'share'>('links')
 
@@ -1436,7 +1436,7 @@ function ShopManagementTab() {
   return (
     <div className="space-y-6">
       <div className="rounded-2xl border border-slate-200 bg-white p-5">
-        <p className="text-sm font-black text-slate-900">KNOT公式 / 応援委託SHOP 誘導リンク</p>
+        <p className="text-sm font-black text-slate-900">つとむん公式 / 応援委託SHOP 誘導リンク</p>
         <p className="mt-1 text-xs font-bold text-slate-400">トップページの応援SHOPセクションから遷移する公式SHOPのURLを設定します。</p>
         <div className="mt-3 flex flex-col gap-2 sm:flex-row">
           <input value={guideUrl} onChange={(event) => setGuideUrl(event.target.value)} placeholder="https://..." className={inputClass} />
@@ -2195,7 +2195,7 @@ function BulletinBoardManagementTab() {
 
   // Swaps sort_order with the neighboring post (based on the current
   // sort_order-ordered list) and persists both rows immediately, so the new
-  // order survives a reload and carries over to the top page's KNOT掲示板 section.
+  // order survives a reload and carries over to the top page's つとむん掲示板 section.
   const move = async (post: BulletinPost, direction: 'up' | 'down') => {
     if (!post.id) return
     const position = sortedPosts.findIndex((item) => item.id === post.id)
@@ -2231,8 +2231,8 @@ function BulletinBoardManagementTab() {
       <div className="rounded-2xl border border-slate-200 bg-white p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-sm font-black text-slate-900">KNOT掲示板 / 運営からのおしらせ</p>
-            <p className="mt-1 text-xs text-slate-500">トップページの「KNOT掲示板」枠に表示されるお知らせを管理・更新します。</p>
+            <p className="text-sm font-black text-slate-900">つとむん掲示板 / 運営からのおしらせ</p>
+            <p className="mt-1 text-xs text-slate-500">トップページの「つとむん掲示板」枠に表示されるお知らせを管理・更新します。</p>
           </div>
           <button onClick={startAdd} className="inline-flex items-center gap-2 rounded-full border border-dashed border-slate-300 px-4 py-2.5 text-sm font-black text-slate-500 hover:border-primary hover:text-primary">
             <Plus size={16} />お知らせを追加
@@ -3520,7 +3520,7 @@ function AdminDashboardContent({ adminEmail, onLogout }: { adminEmail: string; o
           <div>
             <p className="text-xs font-black text-primary">TAMENI ADMIN</p>
             <div className="mt-1 flex flex-wrap items-center gap-3">
-              <h1 className="text-xl font-black tracking-tight sm:text-2xl">KNOT 管理ダッシュボード</h1>
+              <h1 className="text-xl font-black tracking-tight sm:text-2xl">つとむん 管理ダッシュボード</h1>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-black text-emerald-700">
                 <ShieldCheck size={14} />{adminEmail}として閲覧中
               </span>
@@ -3555,7 +3555,7 @@ function AdminDashboardContent({ adminEmail, onLogout }: { adminEmail: string; o
           {activeTab === '協賛パートナー管理' && <PartnersManagementTab />}
           {activeTab === '活動・イベント管理' && <ActivityListingsTab />}
           {activeTab === 'お問い合わせ・掲載依頼一覧' && <InquiriesTab />}
-          {activeTab === 'KNOT掲示板管理' && <BulletinBoardManagementTab />}
+          {activeTab === 'つとむん掲示板管理' && <BulletinBoardManagementTab />}
           {activeTab === '管理者・権限管理' && <AdminAccountsTab currentAdminEmail={adminEmail} />}
         </div>
       </div>
