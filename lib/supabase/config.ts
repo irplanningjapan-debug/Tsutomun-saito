@@ -8,8 +8,8 @@
 // wrong). Pinning both values together guarantees they always match the same
 // project. Once the env vars are confirmed consistent, this can go back to
 // reading them from process.env.
-const SUPABASE_URL = 'https://efjanoptpcwxfjhvvvir.supabase.co'
-const SUPABASE_ANON_KEY = 'sb_publishable_SCQWkj4-wWSYO_kLLBgu4A_KEdTYm13'
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://efjanoptpcwxfjhvvvir.supabase.co'
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_SCQWkj4-wWSYO_kLLBgu4A_KEdTYm13'
 
 export const supabaseUrl = SUPABASE_URL
 export const supabaseAnonKey = SUPABASE_ANON_KEY
