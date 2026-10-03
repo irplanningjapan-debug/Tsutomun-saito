@@ -98,7 +98,7 @@ export function ActivityCard({ activity }: { activity: Activity }) {
                 {activity.intakeMethod === 'external' ? '外部フォーム受付中' : 'つとむん募集中'}
               </span>
               申込 {applicantCounts[activity.title] ?? 0}組 / 定員 {activity.capacity || '未定'}
-            </p>
+            </span>
           </div>
         )}
         {!activity.description && (
