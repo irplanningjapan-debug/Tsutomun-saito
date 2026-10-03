@@ -71,7 +71,7 @@ export function RegistrationModal() {
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-6 py-5 sm:px-8">
           <div>
             <p className="text-xs font-black text-primary">FOR ORGANIZERS</p>
-            <h2 id="registration-title" className="mt-1 text-xl font-black">活動・イベントを掲載する</h2>
+            <h2 id="registration-title" className="mt-1 text-xl font-black">退園・ワークを掲載する</h2>
           </div>
           <button onClick={() => closeRegistration()} aria-label="フォームを閉じる" className="grid size-9 place-items-center rounded-full bg-slate-100 text-slate-600"><X size={18} /></button>
         </div>
@@ -161,7 +161,7 @@ export function RegistrationModal() {
                 {registration.website && <p><b>団体ホームページ：</b>{registration.website}</p>}
                 {registration.instagram && <p><b>Instagram：</b>{registration.instagram}</p>}
                 {registration.line && <p><b>公式LINE：</b>{registration.line}</p>}
-                {applicationUrl && <p><b>見学・体験の受付先URL：</b>{applicationUrl}</p>}
+                {applicationUrl && <p><b>体験・ワークの受付先URL：</b>{applicationUrl}</p>}
               </div>
             </div>
             {registrationError && <p role="alert" className="mt-4 rounded-xl bg-rose-50 p-3 text-sm font-bold text-rose-700">{registrationError}</p>}
@@ -192,10 +192,10 @@ export function RegistrationModal() {
               event.preventDefault()
               const missing: Record<string, string> = {}
               if (!registration.title.trim()) {
-                missing.title = eventListingType === 'event' ? 'イベント・体験会名を入力してください' : '活動名・サークル名を入力してください'
+                missing.title = eventListingType === 'event' ? 'イベント・体験会名を入力してください' : '体験名・ワーク名を入力してください'
               }
               if (!registration.description.trim()) {
-                missing.description = '活動の説��を入力してください'
+                missing.description = '体験・ワークの説明を入力してください'
               }
               if (!registration.venue.trim()) {
                 missing.venue = eventListingType === 'event' ? '開催場所を入力してください' : '活動場所を入力してください'
@@ -225,7 +225,7 @@ export function RegistrationModal() {
             }}
             className="space-y-6 px-6 py-7 sm:px-8"
           >
-            <p className="text-sm leading-6 text-slate-500">地域の仲間へ、サークル・教室の活動や体験会・イベントをかんたんに届けることができます。</p>
+            <p className="text-sm leading-6 text-slate-500">地域の仲間へ、地域活動や体験・ワーク募集をかんたんに届けることができます。</p>
             <fieldset className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <legend className="text-sm font-black text-slate-900">掲載タイプを選択</legend>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
@@ -234,15 +234,15 @@ export function RegistrationModal() {
                   onClick={() => setEventListingType('regular')}
                   className={`rounded-2xl border-2 p-4 text-left transition ${eventListingType === 'regular' ? 'border-primary bg-white text-primary shadow-sm' : 'border-transparent bg-white text-slate-600'}`}
                 >
-                  <span className="block text-sm font-black">定期的な活動を掲載</span>
-                  <span className="mt-1 block text-xs leading-5 text-slate-500">サークル・教室・神楽保存会など</span>
+                  <span className="block text-sm font-black">定期的な体験・ワークを掲載</span>
+                  <span className="mt-1 block text-xs leading-5 text-slate-500">地域活動や保存会活動、サポート活動など</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setEventListingType('event')}
                   className={`rounded-2xl border-2 p-4 text-left transition ${eventListingType === 'event' ? 'border-primary bg-sky-50 text-primary shadow-sm' : 'border-transparent bg-white text-slate-600'}`}
                 >
-                  <span className="block text-sm font-black">単発イベント・体験会を掲載</span>
+                  <span className="block text-sm font-black">単発体験・ワークを掲載</span>
                   <span className="mt-1 block text-xs leading-5 text-slate-500">1日体験会・ワークショップ・お祭りなど</span>
                 </button>
               </div>
@@ -263,7 +263,7 @@ export function RegistrationModal() {
               <legend className="text-base font-black">1. 基本情報</legend>
               <div>
                 <label htmlFor="registration-title-input" className="mb-2 flex items-center text-xs font-black text-slate-700">
-                  {eventListingType === 'event' ? 'イベント・体験会名' : '活動名・サークル名'}
+                  {eventListingType === 'event' ? '体験会・ワーク名' : '活動・体験・ワーク名'}
                   <RequiredBadge />
                 </label>
                 <input
@@ -274,7 +274,7 @@ export function RegistrationModal() {
                     updateRegistration('title', event.target.value)
                     clearFieldError('title')
                   }}
-                  placeholder={eventListingType === 'event' ? '例：親子で楽しむ神楽太鼓の1日体験教室' : '例：西米良神楽保存会、ジュニアサッカー'}
+                  placeholder={eventListingType === 'event' ? '例：親子で楽しむ神楽太鼓の1日体験会' : '例：○○神楽保存会、○○自治会'}
                   className={`w-full rounded-xl border px-4 py-3 text-sm outline-none ${errorInputClass('title')}`}
                   aria-invalid={Boolean(fieldErrors.title)}
                 />
@@ -305,20 +305,20 @@ export function RegistrationModal() {
               </div>
             </fieldset>
             <fieldset className="space-y-4">
-              <legend className="text-base font-black">2. 活動内容</legend>
+              <legend className="text-base font-black">2. 内容</legend>
               <div>
-                <p className="mb-2 flex items-center text-xs font-black text-slate-500">活動写真<OptionalBadge /></p>
+                <p className="mb-2 flex items-center text-xs font-black text-slate-500">参考写真<OptionalBadge /></p>
                 <label className="group relative flex aspect-video w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-sky-200 bg-sky-50/60 transition hover:border-primary hover:bg-sky-50">
                   {isCompressingPhoto ? (
                     <span className="text-center text-sm font-bold text-slate-500">画像を圧縮しています…</span>
                   ) : registrationPhoto ? (
                     <>
-                      <img src={registrationPhoto || '/placeholder.svg'} alt="選択した活動写真のプレビュー" className="absolute inset-0 h-full w-full bg-white object-contain" />
+                      <img src={registrationPhoto || '/placeholder.svg'} alt="選択した参考写真のプレビュー" className="absolute inset-0 h-full w-full bg-white object-contain" />
                       <span className="absolute inset-x-0 bottom-0 bg-slate-900/60 py-1.5 text-center text-[11px] font-bold text-white opacity-0 transition group-hover:opacity-100">タップして写真を変更</span>
                     </>
                   ) : (
                     <span className="text-center text-sm font-bold text-slate-500">
-                      活動の写真、またはチラシ・ポスター画像<br /><span className="mt-1 block text-xs font-normal">JPEG / PNG形式、最大10MB推奨</span><span className="mt-1 block text-xs font-normal">またはタップして写真を選択</span>
+                      参考の写真、またはチラシ・ポスター画像<br /><span className="mt-1 block text-xs font-normal">JPEG / PNG形式、最大10MB推奨</span><span className="mt-1 block text-xs font-normal">またはタップして写真を選択</span>
                       <span className="mt-2 block text-[11px] font-normal text-slate-400">スマホで撮ったチラシ写真でもきれいに掲載できます</span>
                     </span>
                   )}
@@ -354,7 +354,7 @@ export function RegistrationModal() {
                     updateRegistration('description', event.target.value)
                     clearFieldError('description')
                   }}
-                  placeholder="例：地域の子どもから大人まで楽しめる活動です。初心者も大歓迎！"
+                  placeholder="例：地域の子どもから大人まで楽しめる体験です。初心者も大歓迎！"
                   rows={5}
                   className={`w-full resize-y rounded-xl border px-4 py-3 text-sm leading-6 outline-none ${errorInputClass('description')}`}
                   aria-invalid={Boolean(fieldErrors.description)}
@@ -364,7 +364,7 @@ export function RegistrationModal() {
               <div className="grid gap-3 sm:grid-cols-2">
                 {eventListingType === 'event' && (
                   <div className="grid gap-3 rounded-2xl border border-sky-200 bg-sky-50 p-4 sm:grid-cols-2">
-                    <p className="text-xs font-bold leading-5 text-sky-900 sm:col-span-2">掲載期間はイベント開催日または申込締切日までです。開催日を過ぎたイベントは、近日開催のイベント一覧から自動的に非公開または受付終了になります。</p>
+                    <p className="text-xs font-bold leading-5 text-sky-900 sm:col-span-2">掲載期間は体験会開催日または申込締切日までです。開催日を過ぎた体験会は、近日開催の体験会一覧から自動的に非公開または受付終了になります。</p>
                     <div className="sm:col-span-2">
                       <p className="mb-2 flex items-center text-xs font-black text-slate-700">掲載終了タイミング<RequiredBadge /></p>
                       <div className="grid gap-2 sm:grid-cols-2">
@@ -414,11 +414,11 @@ export function RegistrationModal() {
                       <input id="registration-capacity" value={registration.capacity} onChange={(event) => updateRegistration('capacity', event.target.value)} placeholder="例：先着10組、定員なし" className="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
                     </div>
                     <div className="sm:col-span-2">
-                      <p className="mb-2 flex items-center text-xs font-black text-slate-700">参加申込の受付方法<RequiredBadge /></p>
+                      <p className="mb-2 flex items-center text-xs font-black text-slate-700">申込の受付方法<RequiredBadge /></p>
                       <div className="grid gap-2 sm:grid-cols-2">
                         <label className="rounded-xl border border-sky-200 bg-white p-3 text-sm font-bold">
                           <input type="radio" name="intakeMethod" checked={intakeMethod === 'knot'} onChange={() => setIntakeMethod('knot')} className="mr-2 accent-primary" />
-                          KNOT受付（このアプリ内で申込を受け付ける）
+                          つとむん受付（このアプリ内で申込を受け付ける）
                         </label>
                         <label className="rounded-xl border border-sky-200 bg-white p-3 text-sm font-bold">
                           <input type="radio" name="intakeMethod" checked={intakeMethod === 'external'} onChange={() => setIntakeMethod('external')} className="mr-2 accent-primary" />
@@ -458,7 +458,7 @@ export function RegistrationModal() {
                 {eventListingType === 'regular' && (
                   <>
                     <div className="sm:col-span-2">
-                      <label htmlFor="registration-schedule" className="mb-2 flex items-center text-xs font-black text-slate-500">活動頻度・日時<OptionalBadge /></label>
+                      <label htmlFor="registration-schedule" className="mb-2 flex items-center text-xs font-black text-slate-500">実施頻度・日時<OptionalBadge /></label>
                       <input id="registration-schedule" value={registration.schedule} onChange={(event) => updateRegistration('schedule', event.target.value)} placeholder="例：毎週水曜 19:00〜21:00" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-primary" />
                       <p className="mb-2 mt-3 flex items-center text-xs font-black text-slate-500">主な時間帯（複数選択可）<OptionalBadge /></p>
                       <div className="flex flex-wrap gap-2">
@@ -476,7 +476,7 @@ export function RegistrationModal() {
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="registration-fee-regular" className="mb-2 flex items-center text-xs font-black text-slate-500">月謝・会費<OptionalBadge /></label>
+                      <label htmlFor="registration-fee-regular" className="mb-2 flex items-center text-xs font-black text-slate-500">費用<OptionalBadge /></label>
                       <input id="registration-fee-regular" value={registration.fee} onChange={(event) => updateRegistration('fee', event.target.value)} placeholder="例：月額1,000円、無料など" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-primary" />
                     </div>
                   </>
@@ -496,14 +496,14 @@ export function RegistrationModal() {
                     ))}
                   </div>
                   <label className="mt-3 block text-xs font-black text-slate-500">
-                    <span className="flex items-center">詳しい対象条件・学年など<OptionalBadge /></span>
-                    <input value={audienceDetails} onChange={(event) => setAudienceDetails(event.target.value)} placeholder="例：小学3年生以上の女子、親子ペア参加限定、経験1年以上など" className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-normal outline-none focus:border-primary" />
+                    <span className="flex items-center">詳しい対象条件・年齢など<OptionalBadge /></span>
+                    <input value={audienceDetails} onChange={(event) => setAudienceDetails(event.target.value)} placeholder="例：定年後の方、親子ペア参加限定、経験1年以上など" className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-normal outline-none focus:border-primary" />
                   </label>
                 </div>
               </div>
               <div>
                 <label htmlFor="registration-venue" className="mb-2 flex items-center text-xs font-black text-slate-500">
-                  {eventListingType === 'event' ? '開催場所' : '活動場所'}
+                  {eventListingType === 'event' ? '開催場所' : '実施場所'}
                   <RequiredBadge />
                 </label>
                 <input
@@ -514,14 +514,14 @@ export function RegistrationModal() {
                     updateRegistration('venue', event.target.value)
                     clearFieldError('venue')
                   }}
-                  placeholder="例：西米良村公民館"
+                  placeholder="例：○○公民館"
                   className={`w-full rounded-xl border px-4 py-3 text-sm outline-none ${errorInputClass('venue')}`}
                   aria-invalid={Boolean(fieldErrors.venue)}
                 />
                 {fieldErrors.venue && <p className="mt-1.5 text-xs font-bold text-rose-600">{fieldErrors.venue}</p>}
               </div>
               <div>
-                <p className="mb-2 flex items-center text-xs font-black text-slate-500">参加費等の詳細<OptionalBadge /></p>
+                <p className="mb-2 flex items-center text-xs font-black text-slate-500">費用の詳細<OptionalBadge /></p>
                 <input
                   value={registration.feeDetail}
                   onChange={(event) => updateRegistration('feeDetail', event.target.value)}
@@ -539,7 +539,7 @@ export function RegistrationModal() {
                 />
               </div>
               <div>
-                <p className="mb-2 flex items-center text-xs font-black text-slate-500">活動の特徴タグ<OptionalBadge /></p>
+                <p className="mb-2 flex items-center text-xs font-black text-slate-500">ワークの特徴タグ<OptionalBadge /></p>
                 <div className="flex flex-wrap gap-2">
                   {tagOptions.map((tag) => (
                     <button
@@ -612,10 +612,10 @@ export function RegistrationModal() {
                     ))}
                   </div>
                 </div>
-                <legend className="pt-2 text-base font-black">4. 団体の公式リンク・見学窓口（公開情報）</legend>
-                <p className="-mt-2 text-xs leading-5 text-slate-500">参加を検討する方に公開される情報です。見学・体験の受付先も入力できます。</p>
+                <legend className="pt-2 text-base font-black">4. 団体会社の公式リンク・見学窓口（公開情報）</legend>
+                <p className="-mt-2 text-xs leading-5 text-slate-500">ワークを検討する方に公開される情報です。見学・体験の受付先も入力できます。</p>
                 <div>
-                  <label htmlFor="registration-website" className="mb-2 flex items-center text-xs font-black text-slate-500">団体ホームページURL<OptionalBadge /></label>
+                  <label htmlFor="registration-website" className="mb-2 flex items-center text-xs font-black text-slate-500">団体会社ホームページURL<OptionalBadge /></label>
                   <input id="registration-website" value={registration.website} onChange={(event) => updateRegistration('website', event.target.value)} placeholder="例：https://example.com" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-primary" />
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -649,13 +649,13 @@ export function RegistrationModal() {
                 <p className="mt-1 text-xs leading-5 text-slate-500">株式会社Tameniが掲載内容の確認に使用します。※この情報は一般には公開されません。ログイン中のアカウント情報が登録済みの場合は自動入力されます（未入力でも申請できます）。</p>
                 <div className="mt-3 grid gap-3 sm:grid-cols-2">
                   <label className="block text-xs font-black text-slate-500">
-                    団体名・お名前
+                    団体会社名・お名前
                     {organizationProfile.name ? (
                       <input
                         value={registration.contactName}
                         readOnly
                         disabled
-                        aria-label="団体名（自動入力・変更不可）"
+                        aria-label="団体会社名（自動入力・変更不可）"
                         className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-100 px-4 py-3 text-sm text-slate-600 outline-none"
                       />
                     ) : (
@@ -663,8 +663,8 @@ export function RegistrationModal() {
                         <input
                           value={registration.contactName}
                           onChange={(event) => updateRegistration('contactName', event.target.value)}
-                          placeholder="例：西米良神楽保存会"
-                          aria-label="団体名・お名前"
+                          placeholder="例：〇〇株式会社"
+                          aria-label="団体会社名・お名前"
                           className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-700 outline-none focus:border-primary"
                         />
                         <span className="mt-1.5 block text-[11px] font-bold leading-4 text-amber-600">マイページに未登録です。こちらに直接入力するか、マイページから登録してください。</span>
