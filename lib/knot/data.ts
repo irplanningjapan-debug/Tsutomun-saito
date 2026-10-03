@@ -75,14 +75,54 @@ export const municipalityCoordinates: Record<string, { lat: number; lng: number 
 }
 
 export const genres: Genre[] = [
-  { label: 'スポーツ', description: '体を動かす・汗をかく', icon: '⚽', color: 'bg-sky-50 text-sky-700' },
-  { label: '音楽', description: '歌う・演奏する', icon: '🎸', color: 'bg-yellow-50 text-yellow-700' },
-  { label: 'アート・創作', description: 'つくる・表現する', icon: '🎨', color: 'bg-rose-50 text-rose-700' },
-  { label: '学び・個人レッスン', description: '知る・深める', icon: '📚', color: 'bg-emerald-50 text-emerald-700' },
-  { label: 'ゲーム', description: '遊ぶ・交流する', icon: '🎮', color: 'bg-violet-50 text-violet-700' },
-  { label: 'アウトドア', description: '自然を楽しむ', icon: '🏕️', color: 'bg-orange-50 text-orange-700' },
-  { label: '地域・伝統文化', description: '神楽・太鼓・祭り・伝統芸能', icon: '🏮', color: 'bg-amber-50 text-amber-800' },
-  { label: 'キッズ・子ども', description: '幼児・小学生向け教室・サークル・体験', icon: '🧒', color: 'bg-pink-50 text-pink-700' },
+  {
+    icon: '🥬',
+    label: '農ある暮らし・収穫',
+    description: '畑仕事・収穫・特産づくり',
+    color: 'bg-emerald-50 text-emerald-800',
+  },
+  {
+    icon: '🏮',
+    label: '地域・伝統・祭り',
+    description: '神楽・祭り・まちづくり',
+    color: 'bg-amber-50 text-amber-800',
+  },
+  {
+    icon: '⛺',
+    label: '自然・アウトドア',
+    description: '山・川・キャンプ・散策',
+    color: 'bg-teal-50 text-teal-800',
+  },
+  {
+    icon: '☕',
+    label: '食・カフェ・手仕事',
+    description: '調理・郷土食・マルシェ',
+    color: 'bg-orange-50 text-orange-800',
+  },
+  {
+    icon: '🎨',
+    label: 'ものづくり・創作',
+    description: 'クラフト・アート・DIY',
+    color: 'bg-rose-50 text-rose-800',
+  },
+  {
+    icon: '💻',
+    label: 'デジタル・事務・発信',
+    description: 'PC作業・事務サポート・SNS運用',
+    color: 'bg-indigo-50 text-indigo-800',
+  },
+  {
+    icon: '⚽',
+    label: 'スポーツ・健康',
+    description: '体を動かす・クラブ指導',
+    color: 'bg-sky-50 text-sky-800',
+  },
+  {
+    icon: '🎒',
+    label: '学び・キッズ・子育て',
+    description: '教室・ワーク・世代間交流',
+    color: 'bg-pink-50 text-pink-800',
+  },
 ]
 
 export function formatEventDateBadge(raw?: string): string {
