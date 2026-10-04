@@ -345,7 +345,7 @@ export function RegistrationModal() {
                 </label>
               </div>
               <div>
-                <label htmlFor="registration-description" className="mb-2 flex items-center text-xs font-black text-slate-500">活動の説明<RequiredBadge /></label>
+                <label htmlFor="registration-description" className="mb-2 flex items-center text-xs font-black text-slate-500">体験・ワークの説明<RequiredBadge /></label>
                 <textarea
                   id="registration-description"
                   ref={descriptionRef}
