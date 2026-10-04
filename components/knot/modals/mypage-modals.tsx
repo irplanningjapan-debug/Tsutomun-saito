@@ -153,7 +153,7 @@ export function MyPageModal() {
             <div className="mb-5 rounded-2xl border border-slate-200 bg-sky-50/60 p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-xs font-black text-primary">{organizationProfile.accountKind === 'organization' ? '団体基本情報' : '会員基本情報'}</p>
+                  <p className="text-xs font-black text-primary">{organizationProfile.accountKind === 'organization' ? '団体会社基本情報' : '会員基本情報'}</p>
                   <div className="mt-1 flex flex-wrap items-center gap-2">
                     <h2 className="text-xl font-black text-slate-900">{organizationProfile.name || '未設定'}</h2>
                     {organizationProfile.memberTypes.map((type) => (
@@ -241,7 +241,7 @@ export function MyPageModal() {
               listingsSection === 'activities' ? 'bg-primary text-primary-foreground' : 'bg-slate-100 text-slate-600 hover:text-primary'
             }`}
           >
-            活動・イベント掲載管理
+            体験・ワーク掲載管理
           </button>
           <button
             type="button"
@@ -262,7 +262,7 @@ export function MyPageModal() {
           {listings.map((item) => {
             const daysUntilExpiry = getDaysUntilExpiry(item.expiresAt)
             // Uses isActivityListingExpired (which also checks eventDate/deadline) rather than
-            // just daysUntilExpiry from expiresAt alone, so 単発イベント listings are judged
+            // just daysUntilExpiry from expiresAt alone, so 単発体験・ワーク listings are judged
             // expired the moment their event/application deadline passes, not only when a
             // separately-tracked expiresAt field says so.
             const expired = isActivityListingExpired(item)
@@ -356,14 +356,14 @@ export function ProfileEditModal() {
   if (!myPageOpen || myPageTab !== 'profile') return null
 
   const isOrganization = organizationProfile.accountKind === 'organization'
-  const includesSupporterType = organizationProfile.memberTypes.includes('サポーター（指導者・ボランティア）')
+  const includesSupporterType = organizationProfile.memberTypes.includes('サポーター（ボランティア）')
 
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/50 p-4">
       <div className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs font-black text-primary">{isOrganization ? '団体基本情報' : '会員基本情報'}</p>
+            <p className="text-xs font-black text-primary">{isOrganization ? '団体会社基本情報' : '会員基本情報'}</p>
             <h2 className="mt-1 text-2xl font-black">会員情報の確認・編集</h2>
           </div>
           <button type="button" onClick={() => setMyPageTab('listings')} className="grid size-9 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
@@ -378,7 +378,7 @@ export function ProfileEditModal() {
                 onClick={() => setOrganizationProfile((current) => ({ ...current, accountKind: kind }))}
                 className={`rounded-lg py-2 text-xs font-black ${organizationProfile.accountKind === kind ? 'bg-primary text-primary-foreground' : 'bg-slate-100 text-slate-500'}`}
               >
-                {kind === 'individual' ? '個人' : '団体'}
+                {kind === 'individual' ? '個人' : '団体会社'}
               </button>
             ))}
           </div>
@@ -409,7 +409,7 @@ export function ProfileEditModal() {
             />
           </label>
           <label className="text-xs font-black text-slate-600">
-            {isOrganization ? '団体名（よみ・フリガナ）' : 'フリガナ'}
+            {isOrganization ? '団体会社名（よみ・フリガナ）' : 'フリガナ'}
             <input
               value={organizationProfile.kana}
               onChange={(event) => setOrganizationProfile((current) => ({ ...current, kana: event.target.value }))}
@@ -606,7 +606,7 @@ export function DeleteAccountModal() {
       <div role="alertdialog" aria-modal="true" onClick={(event) => event.stopPropagation()} className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
         <h2 className="text-lg font-black text-slate-900">アカウントを削除しますか？</h2>
         <p className="mt-3 text-sm leading-6 text-slate-600">
-          退会すると、ログインができなくなり、掲載中のすべての活動・イベントも非公開になります。この操作は取り消せません。
+          退会すると、ログインができなくなり、掲載中のすべての体験・ワークも非公開になります。この操作は取り消せません。
         </p>
         {deleteAccountError && <p role="alert" className="mt-3 rounded-xl bg-rose-50 px-4 py-3 text-sm font-bold text-rose-700">{deleteAccountError}</p>}
         <div className="mt-6 grid grid-cols-2 gap-3">
@@ -641,7 +641,7 @@ export function WithdrawalModal() {
       <div role="dialog" aria-modal="true" className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
         <p className="text-xs font-black text-red-600">掲載終了の確認</p>
         <h2 className="mt-2 text-xl font-black text-slate-900">「{withdrawalTarget}」の掲載を終了しますか？</h2>
-        <p className="mt-3 text-sm leading-6 text-slate-500">掲載を取���下げても、後から再公開・編集できます。</p>
+        <p className="mt-3 text-sm leading-6 text-slate-500">掲載を取り下げても、後から再公開・編集できます。</p>
         <div className="mt-6 flex gap-3">
           <button onClick={() => setWithdrawalTarget(null)} className="flex-1 rounded-xl bg-slate-100 py-3 text-sm font-black text-slate-700">キャンセル</button>
           <button
