@@ -158,7 +158,7 @@ export function RegistrationModal() {
                     <p><b>申込締切：</b>{formatDeadlineDateTime(registration.deadline) || '未入力'}</p>
                   </>
                 )}
-                {registration.website && <p><b>団体ホームページ：</b>{registration.website}</p>}
+                {registration.website && <p><b>団体企業ホームページ：</b>{registration.website}</p>}
                 {registration.instagram && <p><b>Instagram：</b>{registration.instagram}</p>}
                 {registration.line && <p><b>公式LINE：</b>{registration.line}</p>}
                 {applicationUrl && <p><b>体験・ワークの受付先URL：</b>{applicationUrl}</p>}
@@ -201,7 +201,7 @@ export function RegistrationModal() {
                 missing.venue = eventListingType === 'event' ? '開催場所を入力してください' : '活動場所を入力してください'
               }
               if (eventListingType === 'event' && !registration.eventDate.trim()) {
-                missing.eventDate = 'イベント開催日時を入力してください'
+                missing.eventDate = '開催日時を入力してください'
               }
               if (Object.keys(missing).length > 0) {
                 setFieldErrors(missing)
