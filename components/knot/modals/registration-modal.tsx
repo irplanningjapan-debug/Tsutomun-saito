@@ -71,7 +71,7 @@ export function RegistrationModal() {
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-6 py-5 sm:px-8">
           <div>
             <p className="text-xs font-black text-primary">FOR ORGANIZERS</p>
-            <h2 id="registration-title" className="mt-1 text-xl font-black">退園・ワークを掲載する</h2>
+            <h2 id="registration-title" className="mt-1 text-xl font-black">体験・ワークを掲載する</h2>
           </div>
           <button onClick={() => closeRegistration()} aria-label="フォームを閉じる" className="grid size-9 place-items-center rounded-full bg-slate-100 text-slate-600"><X size={18} /></button>
         </div>
