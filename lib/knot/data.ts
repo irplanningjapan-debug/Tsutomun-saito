@@ -1042,7 +1042,7 @@ const recruitmentBadgeLabels: Record<string, string> = {
   '参加者募集（体験・生徒・会員など）': '参加者募集',
   // Legacy label kept so activities saved before this wording change still show
   // the current badge text instead of falling back to the raw stored string.
-  '参加メンバー募���（生徒・会員・子どもなど）': '参加者募集',
+  '参加メンバー募集（生徒・会員・子どもなど）': '参加者募集',
   '指導者・講師・サポーター募集': '指導者募集',
   'ボランティア・イベントスタッフ募集': 'ボランティア募集',
   '活動場所・練習施設の提供依頼': '場所提供募集',
@@ -1124,6 +1124,5 @@ export function matchesTimeSlot(activity: Activity, slot: string): boolean {
       return text.includes('不定期') || text.includes('随時')
     default:
       return true
-  }
   }
 }
