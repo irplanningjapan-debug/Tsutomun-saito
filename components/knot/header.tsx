@@ -30,16 +30,19 @@ export function Header() {
           <button onClick={() => setSupportHubOpen(true)} className="hover:text-primary">サポート情報</button>
           <button onClick={() => openContact('その他')} className="hover:text-primary">お問い合わせ・ご依頼</button>
         </nav>
-        <div className="hidden items-center gap-3 md:flex">
-          <button onClick={() => (isLoggedIn ? setMyPageOpen(true) : openAuth())} className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-bold text-muted-foreground hover:text-primary">
-            {isLoggedIn ? (organizationProfile.name ? `マイページ（${organizationProfile.name}）` : 'マイページ') : 'ログイン'}
+        <div className="hidden shrink-0 items-center gap-2 whitespace-nowrap md:flex">
+          <button onClick={() => (isLoggedIn ? setMyPageOpen(true) : openAuth())} className="inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 sm:text-sm">
+            {isLoggedIn ? 'マイページ' : 'ログイン'}
           </button>
           {isLoggedIn && (
-            <button onClick={() => signOut()} className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-bold text-muted-foreground hover:text-primary" aria-label="ログアウト">
-              <LogOut size={14} />ログアウト
+            <button onClick={() => signOut()} className="inline-flex items-center gap-1 rounded-full px-2 py-1.5 text-xs text-muted-foreground hover:text-foreground">
+              <LogOut size={14} />
+              <span>ログアウト</span>
             </button>
           )}
-          <button onClick={openRegistration} className="rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-sm">体験・ワークを掲載する</button>
+          <button onClick={openRegistration} className="rounded-full bg-primary px-3.5 py-2 text-xs font-bold text-primary-foreground shadow-sm hover:opacity-90 sm:text-sm">
+            体験・ワークを掲載する
+          </button>
         </div>
         <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-lg p-2 md:hidden" aria-label="メニュー">
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
