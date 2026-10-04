@@ -1052,7 +1052,7 @@ export function shortRecruitmentLabel(option: string): string {
   return recruitmentBadgeLabels[option] ?? option
 }
 
-const timeSlotOptions = ['すべて', '早朝（〜9:00）', '平日・昼（9:00〜17:00）', '平日・夜（17:00〜）', '土日・祝日'] as const
+const timeSlotOptions = ['すべて', '平日', '平日午前', '平日午後', '平日夜', '土日祝日', '不定期'] as const
 export type TimeSlotOption = (typeof timeSlotOptions)[number]
 export const scheduleFilterOptions: readonly string[] = timeSlotOptions
 export const activityTimeSlotOptions: readonly string[] = timeSlotOptions.slice(1)
@@ -1110,15 +1110,20 @@ export function matchesTimeSlot(activity: Activity, slot: string): boolean {
   const dayType = detectDayType(text)
   const startHour = extractStartHour(text)
   switch (slot) {
-    case '早朝（〜9:00）':
-      return text.includes('早朝') || (startHour !== null && startHour < 9)
-    case '平日・昼（9:00〜17:00）':
-      return dayType !== 'weekend' && startHour !== null && startHour >= 9 && startHour < 17
-    case '平日・夜（17:00〜）':
-      return dayType !== 'weekend' && (text.includes('夜') || (startHour !== null && startHour >= 17))
-    case '土日・祝日':
+    case '平日':
+      return dayType !== 'weekend'
+    case '平日午前':
+      return dayType !== 'weekend' && ((startHour !== null && startHour < 12) || text.includes('午前'))
+    case '平日午後':
+      return dayType !== 'weekend' && ((startHour !== null && startHour >= 12 && startHour < 18) || text.includes('午後'))
+    case '平日夜':
+      return dayType !== 'weekend' && ((startHour !== null && startHour >= 18) || text.includes('夜'))
+    case '土日祝日':
       return dayType === 'weekend'
+    case '不定期':
+      return text.includes('不定期') || text.includes('随時')
     default:
       return true
+  }
   }
 }
