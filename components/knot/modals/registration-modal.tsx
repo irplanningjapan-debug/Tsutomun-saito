@@ -305,7 +305,7 @@ export function RegistrationModal() {
               </div>
             </fieldset>
             <fieldset className="space-y-4">
-              <legend className="text-base font-black">2. 内容</legend>
+              <legend className="text-base font-black">2. 体験・ワーク内容</legend>
               <div>
                 <p className="mb-2 flex items-center text-xs font-black text-slate-500">参考写真<OptionalBadge /></p>
                 <label className="group relative flex aspect-video w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-sky-200 bg-sky-50/60 transition hover:border-primary hover:bg-sky-50">
@@ -386,7 +386,7 @@ export function RegistrationModal() {
                           clearFieldError('eventDate')
                         }}
                         type="datetime-local"
-                        aria-label="イベント開催日時（必須）"
+                        aria-label="開催日時（必須）"
                         title="開催日と開始時間（例: 2026/10/12 10:00）"
                         className={`mt-2 w-full rounded-xl border bg-white px-4 py-3 text-sm font-normal outline-none ${errorInputClass('eventDate')}`}
                         aria-invalid={Boolean(fieldErrors.eventDate)}
@@ -406,7 +406,7 @@ export function RegistrationModal() {
                       />
                     </label>
                     <div>
-                      <label htmlFor="registration-fee-event" className="mb-2 flex items-center text-xs font-black text-slate-700">参加費<OptionalBadge /></label>
+                      <label htmlFor="registration-fee-event" className="mb-2 flex items-center text-xs font-black text-slate-700">費用・賃金等<OptionalBadge /></label>
                       <input id="registration-fee-event" value={registration.fee} onChange={(event) => updateRegistration('fee', event.target.value)} placeholder="例：無料、1家族500円" className="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
                     </div>
                     <div>
@@ -449,7 +449,7 @@ export function RegistrationModal() {
                               className="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm outline-none focus:border-primary"
                             />
                           </div>
-                          <p className="text-xs leading-5 text-slate-500 sm:col-span-2">フォームURLまたは電話番号のいずれかをご入力ください。参加者はこちらの受付先から直接申し込みます。</p>
+                          <p className="text-xs leading-5 text-slate-500 sm:col-span-2">フォームURLまたは電話番号のいずれかをご入力ください。こちらの受付先から直接申し込みます。</p>
                         </div>
                       )}
                     </div>
@@ -476,13 +476,13 @@ export function RegistrationModal() {
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="registration-fee-regular" className="mb-2 flex items-center text-xs font-black text-slate-500">費用<OptionalBadge /></label>
-                      <input id="registration-fee-regular" value={registration.fee} onChange={(event) => updateRegistration('fee', event.target.value)} placeholder="例：月額1,000円、無料など" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-primary" />
+                      <label htmlFor="registration-fee-regular" className="mb-2 flex items-center text-xs font-black text-slate-500">費用・賃金等<OptionalBadge /></label>
+                      <input id="registration-fee-regular" value={registration.fee} onChange={(event) => updateRegistration('fee', event.target.value)} placeholder="例：月額1,000円・無料・月給20万円・時給1200円など" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-primary" />
                     </div>
                   </>
                 )}
                 <div className="sm:col-span-2">
-                  <p className="mb-2 flex items-center text-xs font-black text-slate-500">参加対象・条件<OptionalBadge /></p>
+                  <p className="mb-2 flex items-center text-xs font-black text-slate-500">募集対象・条件<OptionalBadge /></p>
                   <div className="flex flex-wrap gap-2">
                     {audienceOptions.map((option) => (
                       <button
@@ -521,7 +521,7 @@ export function RegistrationModal() {
                 {fieldErrors.venue && <p className="mt-1.5 text-xs font-bold text-rose-600">{fieldErrors.venue}</p>}
               </div>
               <div>
-                <p className="mb-2 flex items-center text-xs font-black text-slate-500">費用の詳細<OptionalBadge /></p>
+                <p className="mb-2 flex items-center text-xs font-black text-slate-500">費用・賃金等の詳細<OptionalBadge /></p>
                 <input
                   value={registration.feeDetail}
                   onChange={(event) => updateRegistration('feeDetail', event.target.value)}
@@ -612,7 +612,7 @@ export function RegistrationModal() {
                     ))}
                   </div>
                 </div>
-                <legend className="pt-2 text-base font-black">4. 団体会社の公式リンク・見学窓口（公開情報）</legend>
+                <legend className="pt-2 text-base font-black">4. 団体企業の公式リンク・見学窓口（公開情報）</legend>
                 <p className="-mt-2 text-xs leading-5 text-slate-500">ワークを検討する方に公開される情報です。見学・体験の受付先も入力できます。</p>
                 <div>
                   <label htmlFor="registration-website" className="mb-2 flex items-center text-xs font-black text-slate-500">団体会社ホームページURL<OptionalBadge /></label>
@@ -629,7 +629,7 @@ export function RegistrationModal() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="registration-application-url-regular" className="mb-2 flex items-center text-xs font-black text-slate-500">見学・体験の受付先<OptionalBadge /></label>
+                  <label htmlFor="registration-application-url-regular" className="mb-2 flex items-center text-xs font-black text-slate-500">体験・ワークの受付先<OptionalBadge /></label>
                   <input
                     id="registration-application-url-regular"
                     value={applicationUrl}
@@ -649,13 +649,13 @@ export function RegistrationModal() {
                 <p className="mt-1 text-xs leading-5 text-slate-500">株式会社Tameniが掲載内容の確認に使用します。※この情報は一般には公開されません。ログイン中のアカウント情報が登録済みの場合は自動入力されます（未入力でも申請できます）。</p>
                 <div className="mt-3 grid gap-3 sm:grid-cols-2">
                   <label className="block text-xs font-black text-slate-500">
-                    団体会社名・お名前
+                    団体企業名・お名前
                     {organizationProfile.name ? (
                       <input
                         value={registration.contactName}
                         readOnly
                         disabled
-                        aria-label="団体会社名（自動入力・変更不可）"
+                        aria-label="団体企業名（自動入力・変更不可）"
                         className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-100 px-4 py-3 text-sm text-slate-600 outline-none"
                       />
                     ) : (
@@ -664,7 +664,7 @@ export function RegistrationModal() {
                           value={registration.contactName}
                           onChange={(event) => updateRegistration('contactName', event.target.value)}
                           placeholder="例：〇〇株式会社"
-                          aria-label="団体会社名・お名前"
+                          aria-label="団体企業名・お名前"
                           className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-normal text-slate-700 outline-none focus:border-primary"
                         />
                         <span className="mt-1.5 block text-[11px] font-bold leading-4 text-amber-600">マイページに未登録です。こちらに直接入力するか、マイページから登録してください。</span>
