@@ -193,7 +193,7 @@ export function MyPageModal() {
           </div>
           <button onClick={() => setMyPageOpen(false)} aria-label="マイページを閉じる" className="grid size-9 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
         </div>
-        <button onClick={() => { setMyPageOpen(false); openRegistration() }} className="mb-6 mt-6 w-full rounded-xl bg-primary py-3.5 text-sm font-black text-primary-foreground">＋ 新しい活動・イベントを掲載する</button>
+        <button onClick={() => { setMyPageOpen(false); openRegistration() }} className="mb-6 mt-6 w-full rounded-xl bg-primary py-3.5 text-sm font-black text-primary-foreground">＋ 新しい体験・ワークを掲載する</button>
         {(hasApplications || myApplicationsLoading) && (
           <div className="mb-6">
             <p className="text-xs font-black text-primary">参加予定・申込中の活動</p>
