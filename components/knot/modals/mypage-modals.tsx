@@ -153,7 +153,7 @@ export function MyPageModal() {
             <div className="mb-5 rounded-2xl border border-slate-200 bg-sky-50/60 p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-xs font-black text-primary">{organizationProfile.accountKind === 'organization' ? '団体会社基本情報' : '会員基本情報'}</p>
+                  <p className="text-xs font-black text-primary">{organizationProfile.accountKind === 'organization' ? '団体企業基本情報' : '会員基本情報'}</p>
                   <div className="mt-1 flex flex-wrap items-center gap-2">
                     <h2 className="text-xl font-black text-slate-900">{organizationProfile.name || '未設定'}</h2>
                     {organizationProfile.memberTypes.map((type) => (
@@ -196,19 +196,19 @@ export function MyPageModal() {
         <button onClick={() => { setMyPageOpen(false); openRegistration() }} className="mb-6 mt-6 w-full rounded-xl bg-primary py-3.5 text-sm font-black text-primary-foreground">＋ 新しい体験・ワークを掲載する</button>
         {(hasApplications || myApplicationsLoading) && (
           <div className="mb-6">
-            <p className="text-xs font-black text-primary">参加予定・申込中の活動</p>
+            <p className="text-xs font-black text-primary">参加予定・申込中のワーク</p>
             <div className="mt-3 space-y-3">
               {myCircleApplications.map((application) => (
                 <article key={application.id} className="rounded-2xl border border-slate-200 p-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-black text-emerald-700">定期・継続活動</span>
+                    <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-black text-emerald-700">定期・継続体験・ワーク</span>
                     <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-black text-slate-600">
                       {application.status === 'withdrawn' ? '参加終了' : '参加中'}
                     </span>
                   </div>
                   <h3 className="mt-2 font-black text-slate-900">{application.activityTitle}</h3>
                   <p className="mt-1 text-xs text-slate-500">{application.activityArea}</p>
-                  {application.groupSize && <p className="mt-1 text-xs text-slate-500">参加人数：{application.groupSize}</p>}
+                  {application.groupSize && <p className="mt-1 text-xs text-slate-500">募集人数：{application.groupSize}</p>}
                   <div className="mt-3">
                     <button
                       onClick={() => leaveCircleApplication(application)}
@@ -227,7 +227,7 @@ export function MyPageModal() {
                   </div>
                   <h3 className="mt-2 font-black text-slate-900">{application.activityTitle}</h3>
                   <p className="mt-1 text-xs text-slate-500">{application.activityArea} / {formatEventDateTime(application.activityDate)}</p>
-                  {application.groupSize && <p className="mt-1 text-xs text-slate-500">参加人数：{application.groupSize}</p>}
+                  {application.groupSize && <p className="mt-1 text-xs text-slate-500">募集人数：{application.groupSize}</p>}
                 </article>
               ))}
             </div>
@@ -363,7 +363,7 @@ export function ProfileEditModal() {
       <div className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs font-black text-primary">{isOrganization ? '団体会社基本情報' : '会員基本情報'}</p>
+            <p className="text-xs font-black text-primary">{isOrganization ? '団体企業基本情報' : '会員基本情報'}</p>
             <h2 className="mt-1 text-2xl font-black">会員情報の確認・編集</h2>
           </div>
           <button type="button" onClick={() => setMyPageTab('listings')} className="grid size-9 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
@@ -378,7 +378,7 @@ export function ProfileEditModal() {
                 onClick={() => setOrganizationProfile((current) => ({ ...current, accountKind: kind }))}
                 className={`rounded-lg py-2 text-xs font-black ${organizationProfile.accountKind === kind ? 'bg-primary text-primary-foreground' : 'bg-slate-100 text-slate-500'}`}
               >
-                {kind === 'individual' ? '個人' : '団体会社'}
+                {kind === 'individual' ? '個人' : '団体企業'}
               </button>
             ))}
           </div>
@@ -409,7 +409,7 @@ export function ProfileEditModal() {
             />
           </label>
           <label className="text-xs font-black text-slate-600">
-            {isOrganization ? '団体会社名（よみ・フリガナ）' : 'フリガナ'}
+            {isOrganization ? '団体企業名（よみ・フリガナ）' : 'フリガナ'}
             <input
               value={organizationProfile.kana}
               onChange={(event) => setOrganizationProfile((current) => ({ ...current, kana: event.target.value }))}
