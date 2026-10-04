@@ -63,7 +63,7 @@ export function ShareBoardPanel() {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm leading-6 text-slate-600">活動で使う道具や備品を、地域のみんなで貸し借り・譲り合いしませんか。</p>
+      <p className="text-sm leading-6 text-slate-600">体験・ワークで使う道具や備品を、地域のみんなで貸し借り・譲り合いしませんか。</p>
 
       <div className="flex gap-2 overflow-x-auto pb-1">
         {typeFilters.map((type) => (
