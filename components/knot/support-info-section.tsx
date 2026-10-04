@@ -4,7 +4,7 @@ import { ArrowRight, Building2, HandCoins, HandHeart, Hotel, Plus, Stethoscope, 
 import { useKnot } from '@/lib/knot/store'
 
 const categories: [string, string, string, typeof Building2][] = [
-  ['facility', '施設・練習場所', '体育館、公民館、グラウンドなど', Building2],
+  ['facility', '施設・活動場所', '体育館、公民館、グラウンドなど', Building2],
   ['catering', 'お弁当・仕出し', '合宿やイベント用の手配先', UtensilsCrossed],
   ['medical', '医療・休日当番医', 'もしもの安心', Stethoscope],
   ['grant', '助成金・支援', '活動資金や補助制度', HandCoins],
@@ -26,7 +26,7 @@ export function SupportInfoSection() {
           <p className="inline-flex rounded-full bg-sky-100 px-3.5 py-1.5 text-xs font-black tracking-wide text-primary">地域の活動をみんなで支える</p>
           <h2 className="mt-3 text-2xl font-black tracking-tight sm:text-3xl">宮崎の活動サポート便利帳</h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
-            イベントの練習場所、仕出し弁当、もしもの休日当番医、助成金まで。地域の活動に必要なリアルな情報をまとめています。あなたの知っているおすすめ情報の推薦もお待ちしています！
+            体験会場・施設、仕出し弁当、もしもの休日当番医、助成金・補助金、ワークに必要なリアルな情報をまとめています。あなたの知っているおすすめ情報の推薦もお待ちしています！
           </p>
         </div>
 
