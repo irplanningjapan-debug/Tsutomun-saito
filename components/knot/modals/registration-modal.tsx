@@ -274,7 +274,7 @@ export function RegistrationModal() {
                     updateRegistration('title', event.target.value)
                     clearFieldError('title')
                   }}
-                  placeholder={eventListingType === 'event' ? '例：親子で楽しむ神楽太鼓の1日体験会' : '例：○○神楽保存会、○○自治会'}
+                  placeholder={eventListingType === 'event' ? '例：親子で楽しむ神楽太鼓の1日体験会' : '例：神楽体験会、ゆず取り体験'}
                   className={`w-full rounded-xl border px-4 py-3 text-sm outline-none ${errorInputClass('title')}`}
                   aria-invalid={Boolean(fieldErrors.title)}
                 />
