@@ -1018,7 +1018,7 @@ export const audienceOptions = [
   '大人・一般',
   'シニア',
 ]
-export const recruitmentOptions = ['参加者募集（体験・生徒・会員など）', '指導者・講師・サポーター募集', 'ボランティア・イベントスタッフ募集', '活動場所・練習施設の提供依頼']
+export const recruitmentOptions = ['参加者募集', '正社員・スタッフ募集', 'パート・アルバイト募集', 'ボランティア・サポーター募集']
 
 // Selection order (the order a user happens to click checkboxes in) has nothing to do with
 // the canonical display order above, but audienceTags/audience get built straight from that
@@ -1039,13 +1039,15 @@ export function sortByAudienceOrder(tags: string[]): string[] {
 }
 
 const recruitmentBadgeLabels: Record<string, string> = {
+  '参加者募集': '参加者募集',
+  '正社員・スタッフ募集': '正社員・スタッフ',
+  'パート・アルバイト募集': 'パート・アルバイト',
+  'ボランティア・サポーター募集': 'ボランティア',
+  // 過去データの互換用
   '参加者募集（体験・生徒・会員など）': '参加者募集',
-  // Legacy label kept so activities saved before this wording change still show
-  // the current badge text instead of falling back to the raw stored string.
-  '参加メンバー募集（生徒・会員・子どもなど）': '参加者募集',
-  '指導者・講師・サポーター募集': '指導者募集',
-  'ボランティア・イベントスタッフ募集': 'ボランティア募集',
-  '活動場所・練習施設の提供依頼': '場所提供募集',
+  '指導者・講師・サポーター募集': 'サポーター募集',
+  'ボランティア・イベントスタッフ募集': 'ボランティア',
+  '活動場所・練習施設の提供依頼': '場所提供',
 }
 
 export function shortRecruitmentLabel(option: string): string {
