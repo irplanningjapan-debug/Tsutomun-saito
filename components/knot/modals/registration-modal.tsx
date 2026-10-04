@@ -364,12 +364,12 @@ export function RegistrationModal() {
               <div className="grid gap-3 sm:grid-cols-2">
                 {eventListingType === 'event' && (
                   <div className="grid gap-3 rounded-2xl border border-sky-200 bg-sky-50 p-4 sm:grid-cols-2">
-                    <p className="text-xs font-bold leading-5 text-sky-900 sm:col-span-2">掲載期間は体験会開催日または申込締切日までです。開催日を過ぎた体験会は、近日開催の体験会一覧から自動的に非公開または受付終了になります。</p>
+                    <p className="text-xs font-bold leading-5 text-sky-900 sm:col-span-2">掲載期間は開催日または申込締切日までです。開催日を過ぎたものは、一覧から自動的に非公開または受付終了になります。</p>
                     <div className="sm:col-span-2">
                       <p className="mb-2 flex items-center text-xs font-black text-slate-700">掲載終了タイミング<RequiredBadge /></p>
                       <div className="grid gap-2 sm:grid-cols-2">
                         <label className="rounded-xl border border-sky-200 bg-white p-3 text-sm font-bold">
-                          <input type="radio" name="eventExpiryMode" checked={eventExpiryMode === 'event'} onChange={() => setEventExpiryMode('event')} className="mr-2 accent-primary" />イベント開催当日まで掲載
+                          <input type="radio" name="eventExpiryMode" checked={eventExpiryMode === 'event'} onChange={() => setEventExpiryMode('event')} className="mr-2 accent-primary" />開催当日まで掲載
                         </label>
                         <label className="rounded-xl border border-sky-200 bg-white p-3 text-sm font-bold">
                           <input type="radio" name="eventExpiryMode" checked={eventExpiryMode === 'deadline'} onChange={() => setEventExpiryMode('deadline')} className="mr-2 accent-primary" />申込締切日まで掲載（締切が過ぎたら自動非公開）
@@ -377,7 +377,7 @@ export function RegistrationModal() {
                       </div>
                     </div>
                     <label className="block text-xs font-black text-slate-700">
-                      <span className="flex items-center">イベント開催日時<RequiredBadge /></span>
+                      <span className="flex items-center">開催日時<RequiredBadge /></span>
                       <input
                         ref={eventDateRef}
                         value={registration.eventDate}
