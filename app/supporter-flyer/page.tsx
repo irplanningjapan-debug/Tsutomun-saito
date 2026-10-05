@@ -4,8 +4,8 @@ import { HandHeart, Heart, MessageCircleHeart, Milestone, ScanLine, ShieldCheck,
 import { PrintButton } from './print-button'
 
 export const metadata: Metadata = {
-  title: 'KNOTサポーター募集案内 | KNOT（ノット）',
-  description: '地域プラットフォーム「KNOT」の相談・掲載サポート窓口「KNOTサポーター」募集のご案内チラシです。',
+  title: 'つとむんサポーター募集案内 | つとむん',
+  description: '地域ワークプラットフォーム「つとむん」の相談・掲載サポート窓口「つとむんサポーター」募集のご案内チラシです。',
 }
 
 const tasks = [
@@ -55,7 +55,7 @@ export default function SupporterFlyerPage() {
       </div>
 
       <main
-        aria-label="KNOTサポーター募集案内チラシ"
+        aria-label="つとむんサポーター募集案内チラシ"
         className="flex h-[297mm] w-[210mm] flex-col overflow-hidden bg-white text-[#12183a] shadow-xl print:h-[297mm] print:w-[210mm] print:shadow-none"
       >
         {/* ヘッダー */}
@@ -72,7 +72,7 @@ export default function SupporterFlyerPage() {
               「KNOTサポーター」<br />募集のご案内
             </h1>
             <p className="mt-2 max-w-[145mm] text-[12px] font-bold leading-6 text-white/95">
-              各市町村に1つの「結び目」を。人と人をリアルで繋ぐ公式窓口になりませんか？
+              各市町村に1つの「つとむん」を。地域ワークと人をリアルで繋ぐ公式窓口になりませんか？
             </p>
           </div>
         </header>
@@ -141,7 +141,7 @@ export default function SupporterFlyerPage() {
         <footer className="flex items-center justify-between gap-4 border-t border-slate-200 bg-slate-50 px-[14mm] py-[6mm]">
           <div>
             <p className="text-[10px] font-bold text-slate-400">企画・運営</p>
-            <p className="text-[12px] font-black text-[#12183a]">株式会社Tameni（KNOT運営事務局）</p>
+            <p className="text-[12px] font-black text-[#12183a]">株式会社Tameni（つとむん運営事務局）</p>
           </div>
           <div className="text-right">
             <p className="text-[10px] font-bold text-slate-400">お問い合わせ・お申し込み窓口</p>
