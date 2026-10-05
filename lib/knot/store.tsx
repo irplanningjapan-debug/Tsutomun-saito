@@ -151,7 +151,7 @@ const defaultParticipationForm: ParticipationForm = {
 const defaultRegistration: RegistrationDraft = {
   title: '',
   genre: ['スポーツ'],
-  area: '宮崎市',
+  area: '妻南',
   description: '',
   schedule: '',
   audience: '一般',
@@ -175,7 +175,7 @@ const defaultShareItemDraft: ShareItem = {
   type: '譲ります',
   priceType: '無償',
   title: '',
-  municipality: '宮崎市',
+  municipality: '穂北市',
   imageUrl: '',
   description: '',
   contactEmail: '',
@@ -611,7 +611,7 @@ function useKnotStore() {
         setResetError('リクエストが多すぎます。しばらく時間をおいて再度お試しください。')
         return
       }
-      setResetError('メール送信に失敗しました。時間��おいて再度お試しください。')
+      setResetError('メール送信に失敗しました。時間おいて再度お試しください。')
       return
     }
     setResetSent(true)
@@ -656,7 +656,7 @@ function useKnotStore() {
       })
       const result = await response.json().catch(() => ({}))
       if (!response.ok) {
-        setDeleteAccountError(result?.error || '退会処理に失敗しました。時間をおいて再度お試しくださ��。')
+        setDeleteAccountError(result?.error || '退会処理に失敗しました。時間をおいて再度お試しください。')
         return
       }
 
@@ -896,7 +896,7 @@ function useKnotStore() {
   }
 
   // マイページの「この内容で1年間延長する」確定ボタンから呼ばれる。掲載期限を実行日＋1年に
-  // 更新し、30日前・7日前・当日の通知フラグをすべてリセットして、次の��限に向けて再度通知
+  // 更新し、30日前・7日前・当日の通知フラグをすべてリセットして、次の掲載期限に向けて再度通知
   // できるようにする。
   const renewListing = async (item: Activity) => {
     if (!item.id) return
@@ -1188,7 +1188,7 @@ function useKnotStore() {
   const submitParticipation = async () => {
     if (!selectedParticipation) return
     if (!participationForm.applicantName.trim() || !participationForm.applicantEmail.trim()) {
-      setParticipationSendError('お名前と���ールアドレスをご入力ください。')
+      setParticipationSendError('お名前とメールアドレスをご入力ください。')
       return
     }
 
@@ -1196,7 +1196,7 @@ function useKnotStore() {
     setParticipationSubmitting(true)
 
     // 非公開化された活動への申し込みを遮断する。selectedParticipation は既に status='published'
-    // で絞り���んだ一覧から選ばれているが、モーダルを開いたままの間に退会処理などでその活動が
+    // で絞り込んだ一覧から選ばれているが、モーダルを開いたままの間に退会処理などでその活動が
     // 閉鎖（非公開化）される可能性があるため、送信直前にDBの最新状態を再確認する。activities は
     // 誰でもSELECT可能なテーブルなのでクライアントから直接検証できる。
     //
