@@ -12,11 +12,11 @@ export const regionConfig: RegionConfig = {
 
 export const officialMunicipalities = regionConfig.groups.flatMap((group) => group.places)
 export const allMunicipalities = [...officialMunicipalities, 'その他']
-// サポート情報・URL管理（便利帳）の市町村選択肢。便利帳モーダル側の絞り込み表記
-// 「県全域/オンライン」と完全に一致させるため、末尾を 'その他' ではなくこちらにする。
+// サポート情報・URL管理（便利帳）のエリア選択肢。便利帳モーダル側の絞り込み表記
+// 「市全域/オンライン」と完全に一致させるため、末尾を 'その他' ではなくこちらにする。
 // 既にDBに 'その他' として保存済みの既存データは、便利帳モーダルの絞り込み判定
-// （matchesMunicipalityFilter）側で '県全域/オンライン' と同一視する互換処理でヒットさせる。
-export const supportMunicipalityOptions = [...officialMunicipalities, '県全域/オンライン']
+// （matchesMunicipalityFilter）側で '市全域/オンライン' と同一視する互換処理でヒットさせる。
+export const supportMunicipalityOptions = [...officialMunicipalities, '市全域/オンライン']
 
 // Normalizes any birthdate value (Supabase `date` column, legacy slash-formatted string,
 // or a stray timestamp) into the strict YYYY-MM-DD shape required by <input type="date">.
@@ -56,7 +56,7 @@ export function combineBirthdateParts(year: string, month: string, day: string):
 
 export function normalizeArea(rawArea: string): string {
   if (!rawArea) return rawArea
-  if (rawArea.includes('西米良')) return '西米良村'
+  if (rawArea.includes('東米良')) return '東米良村'
   const match = officialMunicipalities.find((name) => rawArea.includes(name))
   return match ?? rawArea
 }
