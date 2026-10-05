@@ -143,8 +143,8 @@ export function SupportHubModal() {
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs font-black text-primary">CONVENIENCE LEDGER</p>
-            <h2 className="mt-1 text-2xl font-black">宮崎の活動サポート便利帳</h2>
-            <p className="mt-1 text-sm text-slate-500">活動を続けるための「困りごと」を、ジャンル別にサポートします。</p>
+            <h2 className="mt-1 text-2xl font-black">西都ワークサポート便利帳</h2>
+            <p className="mt-1 text-sm text-slate-500">地域で仕事をするための「困りごと」を、ジャンル別にサポートします。</p>
           </div>
           <button onClick={() => setSupportHubOpen(false)} aria-label="モーダルを閉じる" className="grid size-9 shrink-0 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
         </div>
@@ -202,7 +202,7 @@ export function SupportHubModal() {
               >
                 ＋ おすすめの整骨院・整体院・医療機関を推薦・掲載依頼する
               </button>
-              <p className="text-center text-xs text-slate-400">地域の活動を支える治療院・整骨院のみなさまからの掲載依頼も歓迎しています。</p>
+              <p className="text-center text-xs text-slate-400">ワークを支える治療院・整骨院のみなさまからの掲載依頼も歓迎しています。</p>
             </div>
           )}
 
@@ -287,7 +287,7 @@ export function SupportHubModal() {
 
           {supportHubTab === 'stay' && (
             <div className="space-y-4">
-              <p className="text-sm leading-6 text-slate-600">遠征や合宿、体験イベントでの滞在拠点（格安民宿・公民館宿泊・指定野営キャンプ場）。</p>
+              <p className="text-sm leading-6 text-slate-600">体験・ワークでの滞在拠点（格安民宿・公民館宿泊・指定野営キャンプ場）。</p>
               {entriesForTab.length === 0 ? (
                 <p className="rounded-xl border border-dashed border-slate-200 px-4 py-6 text-center text-sm text-slate-400">まだ登録された情報がありません。</p>
               ) : filteredEntries.length === 0 ? (
