@@ -656,7 +656,7 @@ export function WithdrawalModal() {
   )
 }
 
-// マイページの「🔄 掲載期間を更新する」から開く確認モーダル。活動内容・開催日・連絡先に
+// マイページの「🔄 掲載期間を更新する」から開く確認モーダル。内容・開催日・連絡先に
 // 変更がなければそのまま1年延長、変更がある場合はいったん編集フォームへ遷移してもらう。
 export function RenewalConfirmModal() {
   const { renewalTarget, setRenewalTarget, renewingListing, renewListing, reuseListing } = useKnot()
@@ -670,7 +670,7 @@ export function RenewalConfirmModal() {
         <p className="text-xs font-black text-primary">掲載期間の更新</p>
         <h2 className="mt-2 text-xl font-black text-slate-900">「{target.title}」を更新しますか？</h2>
         <p className="mt-3 text-sm leading-6 text-slate-600">
-          活動内容を確認し、掲載期間を1年間延長しますか？
+          内容を確認し、掲載期間を1年間延長しますか？
         </p>
         <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-500">
           変更がある場合は「内容を編集する」から先に編集・保存してください。変更がなければ「1年間延長する」を押すと、掲載期限が本日から1年後に更新され、更新通知の状態もリセットされます。
