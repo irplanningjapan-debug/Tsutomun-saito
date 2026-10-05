@@ -6,23 +6,23 @@ import { useKnot } from '@/lib/knot/store'
 import { allMunicipalities, formatDeadlineDateTime, type AdminSupportEntry, type AdminSupportGenre } from '@/lib/knot/data'
 import { ShareBoardPanel } from './share-board-modal'
 
-// 「すべて」＋県内全市町村（管理画面のサポート情報登録フォームと同じ一覧）＋広域・オンライン
+// 「すべて」＋西都市内全エリア（管理画面のサポート情報登録フォームと同じ一覧）＋広域・オンライン
 // 情報向けの選択肢。DBの `municipality` が未設定の場合は 'その他' にフォールバックしている
-// (mapDbSupportLinkToAdminSupportEntry) ため、'県全域/オンライン' の絞り込みではその両方を対象にする。
-const municipalityFilters = ['すべて', ...allMunicipalities.filter((place) => place !== 'その他'), '県全域/オンライン']
+// (mapDbSupportLinkToAdminSupportEntry) ため、'市全域/オンライン' の絞り込みではその両方を対象にする。
+const municipalityFilters = ['すべて', ...allMunicipalities.filter((place) => place !== 'その他'), '市全域/オンライン']
 
 function matchesMunicipalityFilter(entry: AdminSupportEntry, selected: string): boolean {
   if (selected === 'すべて') return true
-  if (selected === '県全域/オンライン') return entry.municipality === '県全域/オンライン' || entry.municipality === 'その他'
+  if (selected === '市全域/オンライン') return entry.municipality === '市全域/オンライン' || entry.municipality === 'その他'
   return entry.municipality === selected
 }
 
-// 選択中のジャンルには情報があるが、選んだ市町村に一致するものが無い場合の優しい案内。
+// 選択中のジャンルには情報があるが、選んだエリアに一致するものが無い場合の優しい案内。
 // ジャンルに1件も登録が無い場合は呼び出し側の既存メッセージ（まだ登録された情報がありません）を使う。
 function MunicipalityEmptyState({ selectedMunicipality }: { selectedMunicipality: string }) {
   return (
     <p className="rounded-xl border border-dashed border-sky-200 bg-sky-50/60 px-4 py-6 text-center text-sm leading-6 text-slate-500">
-      {selectedMunicipality === '県全域/オンライン' ? '県全域/オンライン' : `${selectedMunicipality}`}の情報はまだ登録されていません。おすすめの情報があればぜひ下部のボタンから推薦・掲載依頼をお願いします！
+      {selectedMunicipality === '市全域/オンライン' ? '市全域/オンライン' : `${selectedMunicipality}`}の情報はまだ登録されていません。おすすめの情報があればぜひ下部のボタンから推薦・掲載依頼をお願いします！
     </p>
   )
 }
@@ -254,7 +254,7 @@ export function SupportHubModal() {
 
           {supportHubTab === 'grant' && (
             <div className="space-y-4">
-              <p className="text-sm leading-6 text-slate-600">地域サークルや任意団体でも申請可能な宮崎県内の助成金情報。</p>
+              <p className="text-sm leading-6 text-slate-600">地域サークルや任意団体でも申請可能な助成金情報。</p>
               <button
                 onClick={() => openContact('💰 助成金・補助金情報の掲載依頼（行政・支援団体の方へ）', { fromHub: true })}
                 className="w-full rounded-full border-2 border-primary bg-white py-3 text-sm font-black text-primary hover:bg-primary/5"
