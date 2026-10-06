@@ -49,7 +49,7 @@ export function HeroSection() {
             <div className="p-5 sm:p-7">
               <div className="mb-5 flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold text-primary">ACTIVITY FINDER</p>
+                  <p className="text-xs font-bold text-primary">WORK FINDER</p>
                   <h2 className="mt-1 text-xl font-black">何をしてみたい？</h2>
                 </div>
                 <div className="grid size-10 place-items-center rounded-xl bg-amber-100 text-xl">🔎</div>
