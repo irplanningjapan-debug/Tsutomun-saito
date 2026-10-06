@@ -45,7 +45,7 @@ export const metadata: Metadata = {
       type: 'website',
     images: [
       {
-        url: '/og-image.png?v=1',
+        url: '/tsutomun_logo.png?v=2',
         width: 1200,
         height: 630,
         alt: 'つとむん 西都',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   title: 'つとむん | 西都ワークプラットフォーム',
   description:
     'つとむんは西都市内の地域活動・体験会・ワーク・イベントを探して申し込めるプラットフォームです。あなたの「やってみたい」が、ここでつながる。',
-  images: ['/og-image.png?v=1'],
+  images: ['/tsutomun_logo.png?v=2'],
 },
 }
 
