@@ -48,7 +48,7 @@ export function ContactFooterSection() {
       <footer className="border-t border-slate-200 bg-slate-50">
         <div className="mx-auto flex max-w-6xl flex-col gap-7 px-5 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div>
-           <a href="#top" className="text-xl font-black tracking-tight">さいと つとむん<span className="text-primary">.</span></a>
+           <a href="#top" className="text-xl font-black tracking-tight">西都 つとむん<span className="text-primary">.</span></a>
           <p className="mt-2 text-xs text-slate-500">あなたのやってみたいがここでつながる。</p>
           <p className="mt-3 text-xs font-bold text-slate-600">企画・運営: IRplanning</p>
           <p className="mt-1 text-xs text-slate-500">運営窓口: つとむんサポート</p>
