@@ -88,7 +88,7 @@ export function LegalModal() {
       <div role="dialog" aria-modal="true" onClick={(event) => event.stopPropagation()} className="max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-t-3xl bg-white p-6 shadow-2xl sm:rounded-3xl sm:p-8">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-black text-primary">KNOT / Tameni</p>
+            <p className="text-xs font-black text-primary">つとむん / Tameni</p>
             <h2 className="mt-1 text-2xl font-black">{legalModal === 'contact' ? '運営窓口・お問い合わせ' : legalModal === 'privacy' ? 'プライバシーポリシー' : '利用規約'}</h2>
           </div>
           <button onClick={dismiss} aria-label="モーダルを閉じる" className="grid size-9 place-items-center rounded-full bg-slate-100"><X size={18} /></button>
@@ -156,7 +156,7 @@ export function LegalModal() {
                 onChange={(event) => setMessage(event.target.value)}
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-primary"
               />
-              <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-xs font-bold leading-5 text-emerald-800">KNOTでは常に最新の情報を届けるため、期限切れ・休止中の活動を自動整理しています。</div>
+              <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-xs font-bold leading-5 text-emerald-800">つとむんでは常に最新の情報を届けるため、期限切れ・休止中のワークを自動整理しています。</div>
               <LegalConsentCheckbox checked={agreedToTerms} onChange={setAgreedToTerms} showError={showAgreementError} />
               {submitError ? <p className="text-xs font-bold text-red-600">{submitError}</p> : null}
               <button
@@ -164,16 +164,16 @@ export function LegalModal() {
                 disabled={submitting}
                 className="w-full rounded-xl bg-primary py-3.5 text-sm font-black text-primary-foreground disabled:opacity-60"
               >
-                {submitting ? '送信中…' : 'KNOT運営事務局へ送信する'}
+                {submitting ? '送信中…' : 'つとむん運営事務局へ送信する'}
               </button>
             </form>
           )
         ) : legalModal === 'privacy' ? (
           <div className="mt-6 space-y-6 text-sm leading-7 text-slate-600">
-            <p>株式会社Tameni（以下「当運営」）は、地域マッチングプラットフォーム「KNOT」（以下「本サービス」）における個人情報の取り扱いについて、以下のとおりプライバシーポリシー（個人情報保護方針）を定めます。</p>
+            <p>株式会社Tameni（以下「当運営」）は、地域ワークプラットフォーム「つとむん」（以下「本サービス」）における個人情報の取り扱いについて、以下のとおりプライバシーポリシー（個人情報保護方針）を定めます。</p>
             <div>
               <h3 className="font-black text-slate-900">第1条（個人情報の取得）</h3>
-              <p>当運営は、会員登録、活動掲載依頼、お問い合わせの受付時等において、適法かつ公正な手段によって氏名、メールアドレス、電話番号、所属団体名等の個人情報を取得します。</p>
+              <p>当運営は、会員登録、体験・ワーク掲載依頼、お問い合わせの受付時等において、適法かつ公正な手段によって氏名、メールアドレス、電話番号、所属団体名等の個人情報を取得します。</p>
             </div>
             <div>
               <h3 className="font-black text-slate-900">第2条（利用目的）</h3>
@@ -186,7 +186,7 @@ export function LegalModal() {
             </div>
             <div>
               <h3 className="font-black text-slate-900">第3条（個人情報の第三者提供）</h3>
-              <p>当運営は、法令に基づく場合を除き、ユーザーの同意を得ることなく個人情報を第三者に提供しません。ただし、マッチング成立に伴い、参加希望先団体へ連絡に必要な範囲で共有される場合があります。</p>
+              <p>当運営は、法令に基づく場合を除き、ユーザーの同意を得ることなく個人情報を第三者に提供しません。ただし、マッチング成立に伴い、参加希望先団体企業へ連絡に必要な範囲で共有される場合があります。</p>
             </div>
             <div>
               <h3 className="font-black text-slate-900">第4条（安全管理措置）</h3>
@@ -196,7 +196,7 @@ export function LegalModal() {
               <h3 className="font-black text-slate-900">第5条（お問い合わせ窓口）</h3>
               <p>個人情報の取扱いに関するお問い合わせは、本サービス内のお問い合わせフォーム、または下記窓口よりご連絡ください。</p>
               <ul className="mt-2 list-disc space-y-1 pl-5">
-                <li>運営事業者：株式会社Tameni（KNOT運営事務局）</li>
+                <li>運営事業者：株式会社Tameni（つとむん運営事務局）</li>
                 <li>連絡先：info@tamenijapan.com</li>
               </ul>
               <p className="mt-2 text-xs text-slate-400">（※システム自動送信メールアドレスへの直接の返信は受付できません）</p>
@@ -207,7 +207,7 @@ export function LegalModal() {
           <div className="mt-6 space-y-6 text-sm leading-7 text-slate-600">
             <div>
               <h3 className="font-black text-slate-900">第1条（目的・本サービスの内容）</h3>
-              <p>本規約は、株式会社Tameni（以下「当運営」）が提供する地域マッチングプラットフォーム「KNOT」（以下「本サービス」）の利用条件を定めるものです。本サービスは、宮崎県内の地域活動、体験、情報提供および参加者同士のつながりを支援することを目的としています。</p>
+              <p>本規約は、株式会社Tameni（以下「当運営」）が提供する地域ワークプラットフォーム「つとむん」（以下「本サービス」）の利用条件を定めるものです。本サービスは、西都市内の体験・ワーク等情報提供および参加者同士のつながりを支援することを目的としています。</p>
             </div>
             <div>
               <h3 className="font-black text-slate-900">第2条（ユーザーの責任とマッチング）</h3>
@@ -229,7 +229,7 @@ export function LegalModal() {
             </div>
             <div>
               <h3 className="font-black text-slate-900">第4条（掲載情報の審査・削除）</h3>
-              <p>当運営は、投稿された活動、サポート情報、商品情報等が不適切と判断した場合、事前の通知なく非表示または削除できるものとします。</p>
+              <p>当運営は、投稿された体験・ワーク等情報、商品情報等が不適切と判断した場合、事前の通知なく非表示または削除できるものとします。</p>
             </div>
             <div>
               <h3 className="font-black text-slate-900">第5条（サービスの変更・中断・免責）</h3>
@@ -243,7 +243,7 @@ export function LegalModal() {
               <h3 className="font-black text-slate-900">第7条（お問い合わせ窓口）</h3>
               <p>本規約に関するお問い合わせは、本サービス内のお問い合わせフォーム、または下記窓口までご連絡ください。</p>
               <ul className="mt-2 list-disc space-y-1 pl-5">
-                <li>運営事業者：株式会社Tameni（KNOT運営事務局）</li>
+                <li>運営事業者：株式会社Tameni（つとむん運営事務局）</li>
                 <li>連絡先：info@tamenijapan.com</li>
               </ul>
               <p className="mt-2 text-xs text-slate-400">（※システム自動送信メールアドレスへの直接の返信は受付できません）</p>
