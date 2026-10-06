@@ -54,8 +54,8 @@ export function ContactFooterSection() {
           <p className="mt-1 text-xs text-slate-500">運営窓口: つとむんサポート</p>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-slate-500">
-            <a href="#activities" className="hover:text-primary">活動を探す</a>
-            <a href="#recruit" className="hover:text-primary">活動・イベントを掲載する</a>
+            <a href="#activities" className="hover:text-primary">体験・ワークを探す</a>
+            <a href="#recruit" className="hover:text-primary">体験・ワークを掲載する</a>
             <a href="#how" className="hover:text-primary">つとむんについて</a>
             <button onClick={() => setSupportHubOpen(true)} className="hover:text-primary">サポート情報</button>
             <button onClick={() => { setContactSent(false); setLegalModal('contact') }} className="hover:text-primary">運営窓口・お問い合わせ</button>
