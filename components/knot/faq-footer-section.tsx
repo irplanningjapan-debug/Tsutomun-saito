@@ -38,7 +38,7 @@ export function ContactFooterSection() {
           <div>
             <p className="text-xs font-black tracking-wide text-primary">OPERATOR CONTACT</p>
             <h2 className="mt-1 text-lg font-black text-slate-900">つとむん運営窓口</h2>
-          <p className="mt-1 text-sm text-slate-600">企画・運営: IRplanning</p>
+          <p className="mt-1 text-sm text-slate-600">企画・運営: Tameni</p>
           </div>
           <button onClick={() => { setContactSent(false); setLegalModal('contact') }} className="text-left text-sm font-bold text-slate-600 hover:text-primary">
             掲載内容やサービスに関するお問い合わせは、運営窓口までご連絡ください。
