@@ -24,7 +24,7 @@ export function HeroSection() {
           </div>
 
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3.5 py-2 text-xs font-bold text-primary shadow-sm">
-            <Sparkles size={14} /> 西都市から、好きなことを。
+            <Sparkles size={14} /> 西都の魅力を体験・西都でワークする
           </div>
           <h1 className="max-w-xl text-balance text-4xl font-black leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             あなたの<span className="text-primary">「やってみたい」</span>が、<br />ここでつながる。
@@ -44,7 +44,7 @@ export function HeroSection() {
             <div className="relative h-36">
               <Image src="/SHIROMIKAGURA.jpg" alt="地域の暮らしを楽しむ人々" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-              <p className="absolute bottom-4 left-5 text-sm font-black text-white">地域の「好き」が見つかる</p>
+              <p className="absolute bottom-4 left-5 text-sm font-black text-white">地域の「魅力」が見つかる</p>
             </div>
             <div className="p-5 sm:p-7">
               <div className="mb-5 flex items-center justify-between">
