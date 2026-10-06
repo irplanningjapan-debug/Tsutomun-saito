@@ -294,7 +294,7 @@ export const faqs: [string, string][] = [
 
 export const contactGenres = [
   '📌 サポート情報の推薦/掲載',
-  '🏟️ 施設・練習場所の推薦/掲載',
+  '🏟️ 施設・活動場所の推薦/掲載',
   '🍱 お弁当・仕出しの推薦/掲載',
   '🏡 宿泊・滞在の推薦/掲載',
   '💰 助成金・補助金情報の掲載依頼（行政・支援団体の方へ）',
@@ -728,7 +728,7 @@ export function mapDbProfileToOrganizationProfile(row: DbProfileRow): Organizati
   }
 }
 
-export type AdminSupportGenre = '医療・休日当番医' | '施設・練習場所' | '仕出し・お弁当' | '補助金・助成金' | '宿泊・滞在・キャンプ'
+export type AdminSupportGenre = '医療・休日当番医' | '施設・活動場所' | '仕出し・お弁当' | '補助金・助成金' | '宿泊・滞在・キャンプ'
 
 export type AdminSupportEntry = {
   id?: string
@@ -914,8 +914,8 @@ export function mapDbInquiryToAdminInquiry(row: DbInquiryRow): AdminInquiry {
 }
 
 export const adminInquiries: AdminInquiry[] = [
-  { receivedAt: '2026-08-30 10:12', name: '山田 太郎', genre: '🏟 施設・練習場所の推薦/掲載', message: '西都市内で使える体育館を紹介したいです。市の総合体育館が空き時間に一般開放されているので、KNOTのサポート情報に掲載してもらえると助かります。予約方法や利用料金も分かればぜひ教えてください。', status: '未対応', email: 'yamada.taro@example.com', phone: '090-1234-5678' },
-  { receivedAt: '2026-08-29 16:40', name: '株式会社ひなた物産', genre: '🏢 企���協賛・パートナー相談', message: '地域スポーツクラブへの協賛を検討しています。弊社は宮崎市内で食品加工業を営んでおり、地域の子どもたちの活動を支援したいと考えています。協賛の枠組みや掲載条件について詳しくお伺いできますでしょうか。', status: '対応中', email: 'kikaku@hinata-bussan.example.com', phone: '0985-22-3344' },
+  { receivedAt: '2026-08-30 10:12', name: '山田 太郎', genre: '🏟 施設・活動場所の推薦/掲載', message: '西都市内で使える体育館を紹介したいです。市の総合体育館が空き時間に一般開放されているので、KNOTのサポート情報に掲載してもらえると助かります。予約方法や利用料金も分かればぜひ教えてください。', status: '未対応', email: 'yamada.taro@example.com', phone: '090-1234-5678' },
+  { receivedAt: '2026-08-29 16:40', name: '株式会社ひなた物産', genre: '🏢 企業協賛・パートナー相談', message: '地域スポーツクラブへの協賛を検討しています。弊社は宮崎市内で食品加工業を営んでおり、地域の子どもたちの活動を支援したいと考えています。協賛の枠組みや掲載条件について詳しくお伺いできますでしょうか。', status: '対応中', email: 'kikaku@hinata-bussan.example.com', phone: '0985-22-3344' },
   { receivedAt: '2026-08-28 09:05', name: '鈴木 美咲', genre: '🍱 お弁当・仕出しの推薦/掲載', message: 'おすすめの弁当店があります。掲載できますか？西都市内で子ども向けの行事用弁当を専門に作っているお店で、アレルギー対応もしてくれるのでおすすめです。', status: '完了', email: 'misaki.suzuki@example.com', phone: '090-9876-5432' },
   { receivedAt: '2026-08-25 13:22', name: '西米良村 観光協会', genre: '🏡 宿泊・滞在の推薦/掲載', message: '村内の民泊施設を紹介したいです。合宿や遠征で村を訪れる団体向けに、格安で泊まれる古民家民泊が数軒あります。掲載用の��真や連絡先はこちらで用意できます。', status: '未対応', email: 'kanko@nishimera-kanko.example.jp', phone: '0983-00-5566' },
   { receivedAt: '2026-08-20 11:47', name: '高橋 直人', genre: '💡 アプリ改善・もっとこうしてほしい！', message: '検索結果をエリアごとに絞り込みたいです。現在はジャンルでの絞り込みのみですが、市町村単位で結果を並べ替えたり、地図上で見られるようになると使いやすくなると思います。', status: '完了', email: 'naoto.takahashi@example.com' },
@@ -1047,7 +1047,7 @@ const recruitmentBadgeLabels: Record<string, string> = {
   '参加者募集（体験・生徒・会員など）': '参加者募集',
   '指導者・講師・サポーター募集': 'サポーター募集',
   'ボランティア・イベントスタッフ募集': 'ボランティア',
-  '活動場所・練習施設の提供依頼': '場所提供',
+  '活動場所・施設の提供依頼': '場所提供',
 }
 
 export function shortRecruitmentLabel(option: string): string {
