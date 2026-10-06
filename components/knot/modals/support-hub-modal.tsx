@@ -29,7 +29,7 @@ function MunicipalityEmptyState({ selectedMunicipality }: { selectedMunicipality
 
 const tabs = [
   { id: 'medical', emoji: '🏥', label: '医療・休日当番医・ケア' },
-  { id: 'facility', emoji: '🏟', label: '施設・練習場所' },
+  { id: 'facility', emoji: '🏟', label: '施設・活動場所' },
   { id: 'catering', emoji: '🍱', label: '仕出し・お弁当' },
   { id: 'grant', emoji: '💰', label: '補助金・助成金' },
   { id: 'stay', emoji: '🏡', label: '宿泊・滞在・キャンプ' },
@@ -42,7 +42,7 @@ const tabs = [
 // (it renders ShareBoardPanel instead), so it's typed as undefined there.
 const genreByTab: Record<(typeof tabs)[number]['id'], AdminSupportGenre | undefined> = {
   medical: '医療・休日当番医',
-  facility: '施設・練習場所',
+  facility: '施設・活動場所',
   catering: '仕出し・お弁当',
   grant: '補助金・助成金',
   stay: '宿泊・滞在・キャンプ',
@@ -220,8 +220,8 @@ export function SupportHubModal() {
                   ))}
                 </div>
               )}
-              <button onClick={() => openContact('🏟️ 施設・練習場所の推薦/掲載', { fromHub: true })} className="w-full rounded-full bg-primary py-3 text-sm font-black text-primary-foreground">
-                施設・練習場所の推薦・掲載依頼
+              <button onClick={() => openContact('🏟️ 施設・活動場所の推薦/掲載', { fromHub: true })} className="w-full rounded-full bg-primary py-3 text-sm font-black text-primary-foreground">
+                施設・活動場所の推薦・掲載依頼
               </button>
             </div>
           )}
