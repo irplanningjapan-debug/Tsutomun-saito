@@ -8,7 +8,7 @@ import type { Activity } from '@/lib/knot/types'
 import { NoImagePlaceholder } from '../no-image-placeholder'
 import { ShareMenu } from '../share-menu'
 
-// 「主催・運営団体」欄：団体名・ロゴ・紹介文を表示する。団体名が未登録の場合は表示しない。
+// 「主催・運営団体企業」欄：団体企業名・ロゴ・紹介文を表示する。団体企業名が未登録の場合は表示しない。
 function OrganizerSection({ activity }: { activity: Activity }) {
   if (!activity.organizerOrgName) return null
   return (
@@ -21,7 +21,7 @@ function OrganizerSection({ activity }: { activity: Activity }) {
         )}
       </div>
       <div>
-        <p className="text-xs font-black text-slate-400">主催・運営団体</p>
+        <p className="text-xs font-black text-slate-400">主催・運営団体企業</p>
         <p className="mt-1 text-sm font-black text-slate-800">{activity.organizerOrgName}</p>
         {activity.organizerBio && <p className="mt-1.5 text-xs leading-5 text-slate-500">{activity.organizerBio}</p>}
       </div>
