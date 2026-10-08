@@ -6,7 +6,8 @@ import { useKnot } from '@/lib/knot/store'
 import { formatEventDateTime, genres, memberTypeOptions, volunteerIntentOptions } from '@/lib/knot/data'
 import { BirthdateSelect } from '@/components/knot/modals/birthdate-select'
 import { LegalConsentCheckbox } from '@/components/knot/modals/legal-consent-checkbox'
-
+import { LegalConsentCheckbox } from '@/components/knot/modals/legal-consent-checkbox'
+import { createClient } from '@/lib/supabase/client'
 function toggleInArray(list: string[], value: string): string[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value]
 }
@@ -53,7 +54,22 @@ export function AuthModal() {
     setAuthView('form')
     setViewMode('home')
   }
-
+const signInWithGoogle = async () => {
+    try {
+      const supabase = createClient()
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+        },
+      })
+      if (error) {
+        alert('Googleログインエラー: ' + error.message)
+      }
+    } catch (err: any) {
+      alert('エラーが発生しました: ' + (err?.message || err))
+    }
+  }
   if (authView === 'emailConfirmPending') {
     return (
       <div className="fixed inset-0 z-[80] flex items-end justify-center bg-slate-950/50 p-0 sm:items-center sm:p-5">
@@ -110,9 +126,9 @@ export function AuthModal() {
               <button onClick={() => switchMode('google')} className={`rounded-lg px-2 py-2 ${authMode === 'google' ? 'bg-white text-primary shadow-sm' : 'text-slate-500'}`}>Google</button>
             </div>
             {authMode === 'google' ? (
-              <button onClick={completeLogin} className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 py-3.5 text-sm font-black text-slate-700">
-                <LogIn size={17} />Googleでログイン
-              </button>
+              <button onClick={signInWithGoogle} className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">
+  <LogIn size={17} />Googleでログイン
+</button>
             ) : (
               <form
                 onSubmit={(event) => {
