@@ -104,10 +104,20 @@ export function MapSection() {
               </article>
             ))}
             {!selectedPoint && (
-              <div className="rounded-2xl border border-dashed border-slate-300 bg-white/70 p-8 text-center text-sm font-bold leading-6 text-slate-500">
-                地図上のピン、またはエリアタグを選ぶと<br />体験・ワークカードがここに表示されます。
+            <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-sky-200 bg-white/80 p-8 text-center">
+              <img
+                src="/tsutomun-map.png"
+                alt="マップ探検つとむん"
+                className="w-28 sm:w-32 h-auto object-contain"
+              />
+              <div>
+                <p className="text-sm font-bold text-slate-700">西都市のワークを探してみよう！</p>
+                <p className="mt-1 text-xs font-medium text-slate-400">
+                  地図上のピン、またはエリアタグを選ぶと<br className="sm:hidden" />ここに体験・ワークが表示されます
+                </p>
               </div>
-            )}
+            </div>
+          )}
           </div>
         </div>
       </div>
