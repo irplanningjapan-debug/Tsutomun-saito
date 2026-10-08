@@ -59,10 +59,18 @@ export function BulletinBoardSection() {
             ))}
           </div>
         ) : posts.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-sky-200 bg-sky-50/40 p-8 text-center text-sm font-bold text-slate-400">
-            現在、掲示板のお知らせはありません
-          </div>
-        ) : (
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 rounded-2xl border border-dashed border-sky-200 bg-sky-50/40 p-6 text-center sm:text-left">
+      <img
+        src="/tsutomun-keijiban.png"
+        alt="つとむん掲示板"
+        className="w-32 h-auto object-contain drop-shadow-sm"
+      />
+      <div>
+        <p className="font-bold text-slate-700">ただいま新しいお知らせを準備中！</p>
+        <p className="text-xs text-slate-400 mt-1">西都市の最新情報やワークの案内がここに届きます</p>
+      </div>
+    </div>
+  ) : (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {posts.slice(0, 6).map((post, index) => (
               <article
