@@ -22,7 +22,12 @@ export function SupportInfoSection() {
   return (
     <section id="support-info" className="border-b border-sky-100 bg-sky-50/60">
       <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-20">
-        <div className="text-center">
+        <div className="flex flex-col items-center justify-center text-center">
+          <img
+            src="/tsutomun-benricho.png"
+            alt="西都ワークサポート便利帳 つとむん"
+            className="w-28 sm:w-32 h-auto object-contain drop-shadow-sm mb-3"
+          />
           <p className="inline-flex rounded-full bg-sky-100 px-3.5 py-1.5 text-xs font-black tracking-wide text-primary">地域のワークをみんなで支える</p>
           <h2 className="mt-3 text-2xl font-black tracking-tight sm:text-3xl">西都ワークサポート便利帳</h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
