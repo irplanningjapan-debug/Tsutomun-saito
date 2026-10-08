@@ -6,7 +6,6 @@ import { useKnot } from '@/lib/knot/store'
 import { formatEventDateTime, genres, memberTypeOptions, volunteerIntentOptions } from '@/lib/knot/data'
 import { BirthdateSelect } from '@/components/knot/modals/birthdate-select'
 import { LegalConsentCheckbox } from '@/components/knot/modals/legal-consent-checkbox'
-import { LegalConsentCheckbox } from '@/components/knot/modals/legal-consent-checkbox'
 import { createClient } from '@/lib/supabase/client'
 function toggleInArray(list: string[], value: string): string[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value]
