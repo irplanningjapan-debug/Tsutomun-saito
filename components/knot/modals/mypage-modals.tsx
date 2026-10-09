@@ -306,7 +306,7 @@ export function MyPageModal() {
                   {item.listingType !== 'event' && (
                     <button
                       onClick={() => setRenewalTarget(item)}
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-black text-primary-foreground hover:opacity-90"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#00552e] px-3 py-2 text-xs font-black text-primary-foreground hover:opacity-90"
                     >
                       <RefreshCw size={13} />🔄 掲載期間を更新する
                     </button>
@@ -318,8 +318,8 @@ export function MyPageModal() {
                   </div>
                 )}
                 {isKnotEvent && (
-                  <div className="mt-3 flex flex-col gap-3 rounded-lg border border-sky-100 bg-sky-50 p-2.5 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs font-black text-sky-800"><span className="mr-2 inline-block rounded-full bg-sky-600 px-2 py-1 text-white">KNOT受付中</span>{applicants}組申込 / 残り{remaining}組</p>
+                  <div className="mt-3 flex flex-col gap-3 rounded-lg border border-emerald-100 bg-emerald-50/60 p-2.5 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-xs font-black text-sky-800"><span className="mr-2 inline-block rounded-full bg-[#00552e] px-2 py-1 text-white">KNOT受付中</span>{applicants}組申込 / 残り{remaining}組</p>
                   </div>
                 )}
                 {expired && (
