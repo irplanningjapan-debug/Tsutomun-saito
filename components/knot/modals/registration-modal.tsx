@@ -154,8 +154,7 @@ export function RegistrationModal() {
                 {eventListingType === 'event' && (
                   <>
                     <p><b>開催日時：</b>{formatEventDateTime(registration.eventDate) || '未入力'}</p>
-                    <p><b>募集定員:</b>{registration.capacity ? `${registration.capacity}${(registration as any).capacityUnit || '人'}` : '未入力'}</p>
-                    <p><b>申込締切：</b>{formatDeadlineDateTime(registration.deadline) || '未入力'}</p>
+                    <p><b>募集定員:</b>{registration.capacity || '未入力'}</p>
                   </>
                 )}
                 {registration.website && <p><b>団体企業ホームページ：</b>{registration.website}</p>}
