@@ -538,7 +538,7 @@ export function ParticipationModal() {
                 className="mt-3 w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-primary"
               />
             </div>
-            <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-xs font-bold leading-5 text-emerald-800">KNOTでは常に最新の情報を届けるため、期限切れ・休止中の活動を自動整理しています。</div>
+            <div className="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-xs font-bold leading-5 text-emerald-800">つとむんでは常に最新の情報を届けるため、期限切れ・休止中の活動を自動整理しています。</div>
             <LegalConsentCheckbox checked={agreedToTerms} onChange={setAgreedToTerms} showError={showAgreementError} />
             <button
               type="submit"
