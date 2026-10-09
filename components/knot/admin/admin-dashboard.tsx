@@ -3416,7 +3416,14 @@ function ActivityListingsTab() {
                   <Badge className="bg-slate-100 text-slate-600">{listing.area ?? '—'}</Badge>
                 </td>
                 <td className="whitespace-normal px-4 py-3 text-center align-top text-slate-500">{listing.genre ?? '—'}</td>
-                <td className="whitespace-normal px-4 py-3 text-center align-top text-xs font-bold leading-snug text-slate-500">{listing.applicationSummary ?? '—'}</td>
+                <td className="whitespace-normal px-4 py-3 text-center align-top text-xs font-bold leading-snug text-slate-500">
+                  {(() => {
+                    const unit = (listing as any).capacity_unit || (listing as any).capacityUnit || '人';
+                    const cap = listing.capacity ? `${listing.capacity}${unit}` : '定員未定';
+                    const applicants = (listing as any).applicantsCount ?? (listing as any).applicants ?? 0;
+                    return `${applicants}${unit} /${cap}`;
+                  })()}
+                </td>
                 <td className="whitespace-normal px-4 py-3 text-center align-top" onClick={(event) => event.stopPropagation()}>
                   <select
                     value={getEffectivePublishStatus(listing)}
