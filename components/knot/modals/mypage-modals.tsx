@@ -319,7 +319,7 @@ export function MyPageModal() {
                 )}
                 {isKnotEvent && (
                   <div className="mt-3 flex flex-col gap-3 rounded-lg border border-emerald-100 bg-emerald-50/60 p-2.5 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs font-black text-sky-800"><span className="mr-2 inline-block rounded-full bg-[#00552e] px-2 py-1 text-white">KNOT受付中</span>{applicants}組申込 / 残り{remaining}組</p>
+                    <p className="text-xs font-black text-sky-800"><span className="mr-2 inline-block rounded-full bg-[#00552e] px-2 py-1 text-white">つとむん受付中</span>{applicants}組申込 / 残り{remaining}組</p>
                   </div>
                 )}
                 {expired && (
