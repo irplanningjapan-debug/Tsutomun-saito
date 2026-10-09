@@ -97,7 +97,14 @@ export function ActivityCard({ activity }: { activity: Activity }) {
               <span className="mr-2 inline-block rounded-full bg-primary px-2 py-1 text-white">
                 {activity.intakeMethod === 'external' ? '外部フォーム受付中' : 'つとむん募集中'}
               </span>
-              申込 {applicantCounts[activity.title] ?? 0}{(activity as any).capacity_unit || (activity as any).capacityUnit || '組'} / 定員 {activity.capacity ? `${activity.capacity}${(activity as any).capacity_unit || (activity as any).capacityUnit || '組'}` : '未定'}
+              {(() => {
+  const unit = (activity as any).capacity_unit || (activity as any).capacityUnit || '人';
+  return (
+    <>
+      申込 {applicantCounts[activity.title] ?? 0}{unit} / 定員 {activity.capacity ? `${activity.capacity}${unit}` : '未定'}
+    </>
+  );
+})()}
             </span>
           </div>
         )}
