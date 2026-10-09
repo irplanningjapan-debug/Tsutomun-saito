@@ -301,7 +301,7 @@ export function MyPageModal() {
                     <Trash2 size={13} />削除
                   </button>
                   {isKnotEvent && (
-                    <button onClick={() => setApplicantListActivity(item)} className="rounded-lg bg-sky-600 px-3 py-2 text-xs font-black text-white hover:bg-sky-700">申込者一覧（{applicants}組）を確認</button>
+                    >申込者一覧 ({applicants}{(item as any).capacity_unit || (item as any).capacityUnit || '組'}) を確認</button>
                   )}
                   {item.listingType !== 'event' && (
                     <button
@@ -319,7 +319,7 @@ export function MyPageModal() {
                 )}
                 {isKnotEvent && (
                   <div className="mt-3 flex flex-col gap-3 rounded-lg border border-emerald-100 bg-emerald-50/60 p-2.5 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs font-black text-sky-800"><span className="mr-2 inline-block rounded-full bg-[#00552e] px-2 py-1 text-white">つとむん受付中</span>{applicants}組申込 / 残り{remaining}組</p>
+                    {applicants}{(item as any).capacity_unit || (item as any).capacityUnit || '組'}申込 / 残り{remaining}{(item as any).capacity_unit || (item as any).capacityUnit || '組'}
                   </div>
                 )}
                 {expired && (
