@@ -134,7 +134,7 @@ export function RegistrationModal() {
                 )}
                 <div className="mt-3 flex flex-wrap gap-2 text-xs font-black">
                   <span className="rounded-full bg-sky-50 px-2.5 py-1 text-primary">参加費 {registration.fee || '未入力'}</span>
-                  {eventListingType === 'event' && <span className="rounded-full bg-slate-100 px-2.5 py-1 text-slate-700">定員 {registration.capacity || '未定'}</span>}
+                  {eventListingType === 'event' && <span className="rounded-full bg-slate-100 px-2.5 py-1 text-slate-700">定員 {registration.capacity ? `${registration.capacity}${(registration as any).capacityUnit || '人'}` : '未設定'}</span>}
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ export function RegistrationModal() {
                 {eventListingType === 'event' && (
                   <>
                     <p><b>開催日時：</b>{formatEventDateTime(registration.eventDate) || '未入力'}</p>
-                    <p><b>募集定員：</b>{registration.capacity || '未入力'}</p>
+                    <p><b>募集定員:</b>{registration.capacity ? `${registration.capacity}${(registration as any).capacityUnit || '人'}` : '未入力'}</p>
                     <p><b>申込締切：</b>{formatDeadlineDateTime(registration.deadline) || '未入力'}</p>
                   </>
                 )}
@@ -410,9 +410,30 @@ export function RegistrationModal() {
                       <input id="registration-fee-event" value={registration.fee} onChange={(event) => updateRegistration('fee', event.target.value)} placeholder="例：無料、1家族500円" className="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
                     </div>
                     <div>
-                      <label htmlFor="registration-capacity" className="mb-2 flex items-center text-xs font-black text-slate-700">募集定員<OptionalBadge /></label>
-                      <input id="registration-capacity" value={registration.capacity} onChange={(event) => updateRegistration('capacity', event.target.value)} placeholder="例：先着10組、定員なし" className="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm outline-none focus:border-primary" />
-                    </div>
+                  <label htmlFor="registration-capacity" className="mb-2 flex items-center justify-between text-xs font-black text-slate-700">
+                    <span>募集定員<OptionalBadge /></span>
+                    <span className="text-[11px] font-normal text-slate-500">※数字のみ入力</span>
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      id="registration-capacity"
+                      type="number"
+                      min="1"
+                      value={registration.capacity}
+                      onChange={(event) => updateRegistration('capacity', event.target.value)}
+                      placeholder="例: 20"
+                      className="w-full rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm font-normal outline-none focus:border-primary"
+                    />
+                    <select
+                      value={(registration as any).capacityUnit || '人'}
+                      onChange={(event) => updateRegistration('capacityUnit' as any, event.target.value)}
+                      className="shrink-0 rounded-xl border border-sky-200 bg-white px-4 py-3 text-sm font-bold text-slate-700 outline-none focus:border-primary cursor-pointer"
+                    >
+                      <option value="人">人</option>
+                      <option value="組">組</option>
+                    </select>
+                  </div>
+                </div>
                     <div className="sm:col-span-2">
                       <p className="mb-2 flex items-center text-xs font-black text-slate-700">申込の受付方法<RequiredBadge /></p>
                       <div className="grid gap-2 sm:grid-cols-2">
