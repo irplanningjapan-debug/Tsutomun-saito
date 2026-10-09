@@ -240,7 +240,7 @@ function downloadXlsx(filename: string, sheetName: string, header: string[], row
 
 function downloadMembersXlsx(members: AdminMember[]) {
   const header = [
-    'お名前/団体名', 'フリガナ', 'メールアドレス', '会員種別', '個人/団体', '生��月日', '性別', '登録日', 'ステータス',
+    'お名前/団体名', 'フリガナ', 'メールアドレス', '会員種別', '個人/団体', '生年月日', '性別', '登録日', 'ステータス',
     '住所', '��表者電話', '担当者名', '担当者電話', '担当者メール', '公式HP', 'SNSリンク', 'ボランティア意向', '関心ジャンル',
   ]
   const rows = members.map((member) => [
@@ -542,7 +542,7 @@ function MembersTab() {
     // it's never a silent side effect.
     const confirmMessage =
       member.role === 'admin'
-        ? `「${member.name}」を削除しますか？この会員は管理者権限も持っています。削除すると会員データと管理者権限の両方が完全に��除され、取り消せません。`
+        ? `「${member.name}」を削除しますか？この会員は管理者権限も持っています。削除すると会員データと管理者権限の両方が完全に削除され、取り消せません。`
         : `「${member.name}」を削除しますか？この操作は取り消せません。`
     if (!window.confirm(confirmMessage)) return
     if (member.id) {
@@ -1319,7 +1319,7 @@ function ShopManagementTab() {
       .upsert({ key: shopGuideUrlSettingKey, value: { url: guideUrl } })
     setIsSavingGuideUrl(false)
     if (error) {
-      toast.error('公式SHOPリ��������の保存に失敗しました���')
+      toast.error('公式SHOPリンクの保存に失敗しました')
     } else {
       toast.success('公式SHOPリンクを保存しました。')
     }
@@ -2243,7 +2243,7 @@ function BulletinBoardManagementTab() {
             <Loader2 size={16} className="animate-spin" />読み込み中...
           </div>
         ) : sortedPosts.length === 0 ? (
-          <p className="mt-6 py-8 text-center text-sm font-bold text-slate-400">まだお知らせがありま��ん。</p>
+          <p className="mt-6 py-8 text-center text-sm font-bold text-slate-400">まだお知らせがありません。</p>
         ) : (
           <div className="mt-4 space-y-3">
             {sortedPosts.map((post, index) => (
@@ -3052,7 +3052,7 @@ function ActivityPublicPreviewModal({ listing, onClose }: { listing: AdminActivi
       <div role="dialog" aria-modal="true" aria-labelledby="preview-dialog-title" onClick={(event) => event.stopPropagation()} className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-white shadow-2xl sm:rounded-3xl">
         <div className="sticky top-0 z-10 flex items-center justify-center gap-2 border-b border-amber-200 bg-amber-50 px-4 py-2.5 text-xs font-black text-amber-800">
           <Eye size={14} />
-          👀 管理者プレビュー表示中（一般公開時の��え方）
+          👀 管理者プレビュー表示中（一般公開時の見え方）
         </div>
         <div className="relative h-52 sm:h-64">
           {listing.image ? (
@@ -3232,7 +3232,7 @@ function ActivityListingsTab() {
       const supabase = createClient()
       const { error } = await supabase.from('activities').update({ status: publishStatusToDb(publishStatus) }).eq('id', listing.id)
       if (error) {
-        toast.error('更新に失敗しました。時間をおいて再度お試しく��さい。')
+        toast.error('更新に失敗しました。時間をおいて再度お試しください。')
         return
       }
     }
@@ -3292,7 +3292,7 @@ function ActivityListingsTab() {
         toast.error(result?.error || '更新案内メールの再送に失敗しました。')
         return
       }
-      toast.success('更新案内メールを���送しました')
+      toast.success('更新案内メールを再送しました')
     } catch (error) {
       console.error('[v0] Failed to resend activity expiry email:', error)
       toast.error('更新案内メールの再送に失敗しました。')
