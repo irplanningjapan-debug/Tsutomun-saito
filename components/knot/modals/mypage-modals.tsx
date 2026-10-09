@@ -301,8 +301,8 @@ export function MyPageModal() {
                     <Trash2 size={13} />削除
                   </button>
                   {isKnotEvent && (
-                    >申込者一覧 ({applicants}{(item as any).capacity_unit || (item as any).capacityUnit || '組'}) を確認</button>
-                  )}
+                      <button onClick={() => onOpenApplicantListActivity(item)} className="rounded-lg bg-sky-600 px-3 py-2 text-xs font-black text-white hover:bg-sky-700">申込者一覧 ({applicants}{(item as any).capacity_unit || (item as any).capacityUnit || '組'}) を確認</button>
+                    )}
                   {item.listingType !== 'event' && (
                     <button
                       onClick={() => setRenewalTarget(item)}
