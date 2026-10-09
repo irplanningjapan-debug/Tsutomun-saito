@@ -303,7 +303,7 @@ export function EventDetailModal() {
           <p><CalendarDays size={16} className="mr-2 inline text-primary" />{formatEventDateTime(selectedEvent.date)}</p>
           <p><MapPin size={16} className="mr-2 inline text-primary" />{selectedEvent.venue || selectedEvent.area}</p>
           <p>参加費：{selectedEvent.fee}</p>
-          <p>募集定員：{selectedEvent.capacity}</p>
+          <p>募集定員：{selectedEvent.capacity ? `${selectedEvent.capacity}${(selectedEvent as any).capacity_unit || (selectedEvent as any).capacityUnit || '人'}` : '未定'}</p>
           <p>申込締切：{formatDeadlineDateTime(selectedEvent.deadline)}</p>
         </div>
         <p className="mt-5 text-sm leading-7 text-slate-600">{selectedEvent.description}</p>
