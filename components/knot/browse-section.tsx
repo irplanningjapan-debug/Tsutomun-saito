@@ -1,5 +1,5 @@
 'use client'
-
+import Image from 'next/image'
 import { ArrowRight, Map } from 'lucide-react'
 import { useKnot } from '@/lib/knot/store'
 import { genres, regionConfig } from '@/lib/knot/data'
@@ -85,33 +85,34 @@ export function BrowseSection() {
                 </button>
               ))}
             </div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {regionConfig.groups.map((group) => {
-                const groupActivities = browseActivities.filter((item) => group.places.includes(item.area))
-                const placeCounts = group.places.map((place) => ({
-                  place,
-                  count: browseActivities.filter((item) => item.area === place).length,
-                }))
-                const activePlaces = placeCounts.filter((entry) => entry.count > 0)
-                return (
-                  <div key={group.label} className="rounded-xl bg-slate-50 p-4">
-                    <p className="text-xs font-black text-slate-700">{group.label}</p>
-                    <p className="mt-1 text-xs text-slate-500">{groupActivities.length}件の体験・ワーク</p>
-                    <div className="mt-2 flex flex-wrap gap-1.5">
-                      {activePlaces.length > 0 ? (
-                        activePlaces.map(({ place, count }) => (
-                          <button
-                            key={place}
-                            type="button"
-                            onClick={() => { setArea(place); openOnMap(place) }}
-                            className="rounded-full bg-white px-2.5 py-1 text-[10px] font-black text-primary shadow-sm ring-1 ring-primary/15 transition hover:bg-primary hover:text-primary-foreground"
-                          >
-                            {place} ({count})
-                          </button>
-                        ))
-                      ) : (
-                        <span className="text-[10px] font-semibold text-slate-400">まだ体験・ワークがありません</span>
-                      )}
+            {/* つとむんMAP バナー */}
+        <div 
+          onClick={() => setViewMode('map')}
+          className="mt-6 flex cursor-pointer items-center justify-between rounded-2xl border border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50/50 p-4 transition-all hover:border-emerald-300 hover:shadow-sm"
+        >
+          <div className="flex items-center gap-3.5">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-emerald-100">
+              <Image
+                src="/tsutomun-no-image.jpg"
+                alt="つとむん"
+                width={38}
+                height={38}
+                className="object-contain"
+              />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-black text-[#00552e]">つとむん MAP</span>
+                <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">西都市</span>
+              </div>
+              <p className="text-xs text-slate-500">タップして地図から体験・スポットを探す</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-1 text-xs font-bold text-[#00552e]">
+            <span>マップを開く</span>
+            <span>→</span>
+          </div>
+        </div>
                     </div>
                   </div>
                 )
