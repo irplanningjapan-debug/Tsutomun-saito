@@ -113,11 +113,6 @@ export function BrowseSection() {
             <span>→</span>
           </div>
         </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-5">
             <p className="text-xs font-black text-primary">REFINE YOUR SEARCH</p>
