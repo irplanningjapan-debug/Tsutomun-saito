@@ -500,14 +500,24 @@ export function ParticipationModal() {
               <legend className="text-base font-black">参加する方について</legend>
               <div className="grid gap-3 sm:grid-cols-2">
                 <select
-                  required
-                  value={participationForm.groupSize}
-                  onChange={(event) => updateParticipationForm('groupSize', event.target.value)}
-                  className="rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-primary"
-                >
-                  <option value="" disabled>参加人数 / 組数を選択</option>
-                  {['1組', '2組', '3組', '4組', '5組', '1名', '2名', '3名', '4名', '5名', '6名', '7名', '8名', '9名', '10名'].map((option) => <option key={option}>{option}</option>)}
-                </select>
+              required
+              value={participationForm.groupSize}
+              onChange={(event) => updateParticipationForm('groupSize', event.target.value)}
+              className="rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold outline-none focus:border-primary"
+            >
+              <option value="" disabled>
+                {((selectedParticipation as any)?.capacity_unit === '組' || (selectedParticipation as any)?.capacityUnit === '組')
+                  ? '参加組数を選択'
+                  : '参加人数を選択'}
+              </option>
+              {((selectedParticipation as any)?.capacity_unit === '組' || (selectedParticipation as any)?.capacityUnit === '組')
+                ? ['1組', '2組', '3組', '4組', '5組'].map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                  ))
+                : ['1人', '2人', '3人', '4人', '5人', '6人', '7人', '8人', '9人', '10人'].map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+            </select>
                 <input
                   required
                   placeholder="内訳・参加者の年代・学年（例：大人2名、小学2年生1名、年長1名）"
