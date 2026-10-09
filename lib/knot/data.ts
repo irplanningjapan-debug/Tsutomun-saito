@@ -56,7 +56,7 @@ export function combineBirthdateParts(year: string, month: string, day: string):
 
 export function normalizeArea(rawArea: string): string {
   if (!rawArea) return rawArea
-  if (rawArea.includes('東米良')) return '東米良村'
+  if (rawArea.includes('東米良')) return '東米良'
   const match = officialMunicipalities.find((name) => rawArea.includes(name))
   return match ?? rawArea
 }
