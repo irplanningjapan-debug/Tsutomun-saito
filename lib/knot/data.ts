@@ -676,13 +676,13 @@ export function mapDbProfileToAdminMember(row: DbProfileRow): AdminMember {
   const types = (row.member_types ?? []).filter((type): type is AdminMemberType => validTypes.has(type as AdminMemberType))
   return {
     id: row.id,
-    name: row.full_name?.trim() || row.organization_name?.trim() || row.email,
+    name: row.nickname?.trim() || row.organization_name?.trim() || row.full_name?.trim() || row.email,
     email: row.email,
     kana: row.kana ?? undefined,
     types: types.length > 0 ? types : ['一般'],
     registeredAt: row.created_at ? row.created_at.slice(0, 10) : '',
     status: dbToMemberStatus(row.status),
-    role: row.role ?? undefined,
+    role: (row as any).is_admin ? 'admin' : (row.role ?? undefined),
     accountKind: row.account_kind === 'organization' ? 'organization' : 'individual',
     birthdate: toDateInputValue(row.birthdate) || undefined,
     gender: row.gender ?? undefined,
