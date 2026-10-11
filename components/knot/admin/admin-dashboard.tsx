@@ -444,7 +444,7 @@ function sortMembersByRegisteredAt(members: AdminMember[]): AdminMember[] {
 }
 
 const MEMBER_PROFILE_COLUMNS =
-  'id, email, full_name, organization_name, kana, phone, role, status, created_at, account_kind, birthdate, gender, address, member_types, contact_person_name, contact_person_phone, contact_person_email, website, sns_url, volunteer_intent, interest_genres, skill_notes, is_master_admin'
+  'id, email, nickname, is_admin, full_name, organization_name, kana, phone, role, status, created_at, account_kind, birthdate, gender, address, member_types, contac
 
 function MembersTab() {
   // The roster only ever shows real accounts fetched live from Supabase's `profiles`
