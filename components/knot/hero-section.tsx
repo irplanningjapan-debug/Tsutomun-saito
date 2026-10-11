@@ -27,7 +27,7 @@ export function HeroSection() {
             <Sparkles size={14} /> 西都の魅力を体験・西都でワークする
           </div>
           <h1 className="max-w-xl text-balance text-4xl font-black leading-[1.15] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-            あなたの<span className="text-primary">「やる気」が</span>が、<br />地域で活きる。
+            あなたの<span className="text-primary">「やる気」</span>が、<br />地域で活きる。
           </h1>
           <p className="mt-6 max-w-lg text-pretty text-base leading-7 text-slate-600 sm:text-lg">
             つとむんは西都市のワークとあなたの「やる気」を結ぶプラットフォーム。身近な地域で新しい出会いと挑戦を見つけよう
