@@ -672,8 +672,21 @@ export type DbProfileRow = {
 }
 
 export function mapDbProfileToAdminMember(row: DbProfileRow): AdminMember {
-  const validTypes = new Set<AdminMemberType>(memberTypeOptions)
-  const types = (row.member_types ?? []).filter((type): type is AdminMemberType => validTypes.has(type as AdminMemberType))
+  const isOrg = row.account_kind === 'organization' || (row as any).user_type === 'organization'
+  const validTypes = new Set<string>(memberTypeOptions as readonly string[])
+  
+  // member_types 配列から有効なものを取得
+  const rawTypes = Array.isArray(row.member_types) ? row.member_types : []
+  let types = rawTypes.filter((t) => validTypes.has(t as AdminMemberType)) as AdminMemberType[]
+
+  // もし types が空でも、団体・主催者アカウントなら memberTypeOptions の中から主催者系ラベルを補完
+  if (types.length === 0 && isOrg) {
+    const orgOption = memberTypeOptions.find(opt => opt.includes('主催者') || opt.includes('団体') || opt.includes('企業'))
+    if (orgOption) {
+      types = [orgOption]
+    }
+  }
+
   return {
     id: row.id,
     name: row.nickname?.trim() || row.organization_name?.trim() || row.full_name?.trim() || row.email,
