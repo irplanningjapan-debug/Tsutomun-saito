@@ -69,18 +69,36 @@ export async function POST(request: Request) {
     .maybeSingle()
 
   if (existingProfile) {
-    if (existingProfile.role === 'admin') {
-      return NextResponse.json({ error: 'このメールアドレスは既に管理者として登録されています。' }, { status: 400 })
+      if (existingProfile.role === 'admin') {
+        return NextResponse.json({ error: 'このメールアドレスは既に管理者として登録されています。' }, { status: 400 })
+      }
+      // RLSをバイパスできる signupClient（Service Role）を使用して profiles を更新
+      const adminClient = createSignupClient()
+      const { error: promoteError } = await adminClient
+        .from('profiles')
+        .update({ 
+          role: 'admin', 
+          is_admin: true,
+          full_name: existingProfile.full_name || fullName 
+        })
+        .eq('id', existingProfile.id)
+
+      if (promoteError) {
+        // もし adminClient でも失敗した場合は supabase クライアントでフォールバック
+        const { error: fallbackError } = await supabase
+          .from('profiles')
+          .update({ 
+            role: 'admin', 
+            is_admin: true,
+            full_name: existingProfile.full_name || fullName 
+          })
+          .eq('id', existingProfile.id)
+        if (fallbackError) {
+          return NextResponse.json({ error: fallbackError.message }, { status: 500 })
+        }
+      }
+      return NextResponse.json({ success: true, mode: 'promoted' })
     }
-    const { error: promoteError } = await supabase
-      .from('profiles')
-      .update({ role: 'admin', full_name: existingProfile.full_name || fullName })
-      .eq('id', existingProfile.id)
-    if (promoteError) {
-      return NextResponse.json({ error: promoteError.message }, { status: 500 })
-    }
-    return NextResponse.json({ success: true, mode: 'promoted' })
-  }
 
   if (password.length < 8) {
     return NextResponse.json({ error: '新規に招待する場合は8文字以上のパスワードを入力してください。' }, { status: 400 })
