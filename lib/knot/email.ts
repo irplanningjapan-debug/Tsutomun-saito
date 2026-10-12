@@ -1,4 +1,4 @@
-const ADMIN_EMAIL = 'ishikawa.rie@tamenijapan.com'
+const ADMIN_EMAIL = ['tutomun0450@gmail.com', 'ishikawa.rie@tamenijapan.com']
 
 const FROM_ADDRESS = 'つとむん運営事務局 <noreply@mail.tamenijapan.com>'
 
