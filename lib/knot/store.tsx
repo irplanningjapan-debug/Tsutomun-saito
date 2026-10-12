@@ -64,7 +64,7 @@ type ApplicationStatus = 'open' | 'limited' | 'full'
 // Combined with profiles.role === 'admin' so either signal is sufficient. Only put a
 // real admin's email here — anyone listed gets the admin menu and dashboard regardless
 // of their profiles.role.
-const ADMIN_EMAILS = ['ishikawa.rie@tamenijapan.com']
+const ADMIN_EMAILS = ['ishikawa.rie@tamenijapan.com', 'tutomun0450@gmail.com']
 
 function isAdminEmail(email: string | null | undefined): boolean {
   if (!email) return false
