@@ -62,44 +62,19 @@ export async function POST(request: Request) {
   // ("duplicate key value violates unique constraint profiles_pkey"), which was
   // the bug this existence check fixes. No password or email confirmation is
   // needed since the person can already sign in with their existing account.
-  const { data: existingProfile } = await supabase
-    .from('profiles')
-    .select('id, role, full_name')
-    .eq('email', email)
-    .maybeSingle()
+  // 既存会員が存在する場合は管理者に昇格（RPC関数でRLSを安全にバイパス）
+    const { data: isPromoted, error: promoteError } = await supabase.rpc('promote_user_to_admin', {
+      target_email: email,
+      target_name: fullName || null,
+    })
 
-  if (existingProfile) {
-      if (existingProfile.role === 'admin') {
-        return NextResponse.json({ error: 'このメールアドレスは既に管理者として登録されています。' }, { status: 400 })
-      }
-      // RLSをバイパスできる signupClient（Service Role）を使用して profiles を更新
-      const adminClient = createSignupClient()
-      const { error: promoteError } = await adminClient
-        .from('profiles')
-        .update({ 
-          role: 'admin', 
-          is_admin: true,
-          full_name: existingProfile.full_name || fullName 
-        })
-        .eq('id', existingProfile.id)
-
-      if (promoteError) {
-        // もし adminClient でも失敗した場合は supabase クライアントでフォールバック
-        const { error: fallbackError } = await supabase
-          .from('profiles')
-          .update({ 
-            role: 'admin', 
-            is_admin: true,
-            full_name: existingProfile.full_name || fullName 
-          })
-          .eq('id', existingProfile.id)
-        if (fallbackError) {
-          return NextResponse.json({ error: fallbackError.message }, { status: 500 })
-        }
-      }
-      return NextResponse.json({ success: true, mode: 'promoted' })
+    if (promoteError) {
+      console.error('promote_user_to_admin error:', promoteError)
     }
 
+    if (isPromoted) {
+      return NextResponse.json({ success: true, mode: 'promoted' })
+    }
   if (password.length < 8) {
     return NextResponse.json({ error: '新規に招待する場合は8文字以上のパスワードを入力してください。' }, { status: 400 })
   }
