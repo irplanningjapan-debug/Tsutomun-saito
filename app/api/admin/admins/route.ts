@@ -21,11 +21,11 @@ export async function GET() {
     return NextResponse.json({ error: '権限がありません。' }, { status: 403 })
   }
 
-  const supabase = await createClient()
-  const { data, error } = await supabase
+  const adminClient = createSignupClient()
+  const { data, error } = await adminClient
     .from('profiles')
-    .select('id, email, full_name, status, created_at, is_master_admin')
-    .eq('role', 'admin')
+    .select('id, email, full_name, nickname, organization_name, status, created_at, is_master_admin')
+    .or('role.eq.admin,is_admin.eq.true')
     .order('created_at', { ascending: true })
 
   if (error) {
