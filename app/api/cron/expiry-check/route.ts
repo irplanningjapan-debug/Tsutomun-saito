@@ -36,7 +36,6 @@ export async function GET(request: Request) {
 
   const results = { activities: { sent: 0, failed: 0 }, partners: { sent: 0, failed: 0 }, shops: { sent: 0, failed: 0 } }
 
-  // --- 1. activities（30日前 / 7日前 / 当日） ---
   // --- 1. activities (30日前 / 7日前 / 当日) ---
     // ※ 単発イベント(特定開催日)は更新手続き不要のため通知対象から除外
     const { data: activities, error: activitiesError } = await supabase
@@ -65,6 +64,16 @@ export async function GET(request: Request) {
           expiresAtLabel,
         }
 
+        let stage: ActivityExpiryStage | null = null
+        // <= ではなく、指定した日数ちょうど（完全一致）のときだけ送信
+        if (days === 0 && !row.expiry_notified_end) {
+          stage = 'end'
+        } else if (days === 7 && !row.expiry_notified_7d) {
+          stage = '7d'
+        } else if (days === 30 && !row.expiry_notified_30d) {
+          stage = '30d'
+        }
+        if (!stage) continue
         let stage: ActivityExpiryStage | null = null
         if (days <= 0 && !row.expiry_notified_end) stage = 'end'
         else if (days <= 7 && !row.expiry_notified_7d) stage = '7d'
