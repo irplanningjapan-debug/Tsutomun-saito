@@ -37,34 +37,39 @@ export async function GET(request: Request) {
   const results = { activities: { sent: 0, failed: 0 }, partners: { sent: 0, failed: 0 }, shops: { sent: 0, failed: 0 } }
 
   // --- 1. activities（30日前 / 7日前 / 当日） ---
-  const { data: activities, error: activitiesError } = await supabase
-    .from('activities')
-    .select('id, title, organizer_name, contact_email, expires_at, expiry_notified_30d, expiry_notified_7d, expiry_notified_end, status')
-    .eq('status', 'published')
-    .not('expires_at', 'is', null)
+  // --- 1. activities (30日前 / 7日前 / 当日) ---
+    // ※ 単発イベント(特定開催日)は更新手続き不要のため通知対象から除外
+    const { data: activities, error: activitiesError } = await supabase
+      .from('activities')
+      .select('id, title, organizer_name, contact_email, expires_at, expiry_notified_30d, expiry_notified_7d, expiry_notified_end, status, activity_type, event_date')
+      .eq('status', 'published')
+      .not('expires_at', 'is', null)
 
-  if (!activitiesError && activities) {
-    for (const row of activities as Array<Record<string, unknown>>) {
-      const expiresAt = row.expires_at as string
-      const days = daysUntil(expiresAt)
-      if (days === null) continue
-      const contactEmail = row.contact_email as string | null
-      if (!contactEmail) continue
+    if (!activitiesError && activities) {
+      for (const row of activities as Array<Record<string, unknown>>) {
+        // イベント(開催日がある単発イベント)の場合は更新リマインドをスキップ
+        const isEvent = row.activity_type === 'event' || Boolean(row.event_date);
+        if (isEvent) continue;
 
-      const expiresAtLabel = new Date(expiresAt).toLocaleDateString('ja-JP')
-      const baseInput = {
-        title: row.title as string,
-        organizerName: (row.organizer_name as string) || '',
-        organizerEmail: contactEmail,
-        expiresAtLabel,
-      }
+        const expiresAt = row.expires_at as string
+        const days = daysUntil(expiresAt)
+        if (days === null) continue
+        const contactEmail = row.contact_email as string | null
+        if (!contactEmail) continue
 
-      let stage: ActivityExpiryStage | null = null
-      if (days <= 0 && !row.expiry_notified_end) stage = 'end'
-      else if (days <= 7 && !row.expiry_notified_7d) stage = '7d'
-      else if (days <= 30 && !row.expiry_notified_30d) stage = '30d'
-      if (!stage) continue
+        const expiresAtLabel = new Date(expiresAt).toLocaleDateString('ja-JP')
+        const baseInput = {
+          title: row.title as string,
+          organizerName: (row.organizer_name as string) || '',
+          organizerEmail: contactEmail,
+          expiresAtLabel,
+        }
 
+        let stage: ActivityExpiryStage | null = null
+        if (days <= 0 && !row.expiry_notified_end) stage = 'end'
+        else if (days <= 7 && !row.expiry_notified_7d) stage = '7d'
+        else if (days <= 30 && !row.expiry_notified_30d) stage = '30d'
+        if (!stage) continue
       const result = await sendActivityExpiryEmail(stage, baseInput)
       if (result.sent) {
         results.activities.sent += 1
