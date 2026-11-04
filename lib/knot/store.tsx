@@ -1039,12 +1039,14 @@ function useKnotStore() {
       const MAX_IMAGE_PAYLOAD_BYTES = 400_000
       const safeImageUrl =
         registrationPhoto && estimateDataUrlBytes(registrationPhoto) <= MAX_IMAGE_PAYLOAD_BYTES ? registrationPhoto : null
+     const { data: { user: authUser } } = await supabase.auth.getUser()
+const currentUserId = organizationProfile?.id || authUser?.id || null
       const activityPayload = {
         ...(isEditingExisting ? {} : { id: newRowId }),
         // Links the row to the signed-in organizer account so "掲載管理" can look it up
         // by a stable id instead of matching contact_email text, which breaks the moment
         // the listing's contact email differs from the account's login email.
-        user_id: organizationProfile.id || null,
+        user_id: currentUserId,
         category_type: eventListingType,
         title: nextRegistration.title,
         organizer_name: nextRegistration.contactName,
