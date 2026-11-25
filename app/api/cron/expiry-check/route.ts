@@ -74,11 +74,7 @@ export async function GET(request: Request) {
           stage = '30d'
         }
         if (!stage) continue
-        let stage: ActivityExpiryStage | null = null
-        if (days <= 0 && !row.expiry_notified_end) stage = 'end'
-        else if (days <= 7 && !row.expiry_notified_7d) stage = '7d'
-        else if (days <= 30 && !row.expiry_notified_30d) stage = '30d'
-        if (!stage) continue
+        
       const result = await sendActivityExpiryEmail(stage, baseInput)
       if (result.sent) {
         results.activities.sent += 1
