@@ -95,7 +95,7 @@ export function ActivityCard({ activity }: { activity: Activity }) {
           <div className="mt-3 flex flex-col gap-3 rounded-lg border border-slate-200 bg-slate-50 p-2.5 sm:flex-row sm:items-center sm:justify-between">
             <span className="text-xs font-bold text-slate-700">
               <span className="mr-2 inline-block rounded-full bg-primary px-2 py-1 text-white">
-                {activity.intakeMethod === 'external' ? '外部フォーム受付中' : 'つとむん募集中'}
+                {activity.intakeMethod === 'external' || Boolean((activity.applicationUrl || (activity as any).contact_info || '').trim()) || Boolean(activity.applicationPhone) ? '外部フォーム受付中' : 'つとむん募集中'}
               </span>
               {(() => {
   const unit = (activity as any).capacity_unit || (activity as any).capacityUnit || '人';
