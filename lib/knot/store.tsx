@@ -150,7 +150,7 @@ const defaultParticipationForm: ParticipationForm = {
 
 const defaultRegistration: RegistrationDraft = {
   title: '',
-  genre: ['スポーツ'],
+  genre: ['農ある暮らし・収穫'],
   area: '妻南',
   description: '',
   schedule: '',
