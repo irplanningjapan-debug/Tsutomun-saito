@@ -252,7 +252,7 @@ export function ActivityDetailModal() {
               <Heart size={17} fill={isFavorited ? 'currentColor' : 'none'} />お気に入り保存
             </button>
           <button
-            onClick={() => openInquiryContact(selectedActivity.applicationUrl)}
+           onClick={() => openInquiryContact(selectedActivity.applicationUrl || (selectedActivity as any).contact_info)}
             className="flex-1 rounded-xl bg-primary py-3.5 text-sm font-black text-primary-foreground shadow-sm hover:opacity-90"
           >
             体験・見学の申込・お問い合わせ
@@ -267,7 +267,8 @@ export function ActivityDetailModal() {
 export function EventDetailModal() {
   const { selectedEvent, setSelectedEvent, openParticipation } = useKnot()
   if (!selectedEvent) return null
-  const isExternalIntake = selectedEvent.intakeMethod === 'external'
+  const externalUrl = (selectedEvent.applicationUrl || (selectedEvent as any).contact_info || '').trim()
+  const isExternalIntake = selectedEvent.intakeMethod === 'external' || Boolean(externalUrl) || Boolean(selectedEvent.applicationPhone)
 
   return (
     <div className="fixed inset-0 z-[65] flex items-end justify-center bg-slate-950/50 p-0 sm:items-center sm:p-5" onClick={() => setSelectedEvent(null)}>
@@ -311,9 +312,9 @@ export function EventDetailModal() {
         {isExternalIntake ? (
           <div className="mt-6 space-y-2.5">
             <p className="rounded-xl bg-amber-50 px-4 py-2.5 text-xs font-bold leading-5 text-amber-800">この活動は主催者独自のフォーム・電話での受付となります。</p>
-            {selectedEvent.applicationUrl && (
+           {externalUrl && (
               <a
-                href={selectedEvent.applicationUrl}
+                href={externalUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-black text-primary-foreground"
