@@ -927,14 +927,14 @@ function useKnotStore() {
     const defaults = {
       title: 'みやざき地域交流イベント',
       description: '地域の仲間と楽しく交流できる活動です。',
-      area: organizationProfile.area || '宮崎市',
+      area: organizationProfile.area || '妻北',
       contactName: organizationProfile.contactName || organizationProfile.name || '運営事務局',
       contactEmail: organizationProfile.contactEmail || organizationProfile.email || 'contact@example.com',
       eventDate: registration.eventDate || '',
 deadline: registration.deadline || registration.eventDate || '',
       fee: registration.fee || '無料',
       capacity: registration.capacity || '20',
-      venue: registration.venue || '宮崎市内',
+      venue: registration.venue || '西都市内',
       schedule: registration.schedule || '土曜日 10:00〜',
     }
     const nextRegistration = {
@@ -1445,7 +1445,7 @@ const currentUserId = organizationProfile?.id || authUser?.id || null
     refetchShareItems()
   }, [refetchShareItems])
 
-  // ゆずりあい掲示板は単独のモーダルではなく「宮崎の活動サポート便利帳」内の
+  // ゆずりあい掲示板は単独のモーダルではなく「西都の活動サポート便利帳」内の
   // 1タブとして表示する。サポート情報ハブを開き、タブを掲示板に切り替えるだけでよい。
   const openShareBoard = () => {
     setSupportHubTab('share')
